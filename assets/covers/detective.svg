@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Detective cover</title>
+  <desc id="desc">A noir arcade cover with moonlight, city blocks, and bold Detective lettering.</desc>
+  <defs>
+    <linearGradient id="night" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#081126"/>
+      <stop offset="100%" stop-color="#14253f"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#night)"/>
+  <circle cx="504" cy="104" r="44" fill="#d9e7ff" opacity="0.88"/>
+  <path d="M0 322h88v158H0zM104 282h74v198h-74zM200 236h92v244h-92zM312 266h78v214h-78zM414 212h90v268h-90zM530 248h110v232H530z" fill="#091321"/>
+  <path d="M0 400c113-20 206-30 319-30 125 0 211 11 321 36v74H0z" fill="#0d1830"/>
+  <text x="52" y="110" fill="#9db8dd" font-family="Avenir Next, Segoe UI, sans-serif" font-size="28" letter-spacing="8">NOIR RUNNER</text>
+  <text x="50" y="198" fill="#f6fbff" font-family="Avenir Next, Segoe UI, sans-serif" font-size="76" font-weight="800">detective</text>
+  <path d="M74 252h220" stroke="#ffcf74" stroke-width="8" stroke-linecap="round"/>
+  <text x="54" y="292" fill="#cdd8eb" font-family="Avenir Next, Segoe UI, sans-serif" font-size="26">Imported from Studio</text>
+</svg>

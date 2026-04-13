@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <rect width="800" height="520" rx="44" fill="#1A1013"/>
+  <rect width="800" height="520" rx="44" fill="url(#bg)"/>
+  <path d="M-20 402C66 376 124 372 212 390C300 408 370 406 450 382C530 358 598 324 676 320C732 318 773 326 820 344V520H-20V402Z" fill="#1F2A42"/>
+  <path d="M-20 426C54 396 112 392 184 404C276 420 374 424 462 398C556 370 646 350 820 372V520H-20V426Z" fill="#283959"/>
+  <path d="M118 344h66l34-34h38l34 34h46v30H118v-30Z" fill="#FFF1D0"/>
+  <circle cx="266" cy="304" r="16" fill="#FF7F6B"/>
+  <path d="M250 322h26l20 40h-24l-10-22-10 22h-24l22-40Z" fill="#FF7F6B"/>
+  <path d="M352 268h42l30 34h58v20h-36l24 26h-32l-28-26h-58v-20h42l-42-34Z" fill="#8BE8FF"/>
+  <path d="M514 230h56l36 42h84v20h-54l38 40h-34l-38-40h-88v-20h56l-56-42Z" fill="#FFD561"/>
+  <text x="56" y="84" fill="#FFF7E8" font-family="Avenir Next, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="4">NEVER STOP</text>
+  <defs>
+    <linearGradient id="bg" x1="72" y1="18" x2="680" y2="506" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A73E46"/>
+      <stop offset=".45" stop-color="#D06C2F"/>
+      <stop offset="1" stop-color="#2B2846"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,19 @@
+[
+  "./games/tetris/arcade.connection.json",
+  "./games/donkey-kong/arcade.connection.json",
+  "./games/donkey-kong-2/arcade.connection.json",
+  "./games/snow-bros/arcade.connection.json",
+  "./games/space-invaders/arcade.connection.json",
+  "./games/breakout/arcade.connection.json",
+  "./games/asteroids/arcade.connection.json",
+  "./games/bomberman/arcade.connection.json",
+  "./games/jumpwake/arcade.connection.json",
+  "./games/gnome-roundup/arcade.connection.json",
+  "./games/detective/arcade.connection.json",
+  "./games/explorers-around-the-world/arcade.connection.json",
+  "../bank/arcade.connection.json",
+  "../cozy-wander/arcade.connection.json",
+  "../landmines/arcade.connection.json",
+  "../never-stop/arcade.connection.json",
+  "../pixel-lobby/client/arcade.connection.json"
+]

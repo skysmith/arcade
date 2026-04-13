@@ -1,0 +1,11 @@
+{
+  "id": "gnome-roundup",
+  "title": "Gnome Roundup",
+  "image": "./assets/covers/gnome-roundup.svg",
+  "summary": "A soft little herding cabinet where you corral wandering dinos before the round slips away.",
+  "players": "1 local",
+  "controls": "Move, herd, restart",
+  "launchText": "Open cabinet",
+  "path": "./games/gnome-roundup/index.html",
+  "badge": "Imported Cabinet"
+}

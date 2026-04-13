@@ -1,0 +1,363 @@
+:root {
+  color-scheme: dark;
+  --bg-top: #1d1028;
+  --bg-mid: #0d1628;
+  --bg-bottom: #050913;
+  --panel: rgba(10, 16, 31, 0.8);
+  --panel-strong: rgba(14, 21, 39, 0.94);
+  --line: rgba(155, 191, 255, 0.18);
+  --text: #eef4ff;
+  --muted: #9eadd1;
+  --accent: #7cf6ff;
+  --accent-warm: #ffd36e;
+  --shadow: 0 24px 80px rgba(2, 6, 14, 0.42);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Avenir Next", "Trebuchet MS", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(142, 61, 255, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(0, 221, 255, 0.12), transparent 32%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-mid) 44%, var(--bg-bottom));
+}
+
+body {
+  display: grid;
+  place-items: center;
+}
+
+#app {
+  width: min(1120px, 100vw);
+  padding: 12px 16px 16px;
+  display: grid;
+  gap: 8px;
+}
+
+.shell-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  gap: 12px;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.eyebrow,
+.panel-label,
+.field-label {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: var(--accent);
+}
+
+h1 {
+  margin: 2px 0 4px;
+  font-size: clamp(1.9rem, 4.2vw, 3.2rem);
+  line-height: 0.92;
+}
+
+.hero-kicker,
+.summary-copy,
+.control-card p,
+.mini-stats span,
+.field-help {
+  margin: 0;
+  color: var(--muted);
+}
+
+.build-chip {
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--accent);
+  background: rgba(16, 24, 44, 0.72);
+  font-size: 0.72rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.settings-button,
+.secondary-button,
+.mode-button,
+.icon-button,
+.select-input,
+.header-chip,
+.summary-card,
+.control-card,
+.board-card,
+.mini-panel,
+.modal-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.settings-button,
+.secondary-button,
+.mode-button,
+.icon-button {
+  color: var(--text);
+  cursor: pointer;
+  font: inherit;
+}
+
+.settings-button,
+.secondary-button,
+.icon-button {
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.header-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.chip-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 999px;
+  background: radial-gradient(circle at 30% 30%, #d6ffff, #29d8ff 60%, #0b7ea4 100%);
+  box-shadow: 0 0 16px rgba(41, 216, 255, 0.65);
+}
+
+.shell-main {
+  display: grid;
+  gap: 8px;
+}
+
+.summary-bar,
+.control-row,
+.board-grid {
+  display: grid;
+  gap: 8px;
+}
+
+.summary-bar {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.control-row {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.board-grid.classic-mode {
+  grid-template-columns: minmax(0, 370px);
+  justify-content: center;
+}
+
+.board-grid.multitap-mode {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.summary-card,
+.control-card,
+.board-card {
+  border-radius: 14px;
+}
+
+.summary-card,
+.control-card {
+  padding: 10px;
+}
+
+.summary-value {
+  margin: 4px 0 6px;
+  font-size: clamp(1rem, 2vw, 1.45rem);
+  font-weight: 700;
+}
+
+.control-card h2,
+.board-phase,
+.modal-header h2 {
+  margin: 0 0 8px;
+}
+
+.control-card span {
+  color: var(--accent-warm);
+}
+
+.board-card {
+  padding: 8px;
+  background:
+    linear-gradient(180deg, rgba(14, 24, 46, 0.96), rgba(7, 12, 24, 0.98)),
+    var(--panel-strong);
+}
+
+.board-card--primary .board-surface {
+  grid-template-columns: minmax(0, 1fr) 60px;
+}
+
+.board-grid.classic-mode .board-card:not(.board-card--primary) {
+  display: none;
+}
+
+.board-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: start;
+  margin-bottom: 6px;
+}
+
+.board-phase {
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.mini-stats {
+  display: grid;
+  gap: 2px;
+  justify-items: end;
+  font-size: 0.7rem;
+}
+
+.board-surface {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 84px;
+  gap: 6px;
+  align-items: start;
+}
+
+.board-sidecars {
+  display: grid;
+  gap: 6px;
+}
+
+.mini-panel {
+  border-radius: 10px;
+  padding: 5px;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+[id^="board-canvas-"] {
+  border-radius: 10px;
+  border: 1px solid rgba(182, 220, 255, 0.16);
+  background: linear-gradient(180deg, #091120, #050810);
+}
+
+.modal {
+  position: fixed;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background: rgba(1, 6, 16, 0.6);
+}
+
+.modal.hidden {
+  display: none;
+}
+
+.modal-card {
+  width: min(460px, 100%);
+  border-radius: 14px;
+  padding: 18px;
+  background:
+    linear-gradient(180deg, rgba(14, 24, 46, 0.96), rgba(7, 12, 24, 0.98)),
+    var(--panel-strong);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: start;
+}
+
+.modal-section {
+  display: grid;
+  gap: 10px;
+  margin-top: 18px;
+}
+
+.select-input {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: var(--text);
+}
+
+.toggle-row {
+  display: flex;
+  gap: 10px;
+}
+
+.mode-button {
+  padding: 10px 14px;
+  border-radius: 10px;
+}
+
+.mode-button.is-active {
+  border-color: rgba(124, 246, 255, 0.6);
+  background: rgba(26, 39, 66, 0.95);
+  color: var(--accent);
+}
+
+#music-toggle.is-active {
+  border-color: rgba(255, 211, 110, 0.55);
+  color: var(--accent-warm);
+}
+
+@media (max-width: 1320px) {
+  .summary-bar {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .board-grid.multitap-mode {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 760px) {
+  #app {
+    padding-inline: 14px;
+  }
+
+  .shell-header,
+  .summary-bar,
+  .control-row,
+  .board-grid.multitap-mode,
+  .board-grid.classic-mode {
+    grid-template-columns: 1fr;
+    display: grid;
+  }
+
+  .header-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toggle-row {
+    flex-direction: column;
+  }
+}

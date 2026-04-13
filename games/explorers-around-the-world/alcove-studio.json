@@ -1,0 +1,9 @@
+{
+  "workspace_id": "explorers-around-the-world",
+  "workspace_kind": "studio_game",
+  "artifact_title": "Explorers around the world",
+  "template_kind": "platformer",
+  "theme_prompt": null,
+  "preview_mode": "managed-static",
+  "entry_file": "game.js"
+}

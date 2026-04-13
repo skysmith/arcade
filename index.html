@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>arcade</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@400;700;900&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <button id="menu-toggle" class="menu-toggle" type="button" aria-expanded="false" aria-controls="start-menu">
+        Start Menu
+      </button>
+      <main class="launcher-shell">
+        <div id="game-grid" class="game-grid" role="listbox" aria-label="Arcade game list"></div>
+      </main>
+      <div id="menu-backdrop" class="menu-backdrop" hidden></div>
+      <aside id="start-menu" class="start-menu" aria-live="polite" aria-hidden="true" hidden>
+        <div class="start-menu-head">
+          <div>
+            <p class="start-menu-kicker">Arcade Landing Page</p>
+            <h2 class="start-menu-title">Start Menu</h2>
+          </div>
+          <button id="menu-close" class="debug-toggle" type="button">Close</button>
+        </div>
+        <p class="start-menu-copy">Press <span class="start-menu-key">Start</span> on a controller or <span class="start-menu-key">Esc</span> on the keyboard to open this menu.</p>
+        <div class="start-menu-section">
+          <div class="debug-head">
+            <span class="debug-title">Display</span>
+            <div class="debug-actions">
+              <button id="fullscreen-toggle" class="debug-toggle" type="button">Full Screen</button>
+            </div>
+          </div>
+          <p id="fullscreen-status" class="debug-line">Open Arcade in browser fullscreen mode.</p>
+        </div>
+      </aside>
+      <span id="build-chip" class="build-chip">build ?</span>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

@@ -1,0 +1,11 @@
+{
+  "id": "detective",
+  "title": "Detective",
+  "image": "./assets/covers/detective.svg",
+  "summary": "A calm side-scrolling cabinet imported from Studio, with a party setup layer and browser-playable action.",
+  "players": "1-4 local",
+  "controls": "Keyboard and pads",
+  "launchText": "Open cabinet",
+  "path": "./games/detective/index.html",
+  "badge": "Studio Import"
+}

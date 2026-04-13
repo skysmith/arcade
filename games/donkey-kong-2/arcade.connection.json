@@ -1,0 +1,11 @@
+{
+  "id": "donkey-kong-2",
+  "title": "Donkey Kong Jr.",
+  "image": "./assets/covers/donkey-kong-2.svg",
+  "summary": "A Donkey Kong Jr.-style vine rescue cabinet with keys, snapping hazards, and shared-screen local climbing routes.",
+  "players": "1-4 local",
+  "controls": "Climb, jump, live join",
+  "launchText": "Open cabinet",
+  "path": "./games/donkey-kong-2/index.html",
+  "badge": "Vine Rescue"
+}

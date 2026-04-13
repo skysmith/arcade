@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Explorers Around The World cover</title>
+  <desc id="desc">A bright world-travel arcade cover with a globe and large Explorers Around The World lettering.</desc>
+  <defs>
+    <linearGradient id="day" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0f274f"/>
+      <stop offset="100%" stop-color="#155b68"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#day)"/>
+  <circle cx="490" cy="144" r="92" fill="#6bd0ff"/>
+  <path d="M454 108c25-22 46-18 67 2 15 13 33 8 47-3 9 16 6 33-10 47-10 9-13 24-8 38-26 7-42-6-54-18-13-11-29-15-42-7-17-19-16-38 0-59z" fill="#9af3a4"/>
+  <path d="M0 368c99-57 219-84 365-84 102 0 195 18 275 56v140H0z" fill="#1f7f5a"/>
+  <text x="52" y="94" fill="#d8ecff" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" letter-spacing="7">TRAVEL JOURNAL</text>
+  <text x="48" y="176" fill="#ffffff" font-family="Avenir Next, Segoe UI, sans-serif" font-size="64" font-weight="800">explorers</text>
+  <text x="50" y="240" fill="#ffe28b" font-family="Avenir Next, Segoe UI, sans-serif" font-size="42" font-weight="700">around the world</text>
+  <text x="52" y="286" fill="#cce3f5" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24">Imported from Studio</text>
+</svg>

@@ -1,0 +1,102 @@
+:root {
+  color-scheme: dark;
+  --bg: #071010;
+  --panel: rgba(10, 18, 17, 0.86);
+  --line: rgba(151, 236, 167, 0.22);
+  --line-strong: rgba(151, 236, 167, 0.56);
+  --text: #f7fff9;
+  --muted: #adc9b4;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  color: var(--text);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+  background:
+    radial-gradient(circle at top, rgba(255, 171, 92, 0.18), transparent 24%),
+    radial-gradient(circle at bottom, rgba(111, 214, 139, 0.2), transparent 34%),
+    linear-gradient(180deg, #101409, var(--bg));
+}
+
+#app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  padding: 20px;
+}
+
+.hud-rail,
+.footer-rail {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.hud-rail {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pill {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border-radius: 16px;
+  border: 1px solid var(--line);
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+}
+
+.pill-label {
+  color: var(--muted);
+  font-size: 0.68rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#status-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.playfield-shell {
+  display: grid;
+  place-items: center;
+}
+
+#game {
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 150px);
+  border-radius: 24px;
+  border: 1px solid var(--line-strong);
+  background: #07110c;
+  box-shadow: 0 26px 88px rgba(0, 0, 0, 0.42);
+}
+
+.footer-rail {
+  padding: 0 4px 6px;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+@media (max-width: 900px) {
+  #app {
+    padding: 14px;
+  }
+
+  .hud-rail {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #game {
+    max-height: calc(100vh - 210px);
+  }
+}

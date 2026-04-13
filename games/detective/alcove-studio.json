@@ -1,0 +1,9 @@
+{
+  "workspace_id": "detective",
+  "workspace_kind": "studio_game",
+  "artifact_title": "detective",
+  "template_kind": "platformer",
+  "theme_prompt": "a calm, quiet, easy explorer game, 2d side scroller.",
+  "preview_mode": "managed-static",
+  "entry_file": "game.js"
+}

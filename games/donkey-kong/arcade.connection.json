@@ -1,0 +1,11 @@
+{
+  "id": "donkey-kong",
+  "title": "Donkey Kong",
+  "image": "./assets/covers/donkey-kong.png",
+  "summary": "A classic barrel-stage homage with girders, ladders, rolling hazards, and up to four live-join climbers racing to the top rescue.",
+  "players": "1-4 local",
+  "controls": "Live join on Start",
+  "launchText": "Open cabinet",
+  "path": "./games/donkey-kong/index.html",
+  "badge": "Barrel Stage"
+}

@@ -1,0 +1,22 @@
+<svg width="640" height="360" viewBox="0 0 640 360" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="360" rx="30" fill="#060A14"/>
+  <rect x="10" y="10" width="620" height="340" rx="24" stroke="#243049" stroke-width="2"/>
+  <circle cx="111" cy="78" r="2" fill="#F5F9FF" fill-opacity="0.7"/>
+  <circle cx="182" cy="122" r="1.5" fill="#F5F9FF" fill-opacity="0.5"/>
+  <circle cx="537" cy="89" r="2" fill="#F5F9FF" fill-opacity="0.72"/>
+  <circle cx="484" cy="142" r="1.5" fill="#F5F9FF" fill-opacity="0.5"/>
+  <circle cx="420" cy="64" r="1.5" fill="#F5F9FF" fill-opacity="0.4"/>
+  <path d="M77 269L158 212L208 251L148 297L77 269Z" fill="#111A2D" stroke="#8BD5FF" stroke-width="4"/>
+  <path d="M177 117L240 76L286 124L234 168L177 117Z" fill="#131E34" stroke="#FFBE64" stroke-width="4"/>
+  <path d="M438 98L503 67L551 109L517 157L451 151L438 98Z" fill="#111A2D" stroke="#8BD5FF" stroke-width="4"/>
+  <path d="M369 242L421 200L481 214L491 272L430 301L378 281L369 242Z" fill="#131E34" stroke="#FF8E66" stroke-width="4"/>
+  <path d="M316 150L280 194L316 184L338 226L350 181L396 175L357 156L372 112L334 142L306 110L316 150Z" fill="#FFBE64"/>
+  <path d="M303 245L333 232L321 259L303 245Z" fill="#F5F9FF"/>
+  <path d="M323 250L288 292" stroke="#8BD5FF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M348 173L408 126" stroke="#FFBE64" stroke-width="5" stroke-linecap="round"/>
+  <path d="M63 54H213" stroke="#2E4366" stroke-width="2"/>
+  <path d="M63 315H280" stroke="#2E4366" stroke-width="2"/>
+  <path d="M367 48H577" stroke="#2E4366" stroke-width="2"/>
+  <path d="M408 314H576" stroke="#2E4366" stroke-width="2"/>
+  <text x="64" y="322" fill="#F5F9FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="40" font-weight="700" letter-spacing="0.16em">ASTEROIDS</text>
+</svg>

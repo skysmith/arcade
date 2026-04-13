@@ -1,0 +1,11 @@
+{
+  "id": "snow-bros",
+  "title": "Snow Bros",
+  "image": "./assets/covers/snow-bros.svg",
+  "summary": "A shared-screen co-op snow fight where players freeze enemies, kick giant snowballs, and clear short platform waves together.",
+  "players": "1-4 local",
+  "controls": "Jump, snow, live join",
+  "launchText": "Open cabinet",
+  "path": "./games/snow-bros/index.html",
+  "badge": "Co-op Snow"
+}

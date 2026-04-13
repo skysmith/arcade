@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>asteroids</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="hud-rail" aria-label="Game status">
+        <div class="pill">
+          <span class="pill-label">Wave</span>
+          <span id="wave-value">1</span>
+        </div>
+        <div class="pill">
+          <span class="pill-label">Players</span>
+          <span id="players-value">1</span>
+        </div>
+        <div class="pill">
+          <span class="pill-label">Score</span>
+          <span id="score-value">0</span>
+        </div>
+        <div class="pill pill--wide">
+          <span class="pill-label">Status</span>
+          <span id="status-value">Keyboard fallback ready.</span>
+        </div>
+      </div>
+
+      <main class="playfield-shell">
+        <canvas id="game" width="960" height="600" aria-label="Asteroids playfield"></canvas>
+      </main>
+
+      <div class="footer-rail">
+        <span id="hint-value">Arrow keys steer, thrust, and fire. Pads auto-join on Start.</span>
+      </div>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

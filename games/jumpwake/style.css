@@ -1,0 +1,378 @@
+:root {
+  color-scheme: dark;
+  --bg-0: #061018;
+  --bg-1: #081624;
+  --panel: rgba(8, 18, 28, 0.86);
+  --panel-strong: rgba(13, 27, 40, 0.96);
+  --line: rgba(131, 215, 255, 0.18);
+  --line-strong: rgba(131, 215, 255, 0.48);
+  --text: #eef7ff;
+  --muted: #a8bdd1;
+  --accent: #ffcf74;
+  --accent-2: #79d8ff;
+  --danger: #ff8a8a;
+  --success: #9ef59f;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 18% 16%, rgba(121, 216, 255, 0.17), transparent 24%),
+    radial-gradient(circle at 82% 12%, rgba(255, 207, 116, 0.15), transparent 22%),
+    radial-gradient(circle at 50% 100%, rgba(66, 102, 175, 0.2), transparent 38%),
+    linear-gradient(180deg, var(--bg-1), var(--bg-0));
+  color: var(--text);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  padding: 18px;
+}
+
+.hud-rail {
+  position: absolute;
+  top: 18px;
+  left: 112px;
+  right: 18px;
+  z-index: 4;
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.pill {
+  display: grid;
+  gap: 4px;
+  padding: 10px 12px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.05), rgba(255, 255, 255, 0.01)),
+    var(--panel);
+  backdrop-filter: blur(14px);
+}
+
+.pill--wide {
+  grid-column: span 1;
+}
+
+.pill-label,
+.panel-title,
+.fact-label {
+  color: var(--muted);
+  font-size: 0.7rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+#status-value,
+#hint-value {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.layout {
+  width: 100%;
+  height: calc(100vh - 36px);
+}
+
+.playfield-shell,
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.01)),
+    var(--panel);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.35);
+}
+
+.playfield-shell {
+  position: relative;
+  overflow: hidden;
+  min-height: 0;
+  height: 100%;
+  border-radius: 28px;
+}
+
+#game {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #02060d;
+}
+
+.playfield-overlay {
+  position: absolute;
+  left: 22px;
+  bottom: 22px;
+  width: min(540px, calc(100% - 44px));
+  display: grid;
+  gap: 4px;
+  padding: 14px 16px;
+  border: 1px solid rgba(121, 216, 255, 0.18);
+  border-radius: 18px;
+  background: rgba(5, 11, 18, 0.72);
+  z-index: 4;
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.overlay-title {
+  font-size: 1rem;
+  font-weight: 700;
+}
+
+.overlay-copy {
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.hint-banner {
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 18px;
+  z-index: 4;
+  padding: 10px 14px;
+  border-radius: 999px;
+  border: 1px solid rgba(121, 216, 255, 0.12);
+  background: rgba(6, 12, 20, 0.64);
+  color: var(--muted);
+  font-size: 0.9rem;
+  backdrop-filter: blur(12px);
+  transition: opacity 140ms ease, transform 140ms ease;
+}
+
+.command-deck {
+  position: absolute;
+  top: 96px;
+  right: 18px;
+  bottom: 72px;
+  width: min(360px, 34vw);
+  z-index: 5;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  overflow: auto;
+  padding-right: 4px;
+  transition: opacity 160ms ease, transform 160ms ease;
+}
+
+.panel {
+  padding: 14px;
+}
+
+.panel--dense {
+  padding-top: 12px;
+}
+
+.panel--menu {
+  padding-bottom: 12px;
+}
+
+.menu-list {
+  display: grid;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.menu-button {
+  width: 100%;
+  display: grid;
+  gap: 4px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  border: 1px solid rgba(121, 216, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+  color: var(--text);
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-button.is-selected {
+  border-color: var(--line-strong);
+  background:
+    linear-gradient(135deg, rgba(121, 216, 255, 0.16), rgba(255, 207, 116, 0.1)),
+    rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+.menu-button.is-disabled {
+  opacity: 0.45;
+}
+
+.menu-button:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.menu-label {
+  font-weight: 700;
+}
+
+.menu-meta,
+.panel-footnote,
+.fact-value,
+.detail-copy,
+.detail-meta {
+  color: var(--muted);
+}
+
+.panel-detail {
+  margin-top: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.detail-card {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border-radius: 16px;
+  border: 1px solid rgba(121, 216, 255, 0.12);
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.detail-title {
+  font-weight: 700;
+}
+
+.detail-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tag {
+  padding: 4px 8px;
+  border-radius: 999px;
+  background: rgba(121, 216, 255, 0.08);
+  color: var(--accent-2);
+  font-size: 0.78rem;
+}
+
+.fact-list {
+  margin-top: 10px;
+  display: grid;
+  gap: 8px;
+}
+
+.fact-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding-bottom: 7px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.fact-value[data-tone="bad"] {
+  color: var(--danger);
+}
+
+.fact-value[data-tone="good"] {
+  color: var(--success);
+}
+
+#app[data-mode="flight"] .command-deck,
+#app[data-mode="starmap"] .command-deck {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateX(18px);
+}
+
+#app[data-mode="flight"] .playfield-overlay,
+#app[data-mode="starmap"] .playfield-overlay {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+
+#app[data-mode="dock"] .hint-banner {
+  opacity: 0;
+  pointer-events: none;
+  transform: translateY(12px);
+}
+
+#app[data-mode="flight"] .hint-banner,
+#app[data-mode="starmap"] .hint-banner {
+  opacity: 1;
+}
+
+#app[data-mode="dock"] .hud-rail {
+  right: min(396px, 36vw);
+}
+
+#app[data-mode="flight"] .hud-rail,
+#app[data-mode="starmap"] .hud-rail {
+  grid-template-columns: repeat(5, minmax(0, 148px)) minmax(220px, 1fr);
+}
+
+#app[data-mode="starmap"] .hint-banner {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@media (max-width: 1180px) {
+  .command-deck {
+    width: min(340px, 40vw);
+  }
+
+  #app[data-mode="dock"] .hud-rail {
+    right: min(372px, 42vw);
+  }
+}
+
+@media (max-width: 900px) {
+  #app {
+    padding: 12px;
+  }
+
+  .hud-rail {
+    top: 12px;
+    left: 12px;
+    right: 12px;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #app[data-mode="dock"] .hud-rail {
+    right: 12px;
+  }
+
+  .layout {
+    height: calc(100vh - 24px);
+  }
+
+  .command-deck {
+    top: 104px;
+    left: 12px;
+    right: 12px;
+    bottom: 78px;
+    width: auto;
+  }
+
+  .playfield-overlay {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+    width: auto;
+  }
+
+  .hint-banner {
+    left: 12px;
+    right: 12px;
+    bottom: 12px;
+  }
+}

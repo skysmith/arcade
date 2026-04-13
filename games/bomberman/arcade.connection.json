@@ -1,0 +1,11 @@
+{
+  "id": "bomberman",
+  "title": "Bomberman",
+  "image": "./assets/covers/bomberman.svg",
+  "summary": "A tight local blast maze with live-join bombers, chain-reaction rooms, soft-block pickups, and a race to clear the floor and escape.",
+  "players": "1-4 local",
+  "controls": "Move, bomb, join on Start",
+  "launchText": "Open cabinet",
+  "path": "./games/bomberman/index.html",
+  "badge": "Fresh Cabinet"
+}

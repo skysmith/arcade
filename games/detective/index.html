@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>detective</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.min.js"></script>
+  </head>
+  <body>
+    <div id="studio-root"></div>
+    <aside id="pause-menu" class="pause-menu" aria-hidden="true">
+      <div class="pause-menu__panel">
+        <div class="pause-menu__eyebrow">Party Setup</div>
+        <h1 class="pause-menu__title">Party Setup</h1>
+        <p class="pause-menu__body">Press <kbd>Esc</kbd> to resume. Joined controllers fill the player cards live. Pick a mode, then click a player card to assign its character remix.</p>
+        <div class="pause-menu__section">
+          <div class="pause-menu__section-title">Mode</div>
+          <div class="pause-menu__section-copy">Co-op spawns kid-friendly robots and puff monsters. Free for all lets players use the same move set on each other.</div>
+          <div id="pause-menu-mode-grid" class="pause-menu__count-grid"></div>
+        </div>
+        <div class="pause-menu__section">
+          <div class="pause-menu__section-title">Players</div>
+          <div class="pause-menu__section-row">
+            <div class="pause-menu__section-copy">Move a connected controller to join the next open player slot, then click a player card to assign its remix.</div>
+            <button id="pause-menu-character-toggle" class="pause-menu__secondary-button" type="button">Choose Character</button>
+          </div>
+          <div id="pause-menu-player-count-grid" class="pause-menu__count-grid"></div>
+          <div id="pause-menu-slot-grid" class="pause-menu__slot-grid"></div>
+        </div>
+        <div id="pause-menu-character-section" class="pause-menu__section" hidden>
+          <div class="pause-menu__section-row">
+            <div class="pause-menu__section-title">Character Select</div>
+            <button id="pause-menu-character-close" class="pause-menu__secondary-button" type="button">Close</button>
+          </div>
+          <div id="pause-menu-grid" class="pause-menu__grid"></div>
+        </div>
+        <div class="pause-menu__section">
+          <div class="pause-menu__section-title">Live Join</div>
+          <div class="pause-menu__section-row">
+            <div id="pause-menu-controller-copy" class="pause-menu__section-copy">Move a connected pad or press a face button to join. Bottom face button = Attack A, left face = Attack B, right/top face = jump.</div>
+            <button id="pause-menu-controller-refresh" class="pause-menu__secondary-button" type="button">Detect Controllers</button>
+          </div>
+          <div id="pause-menu-controller-grid" class="pause-menu__controller-grid"></div>
+        </div>
+        <div id="pause-menu-hint" class="pause-menu__hint"></div>
+      </div>
+    </aside>
+    <aside id="controller-panel" class="controller-panel" aria-live="polite">
+      <div class="controller-panel__title">Controllers</div>
+      <div id="controller-panel-summary" class="controller-panel__summary"></div>
+      <div id="controller-panel-list" class="controller-panel__list"></div>
+    </aside>
+    <script type="module" src="./game.js"></script>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

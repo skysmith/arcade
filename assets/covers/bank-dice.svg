@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <rect width="800" height="520" rx="44" fill="#0D1417"/>
+  <rect width="800" height="520" rx="44" fill="url(#bg)"/>
+  <circle cx="152" cy="124" r="56" fill="#FFDB77"/>
+  <circle cx="152" cy="124" r="26" fill="#0D1417"/>
+  <rect x="154" y="318" width="182" height="118" rx="28" transform="rotate(-12 154 318)" fill="#F6F4EF"/>
+  <rect x="418" y="226" width="182" height="118" rx="28" transform="rotate(10 418 226)" fill="#F6F4EF"/>
+  <g fill="#1F2937">
+    <circle cx="232" cy="336" r="10"/><circle cx="281" cy="365" r="10"/><circle cx="199" cy="383" r="10"/>
+    <circle cx="490" cy="263" r="10"/><circle cx="536" cy="292" r="10"/><circle cx="571" cy="240" r="10"/><circle cx="618" cy="269" r="10"/>
+  </g>
+  <path d="M102 430C208 372 346 366 446 402C546 438 648 440 744 394" stroke="#5CE5A1" stroke-width="24" stroke-linecap="round"/>
+  <text x="58" y="84" fill="#F5FAFF" font-family="Avenir Next, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="4">BANK DICE</text>
+  <defs>
+    <linearGradient id="bg" x1="104" y1="28" x2="694" y2="494" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1D4051"/>
+      <stop offset=".46" stop-color="#132830"/>
+      <stop offset="1" stop-color="#0C1114"/>
+    </linearGradient>
+  </defs>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <rect width="800" height="520" rx="44" fill="#091523"/>
+  <rect width="800" height="520" rx="44" fill="url(#bg)"/>
+  <g fill="#D6F2FF" opacity=".9">
+    <circle cx="96" cy="84" r="4"/><circle cx="152" cy="116" r="5"/><circle cx="700" cy="88" r="4"/><circle cx="640" cy="132" r="5"/>
+    <circle cx="564" cy="68" r="3"/><circle cx="240" cy="74" r="3"/>
+  </g>
+  <rect x="140" y="106" width="528" height="24" rx="12" fill="#93C9EA"/>
+  <rect x="112" y="200" width="246" height="24" rx="12" fill="#93C9EA"/>
+  <rect x="442" y="200" width="246" height="24" rx="12" fill="#93C9EA"/>
+  <rect x="176" y="298" width="448" height="24" rx="12" fill="#93C9EA"/>
+  <rect x="136" y="396" width="528" height="28" rx="14" fill="#B4E2FF"/>
+  <g fill="#F7FCFF">
+    <circle cx="250" cy="270" r="42"/>
+    <circle cx="514" cy="172" r="34"/>
+  </g>
+  <g fill="#253D59">
+    <circle cx="238" cy="262" r="5"/><circle cx="262" cy="262" r="5"/>
+    <circle cx="505" cy="164" r="4"/><circle cx="523" cy="164" r="4"/>
+  </g>
+  <path d="M224 286c18 12 34 12 52 0" stroke="#253D59" stroke-width="6" stroke-linecap="round"/>
+  <path d="M494 184c12 9 24 9 38 0" stroke="#253D59" stroke-width="5" stroke-linecap="round"/>
+  <g fill="#FFDE7A">
+    <path d="M172 368h26l18-22h24l18 22h26v26H172v-26Z"/>
+    <path d="M528 368h26l18-22h24l18 22h26v26H528v-26Z"/>
+  </g>
+  <g stroke="#F6FBFF" stroke-width="10" stroke-linecap="round">
+    <path d="M228 344v-52"/>
+    <path d="M584 344v-52"/>
+  </g>
+  <text x="64" y="472" fill="#F6FBFF" font-family="Avenir Next, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="5">SNOW BROS</text>
+  <defs>
+    <linearGradient id="bg" x1="400" y1="0" x2="400" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#173B63"/>
+      <stop offset=".52" stop-color="#102640"/>
+      <stop offset="1" stop-color="#091523"/>
+    </linearGradient>
+  </defs>
+</svg>
