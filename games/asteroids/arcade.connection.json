@@ -1,0 +1,11 @@
+{
+  "id": "asteroids",
+  "title": "Asteroids",
+  "image": "./assets/covers/asteroids.svg",
+  "summary": "A fast co-op asteroid field with thrust, wraparound drift, saucers, and live-join pads for short score-chasing runs.",
+  "players": "1-4 local",
+  "controls": "Rotate, thrust, fire",
+  "launchText": "Open cabinet",
+  "path": "./games/asteroids/index.html",
+  "badge": "New Cabinet"
+}

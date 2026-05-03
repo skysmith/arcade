@@ -1,0 +1,11 @@
+{
+  "id": "space-invaders",
+  "title": "Space Invaders",
+  "image": "./assets/covers/space-invaders.svg",
+  "summary": "A stripped-down fixed shooter cabinet with automatic local hot-join, shared alien waves, and tiny HUD chrome so the playfield stays first.",
+  "players": "1-4 local",
+  "controls": "Live join on Start",
+  "launchText": "Open cabinet",
+  "path": "./games/space-invaders/index.html",
+  "badge": "Fresh Cabinet"
+}

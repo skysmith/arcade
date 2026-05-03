@@ -1,0 +1,11 @@
+{
+  "id": "breakout",
+  "title": "Breakout",
+  "image": "./assets/covers/breakout.svg",
+  "summary": "A brick-smashing cabinet with a classic solo court and a four-court multitap mode for local score races.",
+  "players": "1-4 local",
+  "controls": "Paddle, serve, save",
+  "launchText": "Open cabinet",
+  "path": "./games/breakout/index.html",
+  "badge": "Fresh Cabinet"
+}

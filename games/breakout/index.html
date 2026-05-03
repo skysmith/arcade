@@ -1,0 +1,161 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>breakout</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="shell-header">
+        <div>
+          <p class="eyebrow">Brick Rush</p>
+          <div class="title-row">
+            <h1>breakout</h1>
+            <span id="build-number" class="build-chip">build ?</span>
+          </div>
+          <p class="hero-kicker">Classic is one fast court. Multitap opens four courts so the whole couch can volley at once.</p>
+        </div>
+        <div class="header-actions">
+          <button id="settings-button" class="settings-button" type="button" aria-haspopup="dialog" aria-controls="settings-modal">
+            Settings
+          </button>
+          <div class="header-chip">
+            <span class="chip-dot"></span>
+            <span id="connection-status">Keyboard mode</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="shell-main">
+        <section id="court-grid" class="court-grid classic-mode">
+          <article class="court-card court-card--primary" data-court-card="1">
+            <div class="court-header">
+              <div>
+                <p class="panel-label">Classic</p>
+                <p id="court-phase-1" class="court-phase">Ready</p>
+              </div>
+              <div class="mini-stats">
+                <span id="court-score-1">0 pts</span>
+                <span id="court-bricks-1">0 bricks</span>
+              </div>
+            </div>
+            <canvas id="court-canvas-1" width="240" height="360" aria-label="Breakout court 1"></canvas>
+          </article>
+
+          <article class="court-card" data-court-card="2">
+            <div class="court-header">
+              <div>
+                <p class="panel-label">Court 2</p>
+                <p id="court-phase-2" class="court-phase">Ready</p>
+              </div>
+              <div class="mini-stats">
+                <span id="court-score-2">0 pts</span>
+                <span id="court-bricks-2">0 bricks</span>
+              </div>
+            </div>
+            <canvas id="court-canvas-2" width="240" height="360" aria-label="Breakout court 2"></canvas>
+          </article>
+
+          <article class="court-card" data-court-card="3">
+            <div class="court-header">
+              <div>
+                <p class="panel-label">Court 3</p>
+                <p id="court-phase-3" class="court-phase">Ready</p>
+              </div>
+              <div class="mini-stats">
+                <span id="court-score-3">0 pts</span>
+                <span id="court-bricks-3">0 bricks</span>
+              </div>
+            </div>
+            <canvas id="court-canvas-3" width="240" height="360" aria-label="Breakout court 3"></canvas>
+          </article>
+
+          <article class="court-card" data-court-card="4">
+            <div class="court-header">
+              <div>
+                <p class="panel-label">Court 4</p>
+                <p id="court-phase-4" class="court-phase">Ready</p>
+              </div>
+              <div class="mini-stats">
+                <span id="court-score-4">0 pts</span>
+                <span id="court-bricks-4">0 bricks</span>
+              </div>
+            </div>
+            <canvas id="court-canvas-4" width="240" height="360" aria-label="Breakout court 4"></canvas>
+          </article>
+        </section>
+
+        <section class="summary-bar">
+          <article class="summary-card">
+            <p class="panel-label">Phase</p>
+            <p id="phase-label" class="summary-value">Ready</p>
+            <p id="message-label" class="summary-copy">Move a paddle to serve.</p>
+          </article>
+          <article class="summary-card">
+            <p class="panel-label">Score</p>
+            <p id="score-value" class="summary-value">0</p>
+            <p id="footer-status" class="summary-copy">No controller detected yet.</p>
+          </article>
+          <article class="summary-card">
+            <p class="panel-label">Courts Alive</p>
+            <p id="live-value" class="summary-value">1</p>
+            <p id="bricks-value" class="summary-copy">0 total bricks left</p>
+          </article>
+          <article class="summary-card">
+            <p class="panel-label">Mode</p>
+            <p id="mode-value" class="summary-value">Classic</p>
+            <p id="footer-hint" class="summary-copy">Pause: P. Restart: R. Extra pads join on Start when multitap is active.</p>
+          </article>
+        </section>
+
+        <section class="control-row">
+          <div class="control-card">
+            <h2>Classic</h2>
+            <p>Move: arrows</p>
+            <p>Serve: <span>Space</span></p>
+            <p>Wide-save: <span>Shift</span></p>
+          </div>
+          <div class="control-card">
+            <h2>Multitap</h2>
+            <p>P1: arrows + <span>Space Shift</span></p>
+            <p>P2: <span>A D</span> + <span>F G</span></p>
+            <p>P3: <span>J L</span> + <span>; '</span></p>
+            <p>P4: numpad <span>4 6</span> + <span>0 1</span></p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="settings-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="panel-label">Settings</p>
+            <h2 id="settings-title">Controller And Mode</h2>
+          </div>
+          <button id="settings-close" class="icon-button" type="button" aria-label="Close settings">Close</button>
+        </div>
+
+        <div class="modal-section">
+          <span class="field-label">Controller</span>
+          <p id="bridge-status" class="field-help">Use the native bridge when the browser hides a controller. The bridge targets the classic lane.</p>
+          <p class="field-help">Launcher: <code>games/breakout/scripts/start-controller-bridge.sh</code></p>
+        </div>
+
+        <div class="modal-section">
+          <span class="field-label">Game Mode</span>
+          <div class="toggle-row">
+            <button id="mode-classic" class="mode-button is-active" type="button">Classic</button>
+            <button id="mode-multitap" class="mode-button" type="button">Multitap</button>
+          </div>
+          <p class="field-help">Classic runs one court. Multitap opens four parallel courts with separate lanes.</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

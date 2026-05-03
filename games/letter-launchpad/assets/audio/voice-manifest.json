@@ -1,0 +1,857 @@
+{
+  "generatedAt": "2026-04-21T18:45:41.346Z",
+  "disclosure": "Voice prompts are AI-generated.",
+  "model": "gpt-4o-mini-tts",
+  "voice": "nova",
+  "format": "mp3",
+  "clips": {
+    "level1.start": {
+      "text": "Letter Launchpad. Find the big letter.",
+      "file": "voice/level1-start.mp3"
+    },
+    "level1.tryAgain": {
+      "text": "Try another letter.",
+      "file": "voice/level1-tryagain.mp3"
+    },
+    "level1.success": {
+      "text": "Great job!",
+      "file": "voice/level1-success.mp3"
+    },
+    "level1.complete": {
+      "text": "Level one complete. Great work!",
+      "file": "voice/level1-complete.mp3"
+    },
+    "level1.find.A": {
+      "text": "Find the letter A.",
+      "file": "voice/level1-find-a.mp3"
+    },
+    "level1.find.B": {
+      "text": "Find the letter B.",
+      "file": "voice/level1-find-b.mp3"
+    },
+    "level1.find.C": {
+      "text": "Find the letter C.",
+      "file": "voice/level1-find-c.mp3"
+    },
+    "level1.find.D": {
+      "text": "Find the letter D.",
+      "file": "voice/level1-find-d.mp3"
+    },
+    "level1.find.E": {
+      "text": "Find the letter E.",
+      "file": "voice/level1-find-e.mp3"
+    },
+    "level1.find.F": {
+      "text": "Find the letter F.",
+      "file": "voice/level1-find-f.mp3"
+    },
+    "level1.find.G": {
+      "text": "Find the letter G.",
+      "file": "voice/level1-find-g.mp3"
+    },
+    "level1.find.H": {
+      "text": "Find the letter H.",
+      "file": "voice/level1-find-h.mp3"
+    },
+    "level1.find.I": {
+      "text": "Find the letter I.",
+      "file": "voice/level1-find-i.mp3"
+    },
+    "level1.find.J": {
+      "text": "Find the letter J.",
+      "file": "voice/level1-find-j.mp3"
+    },
+    "level1.find.K": {
+      "text": "Find the letter K.",
+      "file": "voice/level1-find-k.mp3"
+    },
+    "level1.find.L": {
+      "text": "Find the letter L.",
+      "file": "voice/level1-find-l.mp3"
+    },
+    "level1.find.M": {
+      "text": "Find the letter M.",
+      "file": "voice/level1-find-m.mp3"
+    },
+    "level1.find.N": {
+      "text": "Find the letter N.",
+      "file": "voice/level1-find-n.mp3"
+    },
+    "level1.find.O": {
+      "text": "Find the letter O.",
+      "file": "voice/level1-find-o.mp3"
+    },
+    "level1.find.P": {
+      "text": "Find the letter P.",
+      "file": "voice/level1-find-p.mp3"
+    },
+    "level1.find.Q": {
+      "text": "Find the letter Q.",
+      "file": "voice/level1-find-q.mp3"
+    },
+    "level1.find.R": {
+      "text": "Find the letter R.",
+      "file": "voice/level1-find-r.mp3"
+    },
+    "level1.find.S": {
+      "text": "Find the letter S.",
+      "file": "voice/level1-find-s.mp3"
+    },
+    "level1.find.T": {
+      "text": "Find the letter T.",
+      "file": "voice/level1-find-t.mp3"
+    },
+    "level1.find.U": {
+      "text": "Find the letter U.",
+      "file": "voice/level1-find-u.mp3"
+    },
+    "level1.find.V": {
+      "text": "Find the letter V.",
+      "file": "voice/level1-find-v.mp3"
+    },
+    "level1.find.W": {
+      "text": "Find the letter W.",
+      "file": "voice/level1-find-w.mp3"
+    },
+    "level1.find.X": {
+      "text": "Find the letter X.",
+      "file": "voice/level1-find-x.mp3"
+    },
+    "level1.find.Y": {
+      "text": "Find the letter Y.",
+      "file": "voice/level1-find-y.mp3"
+    },
+    "level1.find.Z": {
+      "text": "Find the letter Z.",
+      "file": "voice/level1-find-z.mp3"
+    },
+    "level2.success": {
+      "text": "Great match!",
+      "file": "voice/level2-success.mp3"
+    },
+    "level2.tryAgain": {
+      "text": "Try another little letter.",
+      "file": "voice/level2-tryagain.mp3"
+    },
+    "level2.complete": {
+      "text": "Level two complete. The moon garden is growing!",
+      "file": "voice/level2-complete.mp3"
+    },
+    "level2.find.A": {
+      "text": "Find little letter A.",
+      "file": "voice/level2-find-a.mp3"
+    },
+    "level2.find.B": {
+      "text": "Find little letter B.",
+      "file": "voice/level2-find-b.mp3"
+    },
+    "level2.find.C": {
+      "text": "Find little letter C.",
+      "file": "voice/level2-find-c.mp3"
+    },
+    "level2.find.D": {
+      "text": "Find little letter D.",
+      "file": "voice/level2-find-d.mp3"
+    },
+    "level2.find.E": {
+      "text": "Find little letter E.",
+      "file": "voice/level2-find-e.mp3"
+    },
+    "level2.find.F": {
+      "text": "Find little letter F.",
+      "file": "voice/level2-find-f.mp3"
+    },
+    "level2.find.G": {
+      "text": "Find little letter G.",
+      "file": "voice/level2-find-g.mp3"
+    },
+    "level2.find.H": {
+      "text": "Find little letter H.",
+      "file": "voice/level2-find-h.mp3"
+    },
+    "level2.find.I": {
+      "text": "Find little letter I.",
+      "file": "voice/level2-find-i.mp3"
+    },
+    "level2.find.J": {
+      "text": "Find little letter J.",
+      "file": "voice/level2-find-j.mp3"
+    },
+    "level2.find.K": {
+      "text": "Find little letter K.",
+      "file": "voice/level2-find-k.mp3"
+    },
+    "level2.find.L": {
+      "text": "Find little letter L.",
+      "file": "voice/level2-find-l.mp3"
+    },
+    "level2.find.M": {
+      "text": "Find little letter M.",
+      "file": "voice/level2-find-m.mp3"
+    },
+    "level2.find.N": {
+      "text": "Find little letter N.",
+      "file": "voice/level2-find-n.mp3"
+    },
+    "level2.find.O": {
+      "text": "Find little letter O.",
+      "file": "voice/level2-find-o.mp3"
+    },
+    "level2.find.P": {
+      "text": "Find little letter P.",
+      "file": "voice/level2-find-p.mp3"
+    },
+    "level2.find.Q": {
+      "text": "Find little letter Q.",
+      "file": "voice/level2-find-q.mp3"
+    },
+    "level2.find.R": {
+      "text": "Find little letter R.",
+      "file": "voice/level2-find-r.mp3"
+    },
+    "level2.find.S": {
+      "text": "Find little letter S.",
+      "file": "voice/level2-find-s.mp3"
+    },
+    "level2.find.T": {
+      "text": "Find little letter T.",
+      "file": "voice/level2-find-t.mp3"
+    },
+    "level2.find.U": {
+      "text": "Find little letter U.",
+      "file": "voice/level2-find-u.mp3"
+    },
+    "level2.find.V": {
+      "text": "Find little letter V.",
+      "file": "voice/level2-find-v.mp3"
+    },
+    "level2.find.W": {
+      "text": "Find little letter W.",
+      "file": "voice/level2-find-w.mp3"
+    },
+    "level2.find.X": {
+      "text": "Find little letter X.",
+      "file": "voice/level2-find-x.mp3"
+    },
+    "level2.find.Y": {
+      "text": "Find little letter Y.",
+      "file": "voice/level2-find-y.mp3"
+    },
+    "level2.find.Z": {
+      "text": "Find little letter Z.",
+      "file": "voice/level2-find-z.mp3"
+    },
+    "level3.success": {
+      "text": "You counted it!",
+      "file": "voice/level3-success.mp3"
+    },
+    "level3.tryAgain": {
+      "text": "Try another number.",
+      "file": "voice/level3-tryagain.mp3"
+    },
+    "level3.complete": {
+      "text": "Level three complete. The planets are counted!",
+      "file": "voice/level3-complete.mp3"
+    },
+    "level3.find.1": {
+      "text": "Find the number 1.",
+      "file": "voice/level3-find-1.mp3"
+    },
+    "level3.find.2": {
+      "text": "Find the number 2.",
+      "file": "voice/level3-find-2.mp3"
+    },
+    "level3.find.3": {
+      "text": "Find the number 3.",
+      "file": "voice/level3-find-3.mp3"
+    },
+    "level3.find.4": {
+      "text": "Find the number 4.",
+      "file": "voice/level3-find-4.mp3"
+    },
+    "level3.find.5": {
+      "text": "Find the number 5.",
+      "file": "voice/level3-find-5.mp3"
+    },
+    "level3.find.6": {
+      "text": "Find the number 6.",
+      "file": "voice/level3-find-6.mp3"
+    },
+    "level3.find.7": {
+      "text": "Find the number 7.",
+      "file": "voice/level3-find-7.mp3"
+    },
+    "level3.find.8": {
+      "text": "Find the number 8.",
+      "file": "voice/level3-find-8.mp3"
+    },
+    "level3.find.9": {
+      "text": "Find the number 9.",
+      "file": "voice/level3-find-9.mp3"
+    },
+    "level3.find.10": {
+      "text": "Find the number 10.",
+      "file": "voice/level3-find-10.mp3"
+    },
+    "level4.success": {
+      "text": "Great sound!",
+      "file": "voice/level4-success.mp3"
+    },
+    "level4.tryAgain": {
+      "text": "Try another starting sound.",
+      "file": "voice/level4-tryagain.mp3"
+    },
+    "level4.complete": {
+      "text": "Level four complete. The forest sounds are found!",
+      "file": "voice/level4-complete.mp3"
+    },
+    "level4.sound.SUN": {
+      "text": "sun starts with S. Find S.",
+      "file": "voice/level4-sound-sun.mp3"
+    },
+    "level4.sound.CAT": {
+      "text": "cat starts with C. Find C.",
+      "file": "voice/level4-sound-cat.mp3"
+    },
+    "level4.sound.DOG": {
+      "text": "dog starts with D. Find D.",
+      "file": "voice/level4-sound-dog.mp3"
+    },
+    "level4.sound.BUG": {
+      "text": "bug starts with B. Find B.",
+      "file": "voice/level4-sound-bug.mp3"
+    },
+    "level4.sound.FISH": {
+      "text": "fish starts with F. Find F.",
+      "file": "voice/level4-sound-fish.mp3"
+    },
+    "level4.sound.MOON": {
+      "text": "moon starts with M. Find M.",
+      "file": "voice/level4-sound-moon.mp3"
+    },
+    "level4.sound.HAT": {
+      "text": "hat starts with H. Find H.",
+      "file": "voice/level4-sound-hat.mp3"
+    },
+    "level4.sound.MAP": {
+      "text": "map starts with M. Find M.",
+      "file": "voice/level4-sound-map.mp3"
+    },
+    "level4.sound.LOG": {
+      "text": "log starts with L. Find L.",
+      "file": "voice/level4-sound-log.mp3"
+    },
+    "level4.sound.BEE": {
+      "text": "bee starts with B. Find B.",
+      "file": "voice/level4-sound-bee.mp3"
+    },
+    "level5.success": {
+      "text": "Nice building!",
+      "file": "voice/level5-success.mp3"
+    },
+    "level5.tryAgain": {
+      "text": "Try the next letter.",
+      "file": "voice/level5-tryagain.mp3"
+    },
+    "level5.complete": {
+      "text": "Level five complete. You built the words!",
+      "file": "voice/level5-complete.mp3"
+    },
+    "level5.build.CAT.0": {
+      "text": "Build cat. Find letter C.",
+      "file": "voice/level5-build-cat-0.mp3"
+    },
+    "level5.build.CAT.1": {
+      "text": "Build cat. Find letter A.",
+      "file": "voice/level5-build-cat-1.mp3"
+    },
+    "level5.build.CAT.2": {
+      "text": "Build cat. Find letter T.",
+      "file": "voice/level5-build-cat-2.mp3"
+    },
+    "level5.build.DOG.0": {
+      "text": "Build dog. Find letter D.",
+      "file": "voice/level5-build-dog-0.mp3"
+    },
+    "level5.build.DOG.1": {
+      "text": "Build dog. Find letter O.",
+      "file": "voice/level5-build-dog-1.mp3"
+    },
+    "level5.build.DOG.2": {
+      "text": "Build dog. Find letter G.",
+      "file": "voice/level5-build-dog-2.mp3"
+    },
+    "level5.build.SUN.0": {
+      "text": "Build sun. Find letter S.",
+      "file": "voice/level5-build-sun-0.mp3"
+    },
+    "level5.build.SUN.1": {
+      "text": "Build sun. Find letter U.",
+      "file": "voice/level5-build-sun-1.mp3"
+    },
+    "level5.build.SUN.2": {
+      "text": "Build sun. Find letter N.",
+      "file": "voice/level5-build-sun-2.mp3"
+    },
+    "level5.build.BUG.0": {
+      "text": "Build bug. Find letter B.",
+      "file": "voice/level5-build-bug-0.mp3"
+    },
+    "level5.build.BUG.1": {
+      "text": "Build bug. Find letter U.",
+      "file": "voice/level5-build-bug-1.mp3"
+    },
+    "level5.build.BUG.2": {
+      "text": "Build bug. Find letter G.",
+      "file": "voice/level5-build-bug-2.mp3"
+    },
+    "level5.build.HAT.0": {
+      "text": "Build hat. Find letter H.",
+      "file": "voice/level5-build-hat-0.mp3"
+    },
+    "level5.build.HAT.1": {
+      "text": "Build hat. Find letter A.",
+      "file": "voice/level5-build-hat-1.mp3"
+    },
+    "level5.build.HAT.2": {
+      "text": "Build hat. Find letter T.",
+      "file": "voice/level5-build-hat-2.mp3"
+    },
+    "level5.build.MAP.0": {
+      "text": "Build map. Find letter M.",
+      "file": "voice/level5-build-map-0.mp3"
+    },
+    "level5.build.MAP.1": {
+      "text": "Build map. Find letter A.",
+      "file": "voice/level5-build-map-1.mp3"
+    },
+    "level5.build.MAP.2": {
+      "text": "Build map. Find letter P.",
+      "file": "voice/level5-build-map-2.mp3"
+    },
+    "level6.success": {
+      "text": "Fossil found!",
+      "file": "voice/level6-success.mp3"
+    },
+    "level6.tryAgain": {
+      "text": "Try another fossil letter.",
+      "file": "voice/level6-tryagain.mp3"
+    },
+    "level6.complete": {
+      "text": "Level six complete. The dino dig is done!",
+      "file": "voice/level6-complete.mp3"
+    },
+    "level6.find.A": {
+      "text": "Dig up little letter A.",
+      "file": "voice/level6-find-a.mp3"
+    },
+    "level6.find.B": {
+      "text": "Dig up little letter B.",
+      "file": "voice/level6-find-b.mp3"
+    },
+    "level6.find.C": {
+      "text": "Dig up little letter C.",
+      "file": "voice/level6-find-c.mp3"
+    },
+    "level6.find.D": {
+      "text": "Dig up little letter D.",
+      "file": "voice/level6-find-d.mp3"
+    },
+    "level6.find.E": {
+      "text": "Dig up little letter E.",
+      "file": "voice/level6-find-e.mp3"
+    },
+    "level6.find.F": {
+      "text": "Dig up little letter F.",
+      "file": "voice/level6-find-f.mp3"
+    },
+    "level6.find.G": {
+      "text": "Dig up little letter G.",
+      "file": "voice/level6-find-g.mp3"
+    },
+    "level6.find.H": {
+      "text": "Dig up little letter H.",
+      "file": "voice/level6-find-h.mp3"
+    },
+    "level6.find.I": {
+      "text": "Dig up little letter I.",
+      "file": "voice/level6-find-i.mp3"
+    },
+    "level6.find.J": {
+      "text": "Dig up little letter J.",
+      "file": "voice/level6-find-j.mp3"
+    },
+    "level6.find.K": {
+      "text": "Dig up little letter K.",
+      "file": "voice/level6-find-k.mp3"
+    },
+    "level6.find.L": {
+      "text": "Dig up little letter L.",
+      "file": "voice/level6-find-l.mp3"
+    },
+    "level6.find.M": {
+      "text": "Dig up little letter M.",
+      "file": "voice/level6-find-m.mp3"
+    },
+    "level6.find.N": {
+      "text": "Dig up little letter N.",
+      "file": "voice/level6-find-n.mp3"
+    },
+    "level6.find.O": {
+      "text": "Dig up little letter O.",
+      "file": "voice/level6-find-o.mp3"
+    },
+    "level6.find.P": {
+      "text": "Dig up little letter P.",
+      "file": "voice/level6-find-p.mp3"
+    },
+    "level6.find.Q": {
+      "text": "Dig up little letter Q.",
+      "file": "voice/level6-find-q.mp3"
+    },
+    "level6.find.R": {
+      "text": "Dig up little letter R.",
+      "file": "voice/level6-find-r.mp3"
+    },
+    "level6.find.S": {
+      "text": "Dig up little letter S.",
+      "file": "voice/level6-find-s.mp3"
+    },
+    "level6.find.T": {
+      "text": "Dig up little letter T.",
+      "file": "voice/level6-find-t.mp3"
+    },
+    "level6.find.U": {
+      "text": "Dig up little letter U.",
+      "file": "voice/level6-find-u.mp3"
+    },
+    "level6.find.V": {
+      "text": "Dig up little letter V.",
+      "file": "voice/level6-find-v.mp3"
+    },
+    "level6.find.W": {
+      "text": "Dig up little letter W.",
+      "file": "voice/level6-find-w.mp3"
+    },
+    "level6.find.X": {
+      "text": "Dig up little letter X.",
+      "file": "voice/level6-find-x.mp3"
+    },
+    "level6.find.Y": {
+      "text": "Dig up little letter Y.",
+      "file": "voice/level6-find-y.mp3"
+    },
+    "level6.find.Z": {
+      "text": "Dig up little letter Z.",
+      "file": "voice/level6-find-z.mp3"
+    },
+    "level7.success": {
+      "text": "Car loaded!",
+      "file": "voice/level7-success.mp3"
+    },
+    "level7.tryAgain": {
+      "text": "Try the next train car.",
+      "file": "voice/level7-tryagain.mp3"
+    },
+    "level7.complete": {
+      "text": "Level seven complete. The train is ready!",
+      "file": "voice/level7-complete.mp3"
+    },
+    "level7.sequence.1-2-3.0": {
+      "text": "Load the train: 1, 2, 3. Find 1.",
+      "file": "voice/level7-sequence-1-2-3-0.mp3"
+    },
+    "level7.sequence.1-2-3.1": {
+      "text": "Load the train: 1, 2, 3. Find 2.",
+      "file": "voice/level7-sequence-1-2-3-1.mp3"
+    },
+    "level7.sequence.1-2-3.2": {
+      "text": "Load the train: 1, 2, 3. Find 3.",
+      "file": "voice/level7-sequence-1-2-3-2.mp3"
+    },
+    "level7.sequence.2-3-4.0": {
+      "text": "Load the train: 2, 3, 4. Find 2.",
+      "file": "voice/level7-sequence-2-3-4-0.mp3"
+    },
+    "level7.sequence.2-3-4.1": {
+      "text": "Load the train: 2, 3, 4. Find 3.",
+      "file": "voice/level7-sequence-2-3-4-1.mp3"
+    },
+    "level7.sequence.2-3-4.2": {
+      "text": "Load the train: 2, 3, 4. Find 4.",
+      "file": "voice/level7-sequence-2-3-4-2.mp3"
+    },
+    "level7.sequence.3-4-5.0": {
+      "text": "Load the train: 3, 4, 5. Find 3.",
+      "file": "voice/level7-sequence-3-4-5-0.mp3"
+    },
+    "level7.sequence.3-4-5.1": {
+      "text": "Load the train: 3, 4, 5. Find 4.",
+      "file": "voice/level7-sequence-3-4-5-1.mp3"
+    },
+    "level7.sequence.3-4-5.2": {
+      "text": "Load the train: 3, 4, 5. Find 5.",
+      "file": "voice/level7-sequence-3-4-5-2.mp3"
+    },
+    "level7.sequence.A-B-C.0": {
+      "text": "Load the train: A, B, C. Find A.",
+      "file": "voice/level7-sequence-a-b-c-0.mp3"
+    },
+    "level7.sequence.A-B-C.1": {
+      "text": "Load the train: A, B, C. Find B.",
+      "file": "voice/level7-sequence-a-b-c-1.mp3"
+    },
+    "level7.sequence.A-B-C.2": {
+      "text": "Load the train: A, B, C. Find C.",
+      "file": "voice/level7-sequence-a-b-c-2.mp3"
+    },
+    "level7.sequence.C-A-T.0": {
+      "text": "Load the train: C, A, T. Find C.",
+      "file": "voice/level7-sequence-c-a-t-0.mp3"
+    },
+    "level7.sequence.C-A-T.1": {
+      "text": "Load the train: C, A, T. Find A.",
+      "file": "voice/level7-sequence-c-a-t-1.mp3"
+    },
+    "level7.sequence.C-A-T.2": {
+      "text": "Load the train: C, A, T. Find T.",
+      "file": "voice/level7-sequence-c-a-t-2.mp3"
+    },
+    "level7.sequence.D-O-G.0": {
+      "text": "Load the train: D, O, G. Find D.",
+      "file": "voice/level7-sequence-d-o-g-0.mp3"
+    },
+    "level7.sequence.D-O-G.1": {
+      "text": "Load the train: D, O, G. Find O.",
+      "file": "voice/level7-sequence-d-o-g-1.mp3"
+    },
+    "level7.sequence.D-O-G.2": {
+      "text": "Load the train: D, O, G. Find G.",
+      "file": "voice/level7-sequence-d-o-g-2.mp3"
+    },
+    "level8.success": {
+      "text": "Harvest loaded!",
+      "file": "voice/level8-success.mp3"
+    },
+    "level8.tryAgain": {
+      "text": "Try another number.",
+      "file": "voice/level8-tryagain.mp3"
+    },
+    "level8.complete": {
+      "text": "Level eight complete. The tractor is full!",
+      "file": "voice/level8-complete.mp3"
+    },
+    "level8.find.1": {
+      "text": "Load the number 1.",
+      "file": "voice/level8-find-1.mp3"
+    },
+    "level8.find.2": {
+      "text": "Load the number 2.",
+      "file": "voice/level8-find-2.mp3"
+    },
+    "level8.find.3": {
+      "text": "Load the number 3.",
+      "file": "voice/level8-find-3.mp3"
+    },
+    "level8.find.4": {
+      "text": "Load the number 4.",
+      "file": "voice/level8-find-4.mp3"
+    },
+    "level8.find.5": {
+      "text": "Load the number 5.",
+      "file": "voice/level8-find-5.mp3"
+    },
+    "level8.find.6": {
+      "text": "Load the number 6.",
+      "file": "voice/level8-find-6.mp3"
+    },
+    "level8.find.7": {
+      "text": "Load the number 7.",
+      "file": "voice/level8-find-7.mp3"
+    },
+    "level8.find.8": {
+      "text": "Load the number 8.",
+      "file": "voice/level8-find-8.mp3"
+    },
+    "level8.find.9": {
+      "text": "Load the number 9.",
+      "file": "voice/level8-find-9.mp3"
+    },
+    "level8.find.10": {
+      "text": "Load the number 10.",
+      "file": "voice/level8-find-10.mp3"
+    },
+    "level9.success": {
+      "text": "Dragon likes it!",
+      "file": "voice/level9-success.mp3"
+    },
+    "level9.tryAgain": {
+      "text": "Try another dragon sound.",
+      "file": "voice/level9-tryagain.mp3"
+    },
+    "level9.complete": {
+      "text": "Level nine complete. The dragon eggs hatched!",
+      "file": "voice/level9-complete.mp3"
+    },
+    "level9.sound.FIRE": {
+      "text": "fire starts with F. Find F.",
+      "file": "voice/level9-sound-fire.mp3"
+    },
+    "level9.sound.EGG": {
+      "text": "egg starts with E. Find E.",
+      "file": "voice/level9-sound-egg.mp3"
+    },
+    "level9.sound.WING": {
+      "text": "wing starts with W. Find W.",
+      "file": "voice/level9-sound-wing.mp3"
+    },
+    "level9.sound.GEM": {
+      "text": "gem starts with G. Find G.",
+      "file": "voice/level9-sound-gem.mp3"
+    },
+    "level9.sound.NEST": {
+      "text": "nest starts with N. Find N.",
+      "file": "voice/level9-sound-nest.mp3"
+    },
+    "level9.sound.CAVE": {
+      "text": "cave starts with C. Find C.",
+      "file": "voice/level9-sound-cave.mp3"
+    },
+    "level9.sound.MOON": {
+      "text": "moon starts with M. Find M.",
+      "file": "voice/level9-sound-moon.mp3"
+    },
+    "level9.sound.STAR": {
+      "text": "star starts with S. Find S.",
+      "file": "voice/level9-sound-star.mp3"
+    },
+    "level9.sound.SMOKE": {
+      "text": "smoke starts with S. Find S.",
+      "file": "voice/level9-sound-smoke.mp3"
+    },
+    "level9.sound.TAIL": {
+      "text": "tail starts with T. Find T.",
+      "file": "voice/level9-sound-tail.mp3"
+    },
+    "level10.success": {
+      "text": "Word power!",
+      "file": "voice/level10-success.mp3"
+    },
+    "level10.tryAgain": {
+      "text": "Try the next word letter.",
+      "file": "voice/level10-tryagain.mp3"
+    },
+    "level10.complete": {
+      "text": "Level ten complete. Big words built!",
+      "file": "voice/level10-complete.mp3"
+    },
+    "level10.build.FROG.0": {
+      "text": "Build frog. Find letter F.",
+      "file": "voice/level10-build-frog-0.mp3"
+    },
+    "level10.build.FROG.1": {
+      "text": "Build frog. Find letter R.",
+      "file": "voice/level10-build-frog-1.mp3"
+    },
+    "level10.build.FROG.2": {
+      "text": "Build frog. Find letter O.",
+      "file": "voice/level10-build-frog-2.mp3"
+    },
+    "level10.build.FROG.3": {
+      "text": "Build frog. Find letter G.",
+      "file": "voice/level10-build-frog-3.mp3"
+    },
+    "level10.build.STAR.0": {
+      "text": "Build star. Find letter S.",
+      "file": "voice/level10-build-star-0.mp3"
+    },
+    "level10.build.STAR.1": {
+      "text": "Build star. Find letter T.",
+      "file": "voice/level10-build-star-1.mp3"
+    },
+    "level10.build.STAR.2": {
+      "text": "Build star. Find letter A.",
+      "file": "voice/level10-build-star-2.mp3"
+    },
+    "level10.build.STAR.3": {
+      "text": "Build star. Find letter R.",
+      "file": "voice/level10-build-star-3.mp3"
+    },
+    "level10.build.TREE.0": {
+      "text": "Build tree. Find letter T.",
+      "file": "voice/level10-build-tree-0.mp3"
+    },
+    "level10.build.TREE.1": {
+      "text": "Build tree. Find letter R.",
+      "file": "voice/level10-build-tree-1.mp3"
+    },
+    "level10.build.TREE.2": {
+      "text": "Build tree. Find letter E.",
+      "file": "voice/level10-build-tree-2.mp3"
+    },
+    "level10.build.TREE.3": {
+      "text": "Build tree. Find letter E.",
+      "file": "voice/level10-build-tree-3.mp3"
+    },
+    "level10.build.SHIP.0": {
+      "text": "Build ship. Find letter S.",
+      "file": "voice/level10-build-ship-0.mp3"
+    },
+    "level10.build.SHIP.1": {
+      "text": "Build ship. Find letter H.",
+      "file": "voice/level10-build-ship-1.mp3"
+    },
+    "level10.build.SHIP.2": {
+      "text": "Build ship. Find letter I.",
+      "file": "voice/level10-build-ship-2.mp3"
+    },
+    "level10.build.SHIP.3": {
+      "text": "Build ship. Find letter P.",
+      "file": "voice/level10-build-ship-3.mp3"
+    },
+    "level10.build.TRAIN.0": {
+      "text": "Build train. Find letter T.",
+      "file": "voice/level10-build-train-0.mp3"
+    },
+    "level10.build.TRAIN.1": {
+      "text": "Build train. Find letter R.",
+      "file": "voice/level10-build-train-1.mp3"
+    },
+    "level10.build.TRAIN.2": {
+      "text": "Build train. Find letter A.",
+      "file": "voice/level10-build-train-2.mp3"
+    },
+    "level10.build.TRAIN.3": {
+      "text": "Build train. Find letter I.",
+      "file": "voice/level10-build-train-3.mp3"
+    },
+    "level10.build.TRAIN.4": {
+      "text": "Build train. Find letter N.",
+      "file": "voice/level10-build-train-4.mp3"
+    },
+    "level10.build.DRAGON.0": {
+      "text": "Build dragon. Find letter D.",
+      "file": "voice/level10-build-dragon-0.mp3"
+    },
+    "level10.build.DRAGON.1": {
+      "text": "Build dragon. Find letter R.",
+      "file": "voice/level10-build-dragon-1.mp3"
+    },
+    "level10.build.DRAGON.2": {
+      "text": "Build dragon. Find letter A.",
+      "file": "voice/level10-build-dragon-2.mp3"
+    },
+    "level10.build.DRAGON.3": {
+      "text": "Build dragon. Find letter G.",
+      "file": "voice/level10-build-dragon-3.mp3"
+    },
+    "level10.build.DRAGON.4": {
+      "text": "Build dragon. Find letter O.",
+      "file": "voice/level10-build-dragon-4.mp3"
+    },
+    "level10.build.DRAGON.5": {
+      "text": "Build dragon. Find letter N.",
+      "file": "voice/level10-build-dragon-5.mp3"
+    }
+  }
+}

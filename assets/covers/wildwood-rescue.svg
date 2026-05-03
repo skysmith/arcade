@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="640" height="360" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Wildwood Rescue cover</title>
+  <desc id="desc">Pixel art forest clearing with four rescuers and a small animal companion.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#9fd4cf"/>
+      <stop offset="0.48" stop-color="#f8efcf"/>
+      <stop offset="1" stop-color="#6faf62"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="360" fill="url(#sky)"/>
+  <rect y="238" width="640" height="122" fill="#4f8d58"/>
+  <rect x="0" y="270" width="640" height="90" fill="#356846"/>
+  <g opacity="0.95">
+    <rect x="20" y="92" width="42" height="180" fill="#6d4b31"/>
+    <rect x="4" y="48" width="74" height="70" fill="#245c3f"/>
+    <rect x="92" y="74" width="46" height="184" fill="#744f35"/>
+    <rect x="70" y="24" width="92" height="78" fill="#2f6d48"/>
+    <rect x="500" y="84" width="48" height="180" fill="#6d4b31"/>
+    <rect x="474" y="35" width="96" height="83" fill="#245c3f"/>
+    <rect x="574" y="103" width="36" height="158" fill="#744f35"/>
+    <rect x="552" y="64" width="72" height="64" fill="#2f6d48"/>
+  </g>
+  <path d="M148 360 C190 308 248 282 320 283 C394 284 452 310 500 360 Z" fill="#caa369"/>
+  <path d="M164 360 C211 325 260 307 321 308 C383 309 433 327 481 360 Z" fill="#e0bf7e" opacity="0.55"/>
+  <g transform="translate(180 214)" shape-rendering="crispEdges">
+    <rect x="9" y="25" width="8" height="20" fill="#2b241e"/>
+    <rect x="29" y="25" width="8" height="20" fill="#2b241e"/>
+    <rect x="7" y="3" width="32" height="10" fill="#e4635f"/>
+    <rect x="13" y="-4" width="20" height="8" fill="#e4635f"/>
+    <rect x="12" y="12" width="24" height="33" fill="#e4635f"/>
+    <rect x="15" y="7" width="18" height="14" fill="#ecd09b"/>
+    <rect x="16" y="27" width="16" height="5" fill="#ffe0a5"/>
+  </g>
+  <g transform="translate(250 226)" shape-rendering="crispEdges">
+    <rect x="9" y="25" width="8" height="20" fill="#2b241e"/>
+    <rect x="29" y="25" width="8" height="20" fill="#2b241e"/>
+    <rect x="7" y="3" width="32" height="10" fill="#4fa8d8"/>
+    <rect x="13" y="-4" width="20" height="8" fill="#4fa8d8"/>
+    <rect x="12" y="12" width="24" height="33" fill="#4fa8d8"/>
+    <rect x="15" y="7" width="18" height="14" fill="#ecd09b"/>
+    <rect x="16" y="27" width="16" height="5" fill="#d7f2ff"/>
+  </g>
+  <g transform="translate(360 224)" shape-rendering="crispEdges">
+    <rect x="9" y="25" width="8" height="20" fill="#2b241e"/>
+    <rect x="29" y="25" width="8" height="20" fill="#2b241e"/>
+    <rect x="7" y="3" width="32" height="10" fill="#a578d6"/>
+    <rect x="13" y="-4" width="20" height="8" fill="#a578d6"/>
+    <rect x="12" y="12" width="24" height="33" fill="#a578d6"/>
+    <rect x="15" y="7" width="18" height="14" fill="#ecd09b"/>
+    <rect x="16" y="27" width="16" height="5" fill="#f2e5ff"/>
+  </g>
+  <g transform="translate(315 230)" shape-rendering="crispEdges">
+    <ellipse cx="18" cy="19" rx="19" ry="12" fill="#5f8550"/>
+    <ellipse cx="30" cy="11" rx="11" ry="10" fill="#5f8550"/>
+    <polygon points="24,8 28,0 31,10" fill="#5f8550"/>
+    <polygon points="32,8 41,1 39,12" fill="#5f8550"/>
+    <rect x="11" y="8" width="16" height="5" fill="#9bc46f"/>
+    <rect x="32" y="12" width="3" height="3" fill="#142018"/>
+  </g>
+  <rect x="92" y="36" width="456" height="58" rx="8" fill="#142018" opacity="0.78"/>
+  <text x="320" y="74" text-anchor="middle" font-family="Trebuchet MS, Arial, sans-serif" font-size="38" font-weight="700" fill="#f8efcf">WILDWOOD RESCUE</text>
+</svg>

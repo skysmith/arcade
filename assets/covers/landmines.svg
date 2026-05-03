@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <rect width="800" height="520" rx="44" fill="#12161A"/>
+  <rect width="800" height="520" rx="44" fill="url(#bg)"/>
+  <g opacity=".55">
+    <circle cx="174" cy="192" r="74" fill="#242E36"/>
+    <circle cx="406" cy="274" r="92" fill="#20272E"/>
+    <circle cx="646" cy="186" r="82" fill="#242E36"/>
+  </g>
+  <g fill="#F0F5FA">
+    <circle cx="174" cy="192" r="34"/><circle cx="406" cy="274" r="40"/><circle cx="646" cy="186" r="36"/>
+  </g>
+  <g stroke="#F0F5FA" stroke-width="8" stroke-linecap="round">
+    <path d="M174 132v-24M174 276v-24M114 192H90M258 192h-24M130 148l-18-18M236 254l-18-18M218 148l18-18M112 254l18-18"/>
+    <path d="M406 214v-26M406 360v-26M338 274h-26M500 274h-26M358 226l-18-18M454 322l-18-18M454 226l18-18M358 322l18-18"/>
+    <path d="M646 126v-24M646 246v-24M586 186H562M730 186h-24M602 142l-18-18M690 230l-18-18M690 142l18-18M602 230l18-18"/>
+  </g>
+  <path d="M80 404C168 374 244 368 334 390C424 412 512 414 598 390C668 370 714 372 780 394" stroke="#FF9167" stroke-width="20" stroke-linecap="round"/>
+  <text x="58" y="84" fill="#F5FAFF" font-family="Avenir Next, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="4">LANDMINES</text>
+  <defs>
+    <linearGradient id="bg" x1="98" y1="34" x2="700" y2="486" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#202830"/>
+      <stop offset=".5" stop-color="#12171B"/>
+      <stop offset="1" stop-color="#0B0E12"/>
+    </linearGradient>
+  </defs>
+</svg>

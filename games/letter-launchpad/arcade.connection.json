@@ -1,0 +1,11 @@
+{
+  "id": "letter-launchpad",
+  "title": "Letter Launchpad",
+  "image": "./assets/covers/letter-launchpad.svg",
+  "summary": "A gentle co-op learning cabinet where players grab the matching uppercase letter and launch it together.",
+  "players": "1-4 local",
+  "controls": "Move, grab, live join",
+  "launchText": "Open cabinet",
+  "path": "./games/letter-launchpad/index.html",
+  "badge": "Level 1"
+}

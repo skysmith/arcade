@@ -1,0 +1,11 @@
+{
+  "id": "explorers-around-the-world",
+  "title": "Explorers Around The World",
+  "image": "./assets/covers/explorers-around-the-world.svg",
+  "summary": "A travel-and-learning cabinet imported from Studio, with browser play and a built-in journal panel.",
+  "players": "1 local",
+  "controls": "Keyboard and browser UI",
+  "launchText": "Open cabinet",
+  "path": "./games/explorers-around-the-world/index.html",
+  "badge": "Studio Import"
+}

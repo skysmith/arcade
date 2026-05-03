@@ -1,0 +1,700 @@
+{
+  "model": "gpt-4o-mini-tts",
+  "voice": "nova",
+  "format": "mp3",
+  "outputDir": "games/whispering-willow/assets/audio/voice",
+  "manifestPath": "games/whispering-willow/assets/audio/voice-manifest.json",
+  "instructions": "Perform a concise storybook game voice line. Keep the pacing natural, warm, and readable over gameplay. Do not add sound effects.",
+  "characters": {
+    "independent-mara-kade": {
+      "name": "Auntie Sable Marris",
+      "voice": "nova",
+      "instructions": "Perform as Auntie Sable Marris, the main NPC. Warm, grandmotherly, observant, and gently amused. Make her feel like a safe harbor with secrets under the tea kettle."
+    },
+    "union-juno-vale": {
+      "name": "Sister Nera Bloom",
+      "voice": "shimmer",
+      "instructions": "Perform as Sister Nera Bloom. Soft, careful, healer-like, and quietly urgent. Keep the voice calm even when the line is worried."
+    },
+    "salvage-dax-brindle": {
+      "name": "Pip Tidewell",
+      "voice": "coral",
+      "instructions": "Perform as Pip Tidewell. Bright, curious, quick, and beachcomber-clever. Let humor peek through without turning the line into a joke."
+    },
+    "nightglass-vey-neral": {
+      "name": "The Hooded Figure",
+      "voice": "ballad",
+      "instructions": "Perform as the hooded guide. Hushed, measured, cryptic, and kind rather than sinister. Leave tiny thoughtful pauses around important words."
+    },
+    "core-ilya-sen": {
+      "name": "Warden Elric Fen",
+      "voice": "sage",
+      "instructions": "Perform as Warden Elric Fen. Formal, dry, controlled, and a little weary. Sound like someone trying to keep order while the rulebook frays."
+    },
+    "bounty-marshal-tovin": {
+      "name": "Marshal Bramble Hart",
+      "voice": "marin",
+      "instructions": "Perform as Marshal Bramble Hart. Blunt, protective, grounded, and brisk. Keep the delivery firm but never cruel."
+    },
+    "pirate-rill-scrimshaw": {
+      "name": "Rill Scrimshaw",
+      "voice": "coral",
+      "instructions": "Perform as Rill Scrimshaw. Low, guarded, salty, and wry. Sound like trust has to be earned, but people still matter."
+    },
+    "hollow-mire-kest": {
+      "name": "Mire Kest",
+      "voice": "ballad",
+      "instructions": "Perform as Mire Kest. Mild, precise, ritual-minded, and unsettlingly calm. Speak like every word has been counted before being released."
+    },
+    "briar-ollie-lark": {
+      "name": "Ollie Lark",
+      "voice": "sage",
+      "instructions": "Perform as Ollie Lark. Plainspoken, stubborn, warm, and a little bell-bright. Let conviction carry the line."
+    },
+    "reedfall-tamsin-voss": {
+      "name": "Tamsin Voss",
+      "voice": "shimmer",
+      "instructions": "Perform as Tamsin Voss. Clear, patient, field-notebook precise, and quietly indignant when truth is dismissed."
+    }
+  },
+  "clips": [
+    {
+      "id": "thread.independent-mara-kade.opener",
+      "characterId": "independent-mara-kade",
+      "text": "Sit, eat, and let the weather leave your bones. People tell the truth by accident when they feel safe, and these islands are getting too sick for me to ignore what slips out."
+    },
+    {
+      "id": "thread.union-juno-vale.opener",
+      "characterId": "union-juno-vale",
+      "text": "The banyan hears fear before most people admit it out loud. If I am asking for help, some part of the archipelago is frightened enough to reach through root and tide for steady hands."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.opener",
+      "characterId": "salvage-dax-brindle",
+      "text": "Reef water keeps what people lose and what the islands are not ready to explain. If I send for you, it means something interesting just washed out of hiding."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.opener",
+      "characterId": "nightglass-vey-neral",
+      "text": "You have followed the channels this far without turning cruel. Good. There are truths in these islands that only answer if approached gently and in the right order."
+    },
+    {
+      "id": "thread.core-ilya-sen.opener",
+      "characterId": "core-ilya-sen",
+      "text": "Boundary stones are shifting, the ferries are nervous, and the old laws are not keeping pace. I would prefer facts over panic, but the islands are offering both."
+    },
+    {
+      "id": "thread.bounty-marshal-tovin.opener",
+      "characterId": "bounty-marshal-tovin",
+      "text": "If I send word, something with teeth, knives, or bad judgment is making the paths unsafe. Help me settle it before fear turns the whole wood meaner than it already is."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.opener",
+      "characterId": "pirate-rill-scrimshaw",
+      "text": "If this reached you, somebody in the coves already voted that you are more useful than dangerous. Do not make me regret defending that opinion."
+    },
+    {
+      "id": "thread.hollow-mire-kest.opener",
+      "characterId": "hollow-mire-kest",
+      "text": "Step lightly at the Hollow Door. It keeps better count than any ledger, and it remembers who crossed because they were desperate and who crossed because they were cruel."
+    },
+    {
+      "id": "thread.briar-ollie-lark.opener",
+      "characterId": "briar-ollie-lark",
+      "text": "If a bell remembers a name, I write it down. If someone powerful wants that name missing, I ring louder."
+    },
+    {
+      "id": "thread.reedfall-tamsin-voss.opener",
+      "characterId": "reedfall-tamsin-voss",
+      "text": "The reeds keep repeating the same names, and I have learned not to argue with water when it is trying this hard to testify."
+    },
+    {
+      "id": "thread.independent-mara-kade.mara-quiet-haul",
+      "characterId": "independent-mara-kade",
+      "text": "You kept the bundles clean. Good. Now I know you can carry a quieter truth back home without dropping it."
+    },
+    {
+      "id": "thread.independent-mara-kade.mara-dockside-whisper",
+      "characterId": "independent-mara-kade",
+      "text": "That packet was not about money. It was about who still answers when Mangrove House asks. One more run and I start introducing you properly."
+    },
+    {
+      "id": "thread.independent-mara-kade.mara-open-door",
+      "characterId": "independent-mara-kade",
+      "text": "Doors are opening for you now. Not because you asked, but because you came back every time you said you would."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.dax-cinder-sweep",
+      "characterId": "salvage-dax-brindle",
+      "text": "Clean recovery. There is another wreck in Lantern Quay carrying a fragment of something older than the boat itself. Interested?"
+    },
+    {
+      "id": "thread.salvage-dax-brindle.dax-ledger-fragment",
+      "characterId": "salvage-dax-brindle",
+      "text": "The fragment names ferries that should not have vanished. Driftwood Rest still has people who remember that handwriting."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.dax-red-ledger",
+      "characterId": "salvage-dax-brindle",
+      "text": "You did not just pull wreckage. You pulled memory. Most travelers never notice the difference."
+    },
+    {
+      "id": "thread.union-juno-vale.juno-relief-drop",
+      "characterId": "union-juno-vale",
+      "text": "Clinic got the medicine. Now I need proof of who made them wait in the first place."
+    },
+    {
+      "id": "thread.union-juno-vale.juno-convoy-proof",
+      "characterId": "union-juno-vale",
+      "text": "Reefspan listened. Ferry families always do when the paperwork starts naming names. One last packet and this becomes policy instead of a complaint."
+    },
+    {
+      "id": "thread.union-juno-vale.juno-union-voice",
+      "characterId": "union-juno-vale",
+      "text": "That is how a crossing changes: one traveler, one delivery, one piece of proof at a time. You did right by people who will never know your name."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.rill-cove-supper",
+      "characterId": "pirate-rill-scrimshaw",
+      "text": "Good. Nobody starved loudly enough to get noticed. Now I need you for something worse than hunger: proof. I found a ferry tally the wardens will hate and the coves are tired of losing arguments they were never allowed to enter."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.rill-reef-ledger",
+      "characterId": "pirate-rill-scrimshaw",
+      "text": "You got the tally into open hands and came back anyway. That buys a kind of trust. One last run now: names, closures, witness marks. If the underways are going to stay alive, somebody has to carry their testimony where it can still bite."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.rill-tide-testimony",
+      "characterId": "pirate-rill-scrimshaw",
+      "text": "That is enough to make the right people uncomfortable, which means it might also be enough to keep a few coves alive. You did not fix the islands. You did something rarer. You made it harder for them to lie cleanly about who they pushed into the dark."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.mystery-relief-freight",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform with quiet warning and a touch of sorrow. Let the line feel like a careful private aside.",
+      "text": "Mercy run is such a useful phrase. Half the time it means medicine. The other half it means someone wants leverage to arrive wearing a compassionate face. Your Whispering Banyan handoff smelled like the second kind."
+    },
+    {
+      "id": "thread.core-ilya-sen.mystery-relief-freight",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform with clipped official restraint, then let mild alarm leak through near the end.",
+      "text": "For the record, the Whispering Banyan bundle was filed as routine civic relief. The speed with which that classification appeared is mildly interesting in a way I dislike."
+    },
+    {
+      "id": "thread.union-juno-vale.mystery-relief-freight",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform as controlled anger under a healer's calm. Do not shout; make the concern feel personal.",
+      "text": "If anyone starts calling that Whispering Banyan run routine relief, they're laundering the story. Real relief jobs do not arrive with pre-cleared signatures and people already waiting in pressed coats."
+    },
+    {
+      "id": "thread.independent-mara-kade.mystery-manifest-anomaly",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform like a warm warning from someone who has watched this trick before.",
+      "text": "Funny thing about forged ledgers: the dangerous ones are not the sloppy ones. The dangerous ones look so routine everybody downstream agrees to remember them that way."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.mystery-manifest-anomaly",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform with cryptic certainty, soft and nearly sympathetic.",
+      "text": "The Wardens will call that addendum fraudulent because it arrived early. I would call it well sponsored. Timing like that usually means someone on both sides already agreed what the truth would be."
+    },
+    {
+      "id": "thread.union-juno-vale.mystery-manifest-anomaly",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform as quiet moral outrage, precise and compassionate.",
+      "text": "That paperwork hit the board before the people harmed by it even got asked. That is not clerical drift. That is somebody building policy out of a lie while the quay is still busy unloading."
+    },
+    {
+      "id": "thread.core-ilya-sen.mystery-escort-trace",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform as a formal report that becomes personally troubling despite itself.",
+      "text": "Saint Radiant should exist in three ledgers, two witness rolls, and one ferry memorial index. At present it exists in fragments and denials, which is administratively impossible and therefore politically real."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.mystery-escort-trace",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform as a hush before a reveal. Calm, knowing, and unhurried.",
+      "text": "Boats do not vanish cleanly unless several institutions are paid to remember less than they know. Saint Radiant keeps surfacing because somebody important failed to buy every witness."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.mystery-escort-trace",
+      "characterId": "salvage-dax-brindle",
+      "instructions": "Perform with quick beachcomber wit that turns serious on the last sentence.",
+      "text": "The wood says ferry craft. The paperwork says clerical loss. The people who say clerical loss usually have softer hands than the people who built the thing."
+    },
+    {
+      "id": "thread.independent-mara-kade.mystery-ninth-berth",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform like a fireside secret, warm but very alert.",
+      "text": "If somebody says Ninth Lintel like it is a place instead of a rumor, pay attention. Doors only get spoken that carefully when too many factions still owe them money."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.mystery-ninth-berth",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform with slow, elegant certainty, as though naming a door that should stay half hidden.",
+      "text": "Ninth Lintel is not a quay. It is an agreement people retreat into when official maps become inconvenient. If you heard the name twice, you are already closer than most travelers get."
+    },
+    {
+      "id": "thread.core-ilya-sen.mystery-ninth-berth",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform dryly, with bureaucratic irritation edging into dread.",
+      "text": "There is no licensed threshold by that designation. There are, however, several sealed references to route work that required unrecorded Warden handling. I dislike that sentence more every time I read it."
+    },
+    {
+      "id": "thread.hollow-mire-kest.mystery-hollow-door-knock",
+      "characterId": "hollow-mire-kest",
+      "instructions": "Perform almost ritualistically, calm and exact, with a soft gravity on 'the door'.",
+      "text": "You reached The Hollow Door. Good. The door took the trace, which means Saint Radiant was carried through a route several respectable people still rely on while calling it criminal."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.mystery-hollow-door-knock",
+      "characterId": "pirate-rill-scrimshaw",
+      "instructions": "Perform low and guarded, but let approval show through unwillingly.",
+      "text": "Hollow Door, then. Told you the underways were not a campfire story. If Mire let you stand there, somebody already decided you might carry names without selling them."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.mystery-hollow-door-knock",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform as a careful boundary-setting confession, gentle but firm.",
+      "text": "The Hollow Door is not mine. That distinction matters. Moonglass knows how to pay for a threshold; Mire knows when a threshold should refuse payment."
+    },
+    {
+      "id": "thread.briar-ollie-lark.mystery-briar-bell",
+      "characterId": "briar-ollie-lark",
+      "instructions": "Perform plainspoken and stubborn, like someone proud of a small truth that cannot be bullied.",
+      "text": "The clapper rang for a welcome-roll name that was scraped out, not lost. Bells are useful that way. They embarrass the paperwork."
+    },
+    {
+      "id": "thread.independent-mara-kade.mystery-briar-bell",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform warmly, with a sharp little smile underneath.",
+      "text": "Briar Hearth keeps the kind of memory polite people call quaint right up until it proves their filing cabinets lied."
+    },
+    {
+      "id": "thread.reedfall-tamsin-voss.mystery-reedfall-witnesses",
+      "characterId": "reedfall-tamsin-voss",
+      "instructions": "Perform with patient field-note precision that hardens into resolve.",
+      "text": "The stakes answered. Three ferry names, one bad closure, and a trail of families pushed into water everyone later called unsafe. I am done letting officials call that folklore."
+    },
+    {
+      "id": "thread.union-juno-vale.mystery-reedfall-witnesses",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform tenderly, as gratitude with grief beneath it.",
+      "text": "Reedfall has always sounded too gentle for how much grief it holds. Thank you for bringing Ollie's bell there before anyone could file the problem into fog."
+    },
+    {
+      "id": "thread.reedfall-tamsin-voss.mystery-rootmirror-lanterns",
+      "characterId": "reedfall-tamsin-voss",
+      "instructions": "Perform steadily, treating the names as living evidence rather than a dramatic reveal.",
+      "text": "Rootmirror matched the paired lanterns. These are not abstract missing names anymore. They are households, routes, children, and people who learned to vanish because open travel stopped protecting them."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.mystery-rootmirror-lanterns",
+      "characterId": "pirate-rill-scrimshaw",
+      "instructions": "Perform protective and stern, like someone guarding vulnerable people from well-meaning harm.",
+      "text": "Careful with those lantern names. They are proof, yes, but they are also people. Bring them into daylight wrong and you will do the wardens' work for them."
+    },
+    {
+      "id": "thread.independent-mara-kade.mystery-low-water-council",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform as homecoming before a hard meeting: warm, capable, and quietly fierce.",
+      "text": "Mangrove House can host a hard truth without letting anyone turn it into theater. Bring them home. I will keep the stew hot and the wrong listeners outside."
+    },
+    {
+      "id": "thread.core-ilya-sen.mystery-low-water-council",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform dryly, with reluctant respect and a little exhaustion.",
+      "text": "A council at Mangrove House has no formal standing. It may, regrettably, have more legitimacy than several formal hearings I have attended."
+    },
+    {
+      "id": "thread.hollow-mire-kest.mystery-low-water-council",
+      "characterId": "hollow-mire-kest",
+      "instructions": "Perform with ritual calm and a warning folded inside the kindness.",
+      "text": "Once the names are spoken together, nobody gets to own them alone. That is the point. That is also why several people will try."
+    },
+    {
+      "id": "thread.independent-mara-kade.arrival-active",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform as a warm but focused nudge from Sable when the player reaches the right place.",
+      "text": "Good, you made it close enough for the work to start breathing. Keep your hands steady and bring the truth home clean."
+    },
+    {
+      "id": "thread.independent-mara-kade.arrival-available",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform like a fireside invitation with practical urgency underneath.",
+      "text": "Now that you are here, I can offer you a better angle. Open the thread when you are ready to carry something that matters."
+    },
+    {
+      "id": "thread.independent-mara-kade.accept",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform as approving, gently amused, and reassuring.",
+      "text": "Good. I knew you had the look of someone who comes back when they say they will. Take the work and keep the path kind."
+    },
+    {
+      "id": "thread.independent-mara-kade.drop",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform as forgiving, practical, and protective.",
+      "text": "All right. Better to set a bad route down than drag it until it hurts someone. The door will still know your knock."
+    },
+    {
+      "id": "thread.independent-mara-kade.completion-payout",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform with brisk warmth, like settling a fair tab.",
+      "text": "Good. Your side of the ledger is settled, and I made sure the right people noticed who carried it."
+    },
+    {
+      "id": "thread.independent-mara-kade.completion-followup",
+      "characterId": "independent-mara-kade",
+      "instructions": "Perform as warm praise with a secret tucked into the edges.",
+      "text": "That run did more than close a job. It taught the room your name, and rooms remember more than people think."
+    },
+    {
+      "id": "thread.union-juno-vale.arrival-active",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform calm but urgent, like a healer seeing help arrive just in time.",
+      "text": "Good, you are close now. Please do not drift. The people tied to this are real, and delay has a cost."
+    },
+    {
+      "id": "thread.union-juno-vale.arrival-available",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform as a quiet appeal to conscience, gentle but firm.",
+      "text": "Your arrival makes one of my waiting jobs possible. Open the thread if you can give this your full attention."
+    },
+    {
+      "id": "thread.union-juno-vale.accept",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform with soft gratitude and careful urgency.",
+      "text": "Thank you. I would not ask if there were an easier kindness available. Carry it carefully, and come back whole."
+    },
+    {
+      "id": "thread.union-juno-vale.drop",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform disappointed but understanding, never scolding.",
+      "text": "I understand. A promise made badly helps no one. Set it down cleanly, and we will look for another way through."
+    },
+    {
+      "id": "thread.union-juno-vale.completion-payout",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform with relieved gratitude.",
+      "text": "The handoff is confirmed, and your payment is cleared. Thank you for treating this like people, not paperwork."
+    },
+    {
+      "id": "thread.union-juno-vale.completion-followup",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform tender, relieved, and quietly resolute.",
+      "text": "What you carried is already moving outward. Somewhere tonight, someone breathes easier because you did not drift."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.arrival-active",
+      "characterId": "salvage-dax-brindle",
+      "instructions": "Perform bright and eager, then slightly serious on the last phrase.",
+      "text": "Good, you are close now. The job should smell different up close. Bring back the piece that tells the story, not just the piece that sells."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.arrival-available",
+      "characterId": "salvage-dax-brindle",
+      "instructions": "Perform as delighted curiosity, quick and inviting.",
+      "text": "You are near something worth pulling apart. Open the thread if you are in the mood for honest scrap and inconvenient history."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.accept",
+      "characterId": "salvage-dax-brindle",
+      "instructions": "Perform with cheerful confidence and a little curiosity.",
+      "text": "Lovely. Take your time and keep your eyes open. The useful bit is usually hiding beside the shiny bit."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.drop",
+      "characterId": "salvage-dax-brindle",
+      "instructions": "Perform lightly, forgiving, with a shrug in the voice.",
+      "text": "Fair enough. Better to leave a mystery floating than turn yourself into part of it. We can chase another clue later."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.completion-payout",
+      "characterId": "salvage-dax-brindle",
+      "instructions": "Perform as quick, pleased, and practical.",
+      "text": "Good pull. I told the yard to release your cut before anyone got clever with the numbers."
+    },
+    {
+      "id": "thread.salvage-dax-brindle.completion-followup",
+      "characterId": "salvage-dax-brindle",
+      "instructions": "Perform with wonder underneath the joke.",
+      "text": "You brought back the right piece. That is rarer than people think. Metal sells, but memory keeps moving."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.arrival-active",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform hushed and precise, with restrained urgency.",
+      "text": "Now that you are close, discretion matters more than speed. Finish gently, and do not teach the wrong people where to look."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.arrival-available",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform mysterious but kind, as an invitation through a half-open door.",
+      "text": "This place opens certain doors. I have one waiting for you, but I would prefer you read it somewhere private."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.accept",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform with soft approval and a careful warning.",
+      "text": "Accepted, then. Move as if the path is listening, because it is. Kindness and secrecy both require discipline."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.drop",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform without judgment, quiet and philosophical.",
+      "text": "A closed door is not always a failure. Sometimes it is the first honest thing a traveler says to a path."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.completion-payout",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform as elegant, quiet confirmation.",
+      "text": "That arrived where it needed to. Your deposit is sent, and the route has already begun forgetting your footprints."
+    },
+    {
+      "id": "thread.nightglass-vey-neral.completion-followup",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform as a cryptic compliment, gentle and composed.",
+      "text": "You handled the silence well. Some doors open wider for travelers who do not need to force them."
+    },
+    {
+      "id": "thread.core-ilya-sen.arrival-active",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform dryly, official, with reluctant concern.",
+      "text": "The ledger notes your arrival. The assignment remains active. Please behave like someone capable of finishing a clean crossing."
+    },
+    {
+      "id": "thread.core-ilya-sen.arrival-available",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform as formal notice with a little tired humanity.",
+      "text": "Your presence makes one pending matter newly relevant. Review the thread and decide whether you intend to be useful."
+    },
+    {
+      "id": "thread.core-ilya-sen.accept",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform clipped, formal, and cautiously approving.",
+      "text": "Accepted. I have logged your involvement, which I am choosing to regard as a stabilizing development."
+    },
+    {
+      "id": "thread.core-ilya-sen.drop",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform formally, with dry restraint and no cruelty.",
+      "text": "Noted. I would rather close a file honestly than pretend a failing route is still controlled. We will reassess."
+    },
+    {
+      "id": "thread.core-ilya-sen.completion-payout",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform as an official receipt with restrained relief.",
+      "text": "Receipt confirmed. Your transfer is released, and the record survived contact with events. Progress."
+    },
+    {
+      "id": "thread.core-ilya-sen.completion-followup",
+      "characterId": "core-ilya-sen",
+      "instructions": "Perform dryly, with reluctant respect.",
+      "text": "The file is cleaner than I expected. Please understand that, from me, this is nearly praise."
+    },
+    {
+      "id": "thread.bounty-marshal-tovin.arrival-active",
+      "characterId": "bounty-marshal-tovin",
+      "instructions": "Perform blunt, protective, and focused.",
+      "text": "Good, you are close. The problem is no longer theoretical, so keep your head clear and make the crossing safer."
+    },
+    {
+      "id": "thread.bounty-marshal-tovin.arrival-available",
+      "characterId": "bounty-marshal-tovin",
+      "instructions": "Perform like a practical field call from someone who wants people protected.",
+      "text": "Your position puts one of my open problems within reach. If you want the work, I would rather hand it to you than to a loud amateur."
+    },
+    {
+      "id": "thread.bounty-marshal-tovin.accept",
+      "characterId": "bounty-marshal-tovin",
+      "instructions": "Perform brisk approval, firm but warm.",
+      "text": "Good. Keep it clean, keep people breathing, and do not let fear make your decisions for you."
+    },
+    {
+      "id": "thread.bounty-marshal-tovin.drop",
+      "characterId": "bounty-marshal-tovin",
+      "instructions": "Perform blunt but understanding.",
+      "text": "Fine. Better to stand down than make a mess you cannot carry. Report back when you have steadier footing."
+    },
+    {
+      "id": "thread.bounty-marshal-tovin.completion-payout",
+      "characterId": "bounty-marshal-tovin",
+      "instructions": "Perform as a brisk field confirmation.",
+      "text": "The board is updated and your payout is cleared. The crossing is a little less stupid for it."
+    },
+    {
+      "id": "thread.bounty-marshal-tovin.completion-followup",
+      "characterId": "bounty-marshal-tovin",
+      "instructions": "Perform protective, grounded, and approving.",
+      "text": "That helped. Not perfectly, because nothing out here is perfect, but enough that someone gets home with less fear in their pack."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.arrival-active",
+      "characterId": "pirate-rill-scrimshaw",
+      "instructions": "Perform guarded and low, with hard-earned trust beneath it.",
+      "text": "You are close now. Good. Keep your lantern low and your mouth lower. The names you carry are not cargo."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.arrival-available",
+      "characterId": "pirate-rill-scrimshaw",
+      "instructions": "Perform wary, salty, and quietly urgent.",
+      "text": "Since you are in the right water, I have work worth risking. Open the thread if you can move without selling people out."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.accept",
+      "characterId": "pirate-rill-scrimshaw",
+      "instructions": "Perform as grudging approval, guarded but sincere.",
+      "text": "Fine. You are in. Do the work clean, ask fewer loud questions, and remember these routes carry people before they carry proof."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.drop",
+      "characterId": "pirate-rill-scrimshaw",
+      "instructions": "Perform guarded disappointment without melodrama.",
+      "text": "Set it down, then. Better that than dragging frightened people through a promise you cannot keep."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.completion-payout",
+      "characterId": "pirate-rill-scrimshaw",
+      "instructions": "Perform low, practical, and grudgingly pleased.",
+      "text": "Payment moved. Do not look too grateful; it will make us both uncomfortable."
+    },
+    {
+      "id": "thread.pirate-rill-scrimshaw.completion-followup",
+      "characterId": "pirate-rill-scrimshaw",
+      "instructions": "Perform with guarded respect and protective seriousness.",
+      "text": "You carried it without making a spectacle. That counts for more than shore people understand."
+    },
+    {
+      "id": "thread.hollow-mire-kest.arrival-active",
+      "characterId": "hollow-mire-kest",
+      "instructions": "Perform ritual-calm and precise, as if counting a threshold.",
+      "text": "You have arrived near the mark. Good. Step carefully. Some doors remember the manner of your crossing."
+    },
+    {
+      "id": "thread.hollow-mire-kest.arrival-available",
+      "characterId": "hollow-mire-kest",
+      "instructions": "Perform softly, formal, and strange in a kind way.",
+      "text": "Your arrival completes the first count. A quiet request is waiting, if you are willing to carry it without owning it."
+    },
+    {
+      "id": "thread.hollow-mire-kest.accept",
+      "characterId": "hollow-mire-kest",
+      "instructions": "Perform as ceremonial acknowledgment.",
+      "text": "Accepted. The chalk will remember that you took the mark willingly, and that matters more than it appears."
+    },
+    {
+      "id": "thread.hollow-mire-kest.drop",
+      "characterId": "hollow-mire-kest",
+      "instructions": "Perform with quiet mercy and exactness.",
+      "text": "Then the mark returns to waiting. No shame. A threshold should not be crossed by someone already turning back."
+    },
+    {
+      "id": "thread.hollow-mire-kest.completion-payout",
+      "characterId": "hollow-mire-kest",
+      "instructions": "Perform as a ritual receipt, gentle and exact.",
+      "text": "The exchange is balanced. Your share has crossed, and the mark has been counted."
+    },
+    {
+      "id": "thread.hollow-mire-kest.completion-followup",
+      "characterId": "hollow-mire-kest",
+      "instructions": "Perform calmly, with old weight behind simple words.",
+      "text": "You carried the truth without cheapening it. The door notices such things, even when people do not."
+    },
+    {
+      "id": "thread.briar-ollie-lark.arrival-active",
+      "characterId": "briar-ollie-lark",
+      "instructions": "Perform bright, stubborn, and plainspoken.",
+      "text": "There you are. Good. If the work has a name attached, bring it back loud enough that nobody can scrape it out again."
+    },
+    {
+      "id": "thread.briar-ollie-lark.arrival-available",
+      "characterId": "briar-ollie-lark",
+      "instructions": "Perform as a clear invitation, practical and earnest.",
+      "text": "You are close enough for the bell to matter. Open the thread if you are ready to help a missing name be heard."
+    },
+    {
+      "id": "thread.briar-ollie-lark.accept",
+      "characterId": "briar-ollie-lark",
+      "instructions": "Perform warmly and with conviction.",
+      "text": "Good. Write it down, carry it straight, and do not let anyone call a missing name a small thing."
+    },
+    {
+      "id": "thread.briar-ollie-lark.drop",
+      "characterId": "briar-ollie-lark",
+      "instructions": "Perform disappointed but steady.",
+      "text": "All right. A bell can wait longer than people think. Just do not mistake waiting for forgetting."
+    },
+    {
+      "id": "thread.briar-ollie-lark.completion-payout",
+      "characterId": "briar-ollie-lark",
+      "instructions": "Perform bright and practical.",
+      "text": "Settled. I rang the payment through before anyone could pretend they misplaced it."
+    },
+    {
+      "id": "thread.briar-ollie-lark.completion-followup",
+      "characterId": "briar-ollie-lark",
+      "instructions": "Perform with warm conviction, like a bell rung for one person.",
+      "text": "That name is harder to lose now. Maybe not safe yet, but louder, and louder is a start."
+    },
+    {
+      "id": "thread.reedfall-tamsin-voss.arrival-active",
+      "characterId": "reedfall-tamsin-voss",
+      "instructions": "Perform precise, patient, and quietly urgent.",
+      "text": "Good, you are near the line now. Move carefully. Witnesses can be damaged by haste as easily as by silence."
+    },
+    {
+      "id": "thread.reedfall-tamsin-voss.arrival-available",
+      "characterId": "reedfall-tamsin-voss",
+      "instructions": "Perform as a field-note request with suppressed emotion.",
+      "text": "Your arrival puts a waiting record within reach. Open the thread if you are ready to treat testimony as something living."
+    },
+    {
+      "id": "thread.reedfall-tamsin-voss.accept",
+      "characterId": "reedfall-tamsin-voss",
+      "instructions": "Perform clear, grateful, and exact.",
+      "text": "Accepted. Thank you. Follow the marks, trust what repeats, and do not let anyone call careful evidence superstition."
+    },
+    {
+      "id": "thread.reedfall-tamsin-voss.drop",
+      "characterId": "reedfall-tamsin-voss",
+      "instructions": "Perform measured and understanding, with a little sadness.",
+      "text": "Understood. A bad survey harms the record. We will return when the route can be walked honestly."
+    },
+    {
+      "id": "thread.reedfall-tamsin-voss.completion-payout",
+      "characterId": "reedfall-tamsin-voss",
+      "instructions": "Perform as precise confirmation with quiet gratitude.",
+      "text": "Confirmed. Your payment is cleared, and I have added your route to the record."
+    },
+    {
+      "id": "thread.reedfall-tamsin-voss.completion-followup",
+      "characterId": "reedfall-tamsin-voss",
+      "instructions": "Perform with calm conviction and restrained emotion.",
+      "text": "The witness line is stronger now. Not because it is dramatic, but because it was carried carefully."
+    },
+    {
+      "id": "campaign.dawn-bell-teaser",
+      "characterId": "briar-ollie-lark",
+      "instructions": "Perform as a campaign teaser: bright, intimate, and inviting, with a little mystery.",
+      "text": "At dawn, the cracked bell rang by itself. Not loudly. Not for danger. It rang like somebody far away had finally remembered the way home."
+    },
+    {
+      "id": "campaign.river-child-teaser",
+      "characterId": "union-juno-vale",
+      "instructions": "Perform as a gentle campaign teaser for a child-centered mystery. Protective, soft, and wondrous.",
+      "text": "The child by the river does not ask for rescue. She asks if anyone else can hear the island breathing under the mud."
+    },
+    {
+      "id": "campaign.weather-vane-teaser",
+      "characterId": "salvage-dax-brindle",
+      "instructions": "Perform as an adventurous clue teaser, quick and delighted, then slightly uneasy.",
+      "text": "I found a weather vane buried under three feet of reef silt, still pointing inland. Either the storm got lost, or the island moved while nobody was watching."
+    },
+    {
+      "id": "campaign.last-lantern-teaser",
+      "characterId": "nightglass-vey-neral",
+      "instructions": "Perform as a quiet late-game teaser, mysterious but not ominous. Give it a bedtime-story hush.",
+      "text": "When the last lantern goes out, do not chase the dark. Stand still. Some paths only appear when they believe you are no longer hunting them."
+    }
+  ]
+}

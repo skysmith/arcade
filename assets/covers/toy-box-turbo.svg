@@ -1,0 +1,19 @@
+<svg width="640" height="480" viewBox="0 0 640 480" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="480" rx="28" fill="#F6E6BF"/>
+  <rect x="30" y="30" width="580" height="420" rx="24" fill="#FFF7E3"/>
+  <circle cx="110" cy="96" r="42" fill="#FFD66B"/>
+  <circle cx="522" cy="112" r="56" fill="#8FD1FF"/>
+  <rect x="88" y="292" width="464" height="88" rx="44" fill="#D6B26E"/>
+  <rect x="118" y="314" width="404" height="44" rx="22" fill="#7C5834"/>
+  <rect x="144" y="206" width="126" height="64" rx="18" fill="#6AC8FF"/>
+  <rect x="370" y="194" width="126" height="64" rx="18" fill="#FF8F64"/>
+  <circle cx="174" cy="274" r="28" fill="#2C2E3D"/>
+  <circle cx="240" cy="274" r="28" fill="#2C2E3D"/>
+  <circle cx="400" cy="262" r="28" fill="#2C2E3D"/>
+  <circle cx="466" cy="262" r="28" fill="#2C2E3D"/>
+  <path d="M181 226H233" stroke="#FFF4D8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M407 214H459" stroke="#FFF4D8" stroke-width="12" stroke-linecap="round"/>
+  <path d="M76 404C162 364 280 348 400 348C474 348 536 354 564 360" stroke="#75B552" stroke-width="16" stroke-linecap="round"/>
+  <text x="320" y="120" text-anchor="middle" fill="#15324A" font-size="56" font-family="Trebuchet MS, sans-serif" font-weight="700">Toy Box</text>
+  <text x="320" y="168" text-anchor="middle" fill="#15324A" font-size="56" font-family="Trebuchet MS, sans-serif" font-weight="700">Tanks</text>
+</svg>

@@ -1,0 +1,26 @@
+<svg width="640" height="896" viewBox="0 0 640 896" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="896" rx="36" fill="#06111A"/>
+  <rect x="24" y="24" width="592" height="848" rx="28" fill="url(#bg)" stroke="rgba(121,216,255,0.25)"/>
+  <circle cx="506" cy="164" r="74" fill="url(#sun)" fill-opacity="0.95"/>
+  <circle cx="165" cy="253" r="118" fill="#0C1D30" stroke="#214660" stroke-width="10"/>
+  <path d="M98 302C144 267 198 245 256 239C287 236 320 241 338 258C355 274 360 297 358 316C355 345 337 374 312 395C286 418 251 435 216 448C186 459 155 469 128 465C94 460 69 437 61 407C53 375 65 327 98 302Z" fill="#132C45"/>
+  <path d="M183 453L251 427L221 523L183 453Z" fill="#FFCE73"/>
+  <path d="M389 472L287 519L318 452L286 410L396 423L447 356L463 426L538 446L468 478L470 552L414 500L347 532L389 472Z" fill="#7AD8FF"/>
+  <path d="M338 524C365 489 404 472 443 471C481 469 519 484 543 513C569 543 577 588 563 626C549 662 513 690 472 701C429 712 380 706 346 676C314 647 299 603 306 566C309 550 319 536 338 524Z" fill="#0E2337" stroke="#2B5E7F" stroke-width="8"/>
+  <path d="M126 633C162 617 198 607 231 608C268 609 300 625 322 650C345 676 358 711 350 740C342 770 314 793 280 805C246 817 204 818 171 804C137 790 112 763 105 730C98 696 108 660 126 633Z" fill="#10253A"/>
+  <path d="M174 675L223 651L213 706L261 732L210 748L198 802L167 758L115 769L146 727L121 680L174 675Z" fill="#FF8E83"/>
+  <text x="68" y="92" fill="#EEF7FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="30" letter-spacing="0.22em">ARCADE CABINET</text>
+  <text x="68" y="760" fill="#EEF7FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="84" font-weight="700">JUMP</text>
+  <text x="68" y="838" fill="#7AD8FF" font-family="Avenir Next, Segoe UI, sans-serif" font-size="84" font-weight="700">WAKE</text>
+  <text x="68" y="873" fill="#A8BDD1" font-family="Avenir Next, Segoe UI, sans-serif" font-size="24" letter-spacing="0.12em">TRADE, FIGHT, BOARD, CAPTURE</text>
+  <defs>
+    <linearGradient id="bg" x1="80" y1="44" x2="568" y2="852" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1B2A"/>
+      <stop offset="1" stop-color="#07111A"/>
+    </linearGradient>
+    <radialGradient id="sun" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(506 164) rotate(90) scale(74)">
+      <stop stop-color="#FFE0A1"/>
+      <stop offset="1" stop-color="#FFB95E"/>
+    </radialGradient>
+  </defs>
+</svg>

@@ -1,0 +1,11 @@
+{
+  "id": "tetris",
+  "title": "Tetris",
+  "image": "./assets/covers/tetris.svg",
+  "summary": "Controller-friendly browser Tetris with classic single-board play and a four-board chaos mode when you want one pad steering every lane.",
+  "players": "1-4 local",
+  "controls": "D-pad, face buttons, start",
+  "launchText": "Open cabinet",
+  "path": "./games/tetris/index.html",
+  "badge": "Controller Ready"
+}

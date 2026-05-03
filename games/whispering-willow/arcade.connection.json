@@ -1,0 +1,11 @@
+{
+  "id": "whispering-willow",
+  "title": "Whispering Willow",
+  "image": "./assets/covers/whispering-willow-cover.png",
+  "summary": "A peaceful controller-first story adventure with voiced messages, forest crossings, route-helping jobs, and up to four local travelers.",
+  "players": "1 local",
+  "controls": "D-pad, face buttons, bumpers, start",
+  "launchText": "Open cabinet",
+  "path": "./games/whispering-willow/index.html",
+  "badge": "Story Adventure"
+}

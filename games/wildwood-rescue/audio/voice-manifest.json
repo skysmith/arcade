@@ -1,0 +1,160 @@
+{
+  "generatedAt": "2026-04-22T06:21:37.982Z",
+  "disclosure": "Voice clips are AI-generated character performances.",
+  "model": "gpt-4o-mini-tts",
+  "format": "mp3",
+  "characters": {
+    "elder-rowan": {
+      "name": "Elder Rowan",
+      "voice": "sage"
+    },
+    "miri-brookscribe": {
+      "name": "Miri Brookscribe",
+      "voice": "shimmer"
+    },
+    "sable-mender": {
+      "name": "Sable Mender",
+      "voice": "nova"
+    },
+    "lio-lantern": {
+      "name": "Lio Lantern",
+      "voice": "marin"
+    },
+    "talla-knotwise": {
+      "name": "Talla Knotwise",
+      "voice": "coral"
+    },
+    "brin-oathleaf": {
+      "name": "Brin Oathleaf",
+      "voice": "onyx"
+    }
+  },
+  "clips": {
+    "npc.elder-rowan.line-1": {
+      "text": "The little ones are not attacking. They are frightened, and fear borrows claws when nobody listens.",
+      "file": "voice/npc-elder-rowan-line-1.mp3",
+      "characterId": "elder-rowan",
+      "characterName": "Elder Rowan",
+      "voice": "sage"
+    },
+    "npc.elder-rowan.line-2": {
+      "text": "Three old bellstones have gone quiet beyond this clearing. If you wake them in the wrong order, the hush in the thickets folds tighter.",
+      "file": "voice/npc-elder-rowan-line-2.mp3",
+      "characterId": "elder-rowan",
+      "characterName": "Elder Rowan",
+      "voice": "sage"
+    },
+    "npc.elder-rowan.line-3": {
+      "text": "Begin where roots remember. The Heartroot bellstone must hear a trusted companion before any other note will answer.",
+      "file": "voice/npc-elder-rowan-line-3.mp3",
+      "characterId": "elder-rowan",
+      "characterName": "Elder Rowan",
+      "voice": "sage"
+    },
+    "npc.miri-brookscribe.line-1": {
+      "text": "I write down every rustle twice: once for what happened, and once for what the creature thought happened.",
+      "file": "voice/npc-miri-brookscribe-line-1.mp3",
+      "characterId": "miri-brookscribe",
+      "characterName": "Miri Brookscribe",
+      "voice": "shimmer"
+    },
+    "npc.miri-brookscribe.line-2": {
+      "text": "If a Mosskit trusts you, watch how its ears turn. It hears safe paths before the map admits they exist.",
+      "file": "voice/npc-miri-brookscribe-line-2.mp3",
+      "characterId": "miri-brookscribe",
+      "characterName": "Miri Brookscribe",
+      "voice": "shimmer"
+    },
+    "npc.miri-brookscribe.line-3": {
+      "text": "My second note is always water. Root first, brook second; that pattern keeps appearing beside every closed thicket.",
+      "file": "voice/npc-miri-brookscribe-line-3.mp3",
+      "characterId": "miri-brookscribe",
+      "characterName": "Miri Brookscribe",
+      "voice": "shimmer"
+    },
+    "npc.sable-mender.line-1": {
+      "text": "No bites today, only bruised feelings and burrs under the paws. I can work with that.",
+      "file": "voice/npc-sable-mender-line-1.mp3",
+      "characterId": "sable-mender",
+      "characterName": "Sable Mender",
+      "voice": "nova"
+    },
+    "npc.sable-mender.line-2": {
+      "text": "Care moves first. Questions second. That order keeps everyone alive long enough to answer.",
+      "file": "voice/npc-sable-mender-line-2.mp3",
+      "characterId": "sable-mender",
+      "characterName": "Sable Mender",
+      "voice": "nova"
+    },
+    "npc.sable-mender.line-3": {
+      "text": "The burrs on the rescued animals are tied in little knots. Not snares, exactly. Wards that forgot what they were protecting.",
+      "file": "voice/npc-sable-mender-line-3.mp3",
+      "characterId": "sable-mender",
+      "characterName": "Sable Mender",
+      "voice": "nova"
+    },
+    "npc.lio-lantern.line-1": {
+      "text": "I mark the places where the light turns greenish-gold. Those are usually glades trying to be found.",
+      "file": "voice/npc-lio-lantern-line-1.mp3",
+      "characterId": "lio-lantern",
+      "characterName": "Lio Lantern",
+      "voice": "marin"
+    },
+    "npc.lio-lantern.line-2": {
+      "text": "Your party has to stay in one view. The woods split lonely people into stories that do not end well.",
+      "file": "voice/npc-lio-lantern-line-2.mp3",
+      "characterId": "lio-lantern",
+      "characterName": "Lio Lantern",
+      "voice": "marin"
+    },
+    "npc.lio-lantern.line-3": {
+      "text": "Lanterns go last. If root and brook are awake, the Lantern bellstone should point toward whoever tied the hush-knots.",
+      "file": "voice/npc-lio-lantern-line-3.mp3",
+      "characterId": "lio-lantern",
+      "characterName": "Lio Lantern",
+      "voice": "marin"
+    },
+    "npc.talla-knotwise.line-1": {
+      "text": "The map is not wrong. It is shy. It shows what the party is brave enough to ask about.",
+      "file": "voice/npc-talla-knotwise-line-1.mp3",
+      "characterId": "talla-knotwise",
+      "characterName": "Talla Knotwise",
+      "voice": "coral"
+    },
+    "npc.talla-knotwise.line-2": {
+      "text": "Open the survey when the trail feels circular. Bellstones, NPCs, and frightened glades leave different marks.",
+      "file": "voice/npc-talla-knotwise-line-2.mp3",
+      "characterId": "talla-knotwise",
+      "characterName": "Talla Knotwise",
+      "voice": "coral"
+    },
+    "npc.talla-knotwise.line-3": {
+      "text": "A folded trail can still be read: root, brook, lantern. Then look for the hand that folded it.",
+      "file": "voice/npc-talla-knotwise-line-3.mp3",
+      "characterId": "talla-knotwise",
+      "characterName": "Talla Knotwise",
+      "voice": "coral"
+    },
+    "npc.brin-oathleaf.line-1": {
+      "text": "I only wanted the grove to hide from people who take more than they need.",
+      "file": "voice/npc-brin-oathleaf-line-1.mp3",
+      "characterId": "brin-oathleaf",
+      "characterName": "Brin Oathleaf",
+      "voice": "onyx"
+    },
+    "npc.brin-oathleaf.line-2": {
+      "text": "The hush-knots were supposed to close empty paths. Then the animals panicked, and the knots started listening to fear.",
+      "file": "voice/npc-brin-oathleaf-line-2.mp3",
+      "characterId": "brin-oathleaf",
+      "characterName": "Brin Oathleaf",
+      "voice": "onyx"
+    },
+    "npc.brin-oathleaf.line-3": {
+      "text": "If the three bellstones wake together, I can show you the first knot I tied.",
+      "file": "voice/npc-brin-oathleaf-line-3.mp3",
+      "characterId": "brin-oathleaf",
+      "characterName": "Brin Oathleaf",
+      "voice": "onyx"
+    }
+  }
+}

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Explorers around the world</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/phaser@3.90.0/dist/phaser.min.js"></script>
+  </head>
+  <body>
+    <div id="app">
+      <header class="studio-header">
+        <div class="studio-title">Explorers around the world</div>
+        <div class="studio-tag">Game Studio</div>
+      </header>
+      <main class="studio-main">
+        <div id="studio-root" class="studio-surface">
+          <div id="journal-panel" class="journal-panel hidden" aria-live="polite">
+            <label for="journal-input">What did you learn?</label>
+            <input
+              id="journal-input"
+              type="text"
+              maxlength="160"
+              placeholder="Type one thing you learned"
+            />
+            <button id="journal-save" type="button">Save Note</button>
+            <div id="journal-hint" class="journal-hint">Learn first, then write your note.</div>
+          </div>
+        </div>
+      </main>
+      <footer class="studio-footer">
+        <div>Play, tweak, and remix from Alcove Studio.</div>
+        <div id="status">Ready</div>
+      </footer>
+    </div>
+    <script type="module" src="./game.js"></script>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

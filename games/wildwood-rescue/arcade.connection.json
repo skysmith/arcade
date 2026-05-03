@@ -1,0 +1,11 @@
+{
+  "id": "wildwood-rescue",
+  "title": "Wildwood Rescue",
+  "image": "./assets/covers/wildwood-rescue.svg",
+  "summary": "A gentle forest RPG prototype where one to four players calm lost creatures, earn animal companions, and wander an endless grove together.",
+  "players": "1-4 local",
+  "controls": "Keyboard fallback + controller Start join",
+  "launchText": "Enter grove",
+  "path": "./games/wildwood-rescue/index.html",
+  "badge": "Forest RPG"
+}

@@ -1,0 +1,11 @@
+{
+  "id": "star-chart",
+  "title": "Solar Neighborhood",
+  "image": "./assets/covers/star-chart.svg",
+  "summary": "A Sun-centered interactive star chart with expanded planet orbits, nearby-star distances, spectral colors, search, labels, and route lines.",
+  "players": "1 explorer",
+  "controls": "Mouse, trackpad, touch",
+  "launchText": "Open chart",
+  "path": "./games/star-chart/index.html",
+  "badge": "Star Atlas"
+}

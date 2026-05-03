@@ -1,0 +1,245 @@
+@import "../../shared/arcade-stage.css";
+
+:root {
+  color-scheme: dark;
+  --bg: #080b10;
+  --panel: rgba(14, 20, 28, 0.88);
+  --panel-strong: rgba(18, 25, 34, 0.96);
+  --line: rgba(138, 229, 216, 0.22);
+  --line-strong: rgba(255, 210, 105, 0.72);
+  --text: #f7fbff;
+  --muted: #aab8c0;
+  --mint: #75f0d4;
+  --lime: #a8f36b;
+  --sun: #ffd46d;
+  --coral: #ff7c86;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background:
+    radial-gradient(circle at 16% 12%, rgba(117, 240, 212, 0.18), transparent 28%),
+    radial-gradient(circle at 84% 18%, rgba(255, 124, 134, 0.16), transparent 28%),
+    linear-gradient(155deg, #111611 0%, #092421 42%, #27182d 100%);
+  color: var(--text);
+  font-family: "Avenir Next", "Segoe UI", sans-serif;
+}
+
+body {
+  min-height: 100vh;
+}
+
+button {
+  font: inherit;
+}
+
+#app {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: 12px;
+  padding: 18px;
+}
+
+.hud-rail,
+.footer-rail {
+  width: min(1120px, 100%);
+  margin: 0 auto;
+}
+
+.hud-rail {
+  display: grid;
+  grid-template-columns: 0.75fr 0.75fr 0.8fr 0.8fr minmax(180px, 1.8fr);
+  gap: 8px;
+}
+
+.pill {
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 9px 11px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: var(--panel);
+  backdrop-filter: blur(12px);
+}
+
+.pill-label {
+  color: var(--muted);
+  font-size: 0.66rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+#round-value,
+#target-value,
+#goal-value,
+#players-value,
+#status-value {
+  min-width: 0;
+  overflow: hidden;
+  color: var(--text);
+  font-weight: 800;
+  line-height: 1.1;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+#target-value {
+  color: var(--sun);
+}
+
+.playfield-shell {
+  padding-inline: 4px;
+}
+
+.playfield-stage {
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 140px);
+}
+
+#game {
+  border: 1px solid rgba(247, 251, 255, 0.16);
+  border-radius: 8px;
+  background: #07100f;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.42);
+}
+
+.menu-overlay[hidden] {
+  display: none;
+}
+
+.menu-overlay {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  padding: 22px;
+  background: rgba(6, 10, 14, 0.62);
+  backdrop-filter: blur(10px);
+}
+
+.menu-panel {
+  width: min(660px, 100%);
+  max-height: calc(100% - 24px);
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 8px;
+  background: var(--panel-strong);
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.38);
+  overflow: auto;
+}
+
+.menu-kicker,
+.menu-copy,
+.menu-panel h1 {
+  margin: 0;
+}
+
+.menu-kicker {
+  color: var(--mint);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+}
+
+.menu-panel h1 {
+  color: var(--text);
+  font-size: clamp(2rem, 7vw, 3.4rem);
+  line-height: 0.98;
+}
+
+.menu-copy {
+  color: rgba(247, 251, 255, 0.76);
+  font-size: 1.08rem;
+}
+
+.menu-actions {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.menu-button {
+  width: 100%;
+  display: grid;
+  gap: 3px;
+  min-width: 0;
+  padding: 9px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--text);
+  font-weight: 800;
+  text-align: left;
+  cursor: pointer;
+}
+
+.menu-button[data-menu-action="arcade"] {
+  grid-column: 1 / -1;
+}
+
+.menu-button span {
+  color: var(--mint);
+  font-size: 0.67rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.menu-button strong {
+  color: inherit;
+  font-size: 0.98rem;
+  line-height: 1.1;
+}
+
+.menu-button.is-selected,
+.menu-button:focus-visible,
+.menu-button:hover {
+  outline: none;
+  border-color: var(--line-strong);
+  background: rgba(255, 212, 109, 0.14);
+}
+
+.footer-rail {
+  padding: 0 4px 4px;
+  color: rgba(247, 251, 255, 0.72);
+  font-size: 0.92rem;
+}
+
+@media (max-width: 900px) {
+  #app {
+    padding: 12px;
+  }
+
+  .hud-rail {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .pill--wide {
+    grid-column: 1 / -1;
+  }
+
+  .playfield-stage {
+    max-height: calc(100vh - 218px);
+  }
+}
+
+@media (max-width: 640px) {
+  .menu-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .menu-button[data-menu-action="arcade"] {
+    grid-column: auto;
+  }
+}

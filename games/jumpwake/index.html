@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Jumpwake</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <main class="layout">
+        <section id="playfield-shell" class="playfield-shell arcade-stage-shell">
+          <div id="playfield-stage" class="playfield-stage arcade-stage">
+            <canvas id="game" class="arcade-stage-canvas" width="960" height="600" aria-label="Jumpwake playfield"></canvas>
+            <header class="hud-rail" aria-label="Jumpwake status">
+              <div class="pill">
+                <span class="pill-label">Sector</span>
+                <span id="sector-value">Grey Exchange</span>
+              </div>
+              <div class="pill">
+                <span class="pill-label">Credits</span>
+                <span id="credits-value">0</span>
+              </div>
+              <div class="pill">
+                <span class="pill-label">Ship</span>
+                <span id="hull-value">100%</span>
+              </div>
+              <div class="pill">
+                <span class="pill-label">Shield</span>
+                <span id="shield-value">100%</span>
+              </div>
+              <div class="pill">
+                <span class="pill-label">Cargo</span>
+                <span id="cargo-value">0 / 0</span>
+              </div>
+              <div class="pill pill--wide">
+                <span class="pill-label">Status</span>
+                <span id="status-value">Docked. D-pad moves focus, south button confirms.</span>
+              </div>
+            </header>
+
+            <div class="playfield-overlay">
+              <div id="overlay-title" class="overlay-title">Docked at Grey Exchange</div>
+              <div id="overlay-copy" class="overlay-copy">Take jobs, trade cargo, or push back into the lane.</div>
+            </div>
+
+            <div class="hint-banner">
+              <span id="hint-value">Undock for free-flight combat and hyperspace runs. Dock near a station to trade, repair, and turn in work.</span>
+            </div>
+
+            <div id="thread-modal" class="thread-modal" aria-live="polite"></div>
+
+            <aside class="command-deck" aria-label="Command deck">
+              <div class="panel panel--menu">
+                <div id="menu-panel-title" class="panel-title">Command Deck</div>
+                <div id="menu-list" class="menu-list"></div>
+                <div id="menu-panel-footnote" class="panel-footnote">Controller: D-pad browse, south confirm, B undock, start command menu.</div>
+              </div>
+
+              <div class="panel">
+                <div id="detail-panel-title" class="panel-title">Context</div>
+                <div id="panel-detail" class="panel-detail"></div>
+              </div>
+
+              <div class="panel panel--dense panel--aux">
+                <div class="panel-title">Comms Log</div>
+                <div id="message-log" class="message-log"></div>
+              </div>
+
+              <div class="panel panel--dense panel--aux">
+                <div class="panel-title">Ship</div>
+                <div id="ship-detail" class="fact-list"></div>
+              </div>
+
+              <div class="panel panel--dense panel--aux">
+                <div class="panel-title">Factions</div>
+                <div id="faction-detail" class="fact-list"></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

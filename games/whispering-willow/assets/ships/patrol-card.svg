@@ -1,0 +1,22 @@
+<svg width="640" height="384" viewBox="0 0 640 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="384" rx="24" fill="#071019"/>
+  <rect x="16" y="16" width="608" height="352" rx="18" fill="url(#bg)" stroke="rgba(200,216,255,0.22)"/>
+  <path d="M108 274L176 238L278 176L410 144L498 152L454 180L518 200L446 214L388 256L274 280L198 312L138 300L108 274Z" fill="#33414E"/>
+  <path d="M202 230L304 184L404 152L470 158L420 188L428 202L382 226L300 246L230 248L202 230Z" fill="#CFD9E4"/>
+  <path d="M410 152L498 152L468 168L410 152Z" fill="#EEF5FB"/>
+  <path d="M250 302L294 288L324 302L280 318L250 302Z" fill="#F56E6E"/>
+  <path d="M118 278L64 300L24 320" stroke="#B7D8FF" stroke-width="8" stroke-linecap="round" stroke-opacity="0.58"/>
+  <path d="M114 250L42 246L18 240" stroke="#DDEBFF" stroke-width="5" stroke-linecap="round" stroke-opacity="0.34"/>
+  <path d="M430 170L544 186L440 206L430 170Z" fill="#8BCBFF"/>
+  <circle cx="520" cy="94" r="40" fill="url(#halo)"/>
+  <defs>
+    <linearGradient id="bg" x1="64" y1="28" x2="580" y2="352" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0B1823"/>
+      <stop offset="1" stop-color="#08111A"/>
+    </linearGradient>
+    <radialGradient id="halo" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(520 94) rotate(90) scale(40)">
+      <stop stop-color="#EAF4FF" stop-opacity="0.9"/>
+      <stop offset="1" stop-color="#EAF4FF" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

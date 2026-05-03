@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 480" role="img" aria-labelledby="title desc">
+  <title id="title">Gnome Roundup cover</title>
+  <desc id="desc">A green pasture arcade cover with rounded hills, a pen, and bold Gnome Roundup lettering.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="0" y1="0" y2="1">
+      <stop offset="0%" stop-color="#0b1830"/>
+      <stop offset="100%" stop-color="#183a33"/>
+    </linearGradient>
+  </defs>
+  <rect width="640" height="480" fill="url(#sky)"/>
+  <circle cx="516" cy="112" r="52" fill="#ffdd87" opacity="0.92"/>
+  <path d="M0 342c89-61 180-92 271-92 103 0 183 31 369 130v100H0z" fill="#2f7d57"/>
+  <path d="M0 390c119-44 207-60 317-60 134 0 223 26 323 78v72H0z" fill="#8dcf6d"/>
+  <rect x="116" y="272" width="106" height="76" rx="18" fill="#f4e1b6"/>
+  <path d="M116 302h106" stroke="#8b6031" stroke-width="10"/>
+  <path d="M144 272v76M195 272v76" stroke="#8b6031" stroke-width="10"/>
+  <text x="56" y="110" fill="#d8f6e6" font-family="Avenir Next, Segoe UI, sans-serif" font-size="28" letter-spacing="7">HERDING CABINET</text>
+  <text x="52" y="184" fill="#f9fffb" font-family="Avenir Next, Segoe UI, sans-serif" font-size="64" font-weight="800">gnome</text>
+  <text x="52" y="250" fill="#ffe28b" font-family="Avenir Next, Segoe UI, sans-serif" font-size="64" font-weight="800">roundup</text>
+</svg>

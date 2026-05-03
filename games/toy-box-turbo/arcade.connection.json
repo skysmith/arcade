@@ -1,0 +1,11 @@
+{
+  "id": "toy-box-turbo",
+  "title": "Toy Box Tanks",
+  "image": "./assets/covers/toy-box-turbo.svg",
+  "summary": "A bright little toy tank arena where kids roll through the bedroom and pop balloons or bonk wonky aliens for points.",
+  "players": "1-4 local",
+  "controls": "Steer, brake, shoot, start",
+  "launchText": "Open cabinet",
+  "path": "./games/toy-box-turbo/index.html",
+  "badge": "4P Tank Arena"
+}

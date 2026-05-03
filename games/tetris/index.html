@@ -1,0 +1,223 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>tetris</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="shell-header">
+        <div>
+          <p class="eyebrow">Controller Ready</p>
+          <div class="title-row">
+            <h1>tetris</h1>
+            <span id="build-number" class="build-chip">build ?</span>
+          </div>
+          <p class="hero-kicker">Classic by default, multitap when you want a terminal per player, with native bridge support for controllers the browser refuses to expose.</p>
+        </div>
+        <div class="header-actions">
+          <button id="settings-button" class="settings-button" type="button" aria-haspopup="dialog" aria-controls="settings-modal">
+            Settings
+          </button>
+          <div class="header-chip">
+            <span class="chip-dot"></span>
+            <span id="connection-status">Keyboard mode</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="shell-main">
+        <section id="board-grid" class="board-grid classic-mode">
+          <article class="board-card board-card--primary" data-board-card="1">
+            <div class="board-header">
+              <div>
+                <p class="panel-label">Classic</p>
+                <p id="board-phase-1" class="board-phase">Ready</p>
+              </div>
+              <div class="mini-stats">
+                <span id="board-score-1">0 pts</span>
+                <span id="board-lines-1">0 lines</span>
+              </div>
+            </div>
+            <div class="board-surface">
+              <canvas id="board-canvas-1" width="160" height="320" aria-label="Tetris board 1"></canvas>
+              <div class="board-sidecars">
+                <div class="mini-panel">
+                  <p class="panel-label">Hold</p>
+                  <canvas id="hold-canvas-1" width="60" height="60" aria-label="Hold preview for board 1"></canvas>
+                </div>
+                <div class="mini-panel">
+                  <p class="panel-label">Next</p>
+                  <canvas id="next-canvas-1" width="60" height="132" aria-label="Next preview for board 1"></canvas>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="board-card" data-board-card="2">
+            <div class="board-header">
+              <div>
+                <p class="panel-label">Board 2</p>
+                <p id="board-phase-2" class="board-phase">Ready</p>
+              </div>
+              <div class="mini-stats">
+                <span id="board-score-2">0 pts</span>
+                <span id="board-lines-2">0 lines</span>
+              </div>
+            </div>
+            <div class="board-surface">
+              <canvas id="board-canvas-2" width="220" height="440" aria-label="Tetris board 2"></canvas>
+              <div class="board-sidecars">
+                <div class="mini-panel">
+                  <p class="panel-label">Hold</p>
+                  <canvas id="hold-canvas-2" width="84" height="84" aria-label="Hold preview for board 2"></canvas>
+                </div>
+                <div class="mini-panel">
+                  <p class="panel-label">Next</p>
+                  <canvas id="next-canvas-2" width="84" height="220" aria-label="Next preview for board 2"></canvas>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="board-card" data-board-card="3">
+            <div class="board-header">
+              <div>
+                <p class="panel-label">Board 3</p>
+                <p id="board-phase-3" class="board-phase">Ready</p>
+              </div>
+              <div class="mini-stats">
+                <span id="board-score-3">0 pts</span>
+                <span id="board-lines-3">0 lines</span>
+              </div>
+            </div>
+            <div class="board-surface">
+              <canvas id="board-canvas-3" width="220" height="440" aria-label="Tetris board 3"></canvas>
+              <div class="board-sidecars">
+                <div class="mini-panel">
+                  <p class="panel-label">Hold</p>
+                  <canvas id="hold-canvas-3" width="84" height="84" aria-label="Hold preview for board 3"></canvas>
+                </div>
+                <div class="mini-panel">
+                  <p class="panel-label">Next</p>
+                  <canvas id="next-canvas-3" width="84" height="220" aria-label="Next preview for board 3"></canvas>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="board-card" data-board-card="4">
+            <div class="board-header">
+              <div>
+                <p class="panel-label">Board 4</p>
+                <p id="board-phase-4" class="board-phase">Ready</p>
+              </div>
+              <div class="mini-stats">
+                <span id="board-score-4">0 pts</span>
+                <span id="board-lines-4">0 lines</span>
+              </div>
+            </div>
+            <div class="board-surface">
+              <canvas id="board-canvas-4" width="220" height="440" aria-label="Tetris board 4"></canvas>
+              <div class="board-sidecars">
+                <div class="mini-panel">
+                  <p class="panel-label">Hold</p>
+                  <canvas id="hold-canvas-4" width="84" height="84" aria-label="Hold preview for board 4"></canvas>
+                </div>
+                <div class="mini-panel">
+                  <p class="panel-label">Next</p>
+                  <canvas id="next-canvas-4" width="84" height="220" aria-label="Next preview for board 4"></canvas>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="summary-bar">
+          <article class="summary-card">
+            <p class="panel-label">Phase</p>
+            <p id="phase-label" class="summary-value">Ready</p>
+            <p id="message-label" class="summary-copy">Move, rotate, or drop to begin.</p>
+          </article>
+          <article class="summary-card">
+            <p class="panel-label">Score</p>
+            <p id="score-value" class="summary-value">0</p>
+            <p id="footer-status" class="summary-copy">No controller detected yet.</p>
+          </article>
+          <article class="summary-card">
+            <p class="panel-label">Boards Alive</p>
+            <p id="live-value" class="summary-value">1</p>
+            <p id="lines-value" class="summary-copy">0 total lines cleared</p>
+          </article>
+          <article class="summary-card">
+            <p class="panel-label">Mode</p>
+            <p id="level-value" class="summary-value">Classic</p>
+            <p id="footer-hint" class="summary-copy">Pause: P. Restart: R. Native bridge controller support targets the classic lane.</p>
+          </article>
+        </section>
+
+        <section class="control-row">
+          <div class="control-card">
+            <h2>Classic</h2>
+            <p>Move: arrows</p>
+            <p>Rotate: <span>Z</span> / <span>X</span></p>
+            <p>Hold: <span>C</span></p>
+            <p>Hard drop: <span>Space</span></p>
+          </div>
+          <div class="control-card">
+            <h2>Multitap</h2>
+            <p>P1: arrows + <span>Z X C Space</span></p>
+            <p>P2: <span>A D S</span> + <span>Q W E F</span></p>
+            <p>P3: <span>J L K</span> + <span>U I O [</span></p>
+            <p>P4: numpad <span>4 6 5</span> + <span>7 8 9 0</span></p>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div id="settings-modal" class="modal hidden" role="dialog" aria-modal="true" aria-labelledby="settings-title">
+      <div class="modal-card">
+        <div class="modal-header">
+          <div>
+            <p class="panel-label">Settings</p>
+            <h2 id="settings-title">Controller And Mode</h2>
+          </div>
+          <button id="settings-close" class="icon-button" type="button" aria-label="Close settings">Close</button>
+        </div>
+
+        <div class="modal-section">
+          <span class="field-label">Controller</span>
+          <p id="bridge-status" class="field-help">Browser controller detection is hidden here. Use the native bridge when you want controller input, especially for Bluetooth 8BitDo pads.</p>
+          <p class="field-help">Launcher: <code>games/tetris/scripts/start-controller-bridge.sh</code></p>
+        </div>
+
+        <div class="modal-section">
+          <span class="field-label">Game Mode</span>
+          <div class="toggle-row">
+            <button id="mode-classic" class="mode-button is-active" type="button">Classic</button>
+            <button id="mode-multitap" class="mode-button" type="button">Multitap</button>
+          </div>
+          <p class="field-help">Classic runs one board. Multitap opens four terminals with separate keyboard lanes.</p>
+        </div>
+
+        <div class="modal-section">
+          <span class="field-label">Music</span>
+          <div class="toggle-row">
+            <button id="music-toggle" class="mode-button" type="button">Music Off</button>
+          </div>
+          <label class="field-label" for="track-select">Track</label>
+          <select id="track-select" class="select-input">
+            <option value="midnight">Midnight Stack</option>
+            <option value="pixelRain">Pixel Rain</option>
+          </select>
+          <p id="music-help" class="field-help">Built-in lo-fi game loops. Turn music on, then press a key or controller button if the browser needs an interaction.</p>
+        </div>
+      </div>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

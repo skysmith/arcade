@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>letter-launchpad</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <div class="hud-rail" aria-label="Game status">
+        <div class="pill">
+          <span class="pill-label">Round</span>
+          <span id="round-value">1</span>
+        </div>
+        <div class="pill">
+          <span class="pill-label">Target</span>
+          <span id="target-value">A</span>
+        </div>
+        <div class="pill">
+          <span class="pill-label">Goal</span>
+          <span id="goal-value">0/10</span>
+        </div>
+        <div class="pill">
+          <span class="pill-label">Players</span>
+          <span id="players-value">1</span>
+        </div>
+        <div class="pill pill--wide">
+          <span class="pill-label">Status</span>
+          <span id="status-value">Ready.</span>
+        </div>
+      </div>
+
+      <main id="playfield-shell" class="playfield-shell arcade-stage-shell">
+        <div id="playfield-stage" class="playfield-stage arcade-stage">
+          <canvas id="game" class="arcade-stage-canvas" width="960" height="600" aria-label="Letter Launchpad playfield"></canvas>
+          <div id="menu-overlay" class="menu-overlay">
+            <div class="menu-panel" role="dialog" aria-modal="true" aria-labelledby="menu-title">
+              <p class="menu-kicker">Pick a level</p>
+              <h1 id="menu-title">Letter Launchpad</h1>
+              <p class="menu-copy">Choose a learning world.</p>
+              <div class="menu-actions" aria-label="Menu">
+                <button type="button" class="menu-button is-selected" data-level-id="1">
+                  <span>Level 1</span>
+                  <strong>Launchpad Letters</strong>
+                </button>
+                <button type="button" class="menu-button" data-level-id="2">
+                  <span>Level 2</span>
+                  <strong>Moon Garden</strong>
+                </button>
+                <button type="button" class="menu-button" data-level-id="3">
+                  <span>Level 3</span>
+                  <strong>Planet Count</strong>
+                </button>
+                <button type="button" class="menu-button" data-level-id="4">
+                  <span>Level 4</span>
+                  <strong>Forest Sounds</strong>
+                </button>
+                <button type="button" class="menu-button" data-level-id="5">
+                  <span>Level 5</span>
+                  <strong>Word Workshop</strong>
+                </button>
+                <button type="button" class="menu-button" data-level-id="6">
+                  <span>Level 6</span>
+                  <strong>Dino Dig Site</strong>
+                </button>
+                <button type="button" class="menu-button" data-level-id="7">
+                  <span>Level 7</span>
+                  <strong>Train Yard</strong>
+                </button>
+                <button type="button" class="menu-button" data-level-id="8">
+                  <span>Level 8</span>
+                  <strong>Tractor Farm</strong>
+                </button>
+                <button type="button" class="menu-button" data-level-id="9">
+                  <span>Level 9</span>
+                  <strong>Dragon Hatchery</strong>
+                </button>
+                <button type="button" class="menu-button" data-level-id="10">
+                  <span>Level 10</span>
+                  <strong>Word Workshop Plus</strong>
+                </button>
+                <button type="button" class="menu-button" data-menu-action="arcade">Back To Arcade</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <div class="footer-rail">
+        <span id="hint-value">A starts. B returns to Arcade.</span>
+      </div>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Solar Neighborhood Star Chart</title>
+    <link rel="icon" href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" rx="14" fill="%23010207"/><circle cx="32" cy="32" r="12" fill="%23f3bf68"/><circle cx="46" cy="18" r="4" fill="%238ee8f0"/></svg>' />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark" aria-hidden="true">☉</span>
+          <div>
+            <p class="kicker">Solar origin atlas</p>
+            <h1>Solar Neighborhood</h1>
+          </div>
+        </div>
+        <div class="readouts" aria-label="Chart readouts">
+          <span class="readout">
+            <span>Range</span>
+            <strong id="range-value">12 ly</strong>
+          </span>
+          <span class="readout">
+            <span>Visible</span>
+            <strong id="visible-value">0</strong>
+          </span>
+          <span class="readout">
+            <span>Epoch</span>
+            <strong id="epoch-value">Now</strong>
+          </span>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="scene-panel" aria-label="Interactive 3D star chart">
+          <canvas id="star-scene" aria-label="Solar neighborhood star chart"></canvas>
+          <div id="label-layer" class="label-layer" aria-hidden="true"></div>
+          <div class="scale-strip" aria-label="Scale notes">
+            <span><strong>1 ring</strong> = <span id="ring-value">5 ly</span></span>
+            <span><strong>Stellar positions</strong> use light-year distance, RA, and Dec</span>
+            <span><strong>Planet orbits</strong> expand around the focused star</span>
+          </div>
+        </section>
+
+        <aside class="detail-panel" aria-label="Selected object">
+          <div class="detail-head">
+            <p class="kicker">Selected</p>
+            <h2 id="detail-name">Sol</h2>
+          </div>
+          <dl class="detail-grid">
+            <div>
+              <dt>Type</dt>
+              <dd id="detail-type">G2V star</dd>
+            </div>
+            <div>
+              <dt>Distance</dt>
+              <dd id="detail-distance">0 ly</dd>
+            </div>
+            <div>
+              <dt>Spectrum</dt>
+              <dd id="detail-spectrum">G2V</dd>
+            </div>
+            <div>
+              <dt>Brightness</dt>
+              <dd id="detail-mag">-26.74</dd>
+            </div>
+          </dl>
+          <p id="detail-note" class="detail-note">
+            The solar system is the chart origin. Planet positions use approximate periods from J2000 and are enlarged for readability.
+          </p>
+          <div class="detail-actions">
+            <button id="center-selection" class="command" type="button">
+              <span aria-hidden="true">⊙</span>
+              Center
+            </button>
+            <button id="reset-view" class="command" type="button">
+              <span aria-hidden="true">⌂</span>
+              Sol
+            </button>
+          </div>
+          <section class="nearby-panel" aria-label="Nearby visible stars">
+            <div class="section-head">
+              <span>Nearest visible</span>
+              <strong id="nearest-count">0</strong>
+            </div>
+            <div id="nearby-list" class="nearby-list"></div>
+          </section>
+        </aside>
+      </main>
+
+      <footer class="control-deck" aria-label="Chart controls">
+        <div class="preset-group" aria-label="Distance presets">
+          <button class="preset-button is-active" type="button" data-preset="solar">
+            <span aria-hidden="true">☉</span>
+            Solar
+          </button>
+          <button class="preset-button" type="button" data-preset="near">
+            <span aria-hidden="true">✦</span>
+            12 ly
+          </button>
+          <button class="preset-button" type="button" data-preset="local">
+            <span aria-hidden="true">◎</span>
+            25 ly
+          </button>
+          <button class="preset-button" type="button" data-preset="bright">
+            <span aria-hidden="true">✧</span>
+            50 ly
+          </button>
+        </div>
+
+        <label class="range-control">
+          <span>Range</span>
+          <input id="distance-filter" type="range" min="6" max="50" value="12" step="1" />
+        </label>
+
+        <label class="search-control">
+          <span>Find</span>
+          <input id="object-search" type="search" list="object-options" placeholder="Star or planet" autocomplete="off" />
+          <datalist id="object-options"></datalist>
+        </label>
+
+        <div class="toggle-group" aria-label="Layer toggles">
+          <label>
+            <input id="toggle-labels" type="checkbox" checked />
+            Labels
+          </label>
+          <label>
+            <input id="toggle-orbits" type="checkbox" checked />
+            Orbits
+          </label>
+          <label>
+            <input id="toggle-routes" type="checkbox" checked />
+            Route
+          </label>
+        </div>
+
+        <label class="range-control time-control">
+          <span>Orbit days/sec</span>
+          <input id="time-speed" type="range" min="0" max="40" value="8" step="1" />
+        </label>
+
+        <button id="pause-time" class="command command--compact" type="button">
+          <span aria-hidden="true">Ⅱ</span>
+          Pause
+        </button>
+      </footer>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+  </body>
+</html>

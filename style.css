@@ -1,0 +1,454 @@
+:root {
+  color-scheme: dark;
+  --bg-top: #281328;
+  --bg-mid: #101d32;
+  --bg-bottom: #050912;
+  --panel: rgba(9, 16, 29, 0.86);
+  --panel-strong: rgba(11, 19, 35, 0.96);
+  --line: rgba(147, 222, 255, 0.18);
+  --line-strong: rgba(147, 222, 255, 0.46);
+  --text: #f3f6fd;
+  --muted: #a8b3ce;
+  --accent: #8be8ff;
+  --accent-warm: #ffc659;
+  --accent-hot: #ff6a82;
+  --shadow: 0 24px 80px rgba(2, 6, 14, 0.46);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  font-family: "Chivo", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(circle at top left, rgba(255, 106, 130, 0.18), transparent 28%),
+    radial-gradient(circle at top right, rgba(139, 232, 255, 0.16), transparent 32%),
+    linear-gradient(180deg, var(--bg-top), var(--bg-mid) 44%, var(--bg-bottom));
+}
+
+body {
+  padding: 0;
+}
+
+button,
+select {
+  font: inherit;
+}
+
+#app {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  padding: 24px;
+}
+
+.game-card {
+  border: 1px solid var(--line);
+  background: var(--panel);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.eyebrow,
+.status-label {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.74rem;
+  color: var(--accent);
+}
+
+.game-summary,
+.game-meta {
+  margin: 0;
+  color: var(--muted);
+}
+
+.build-chip {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
+  z-index: 5;
+  padding: 3px 8px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  color: var(--accent);
+  background: rgba(16, 24, 44, 0.72);
+  font-size: 0.68rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.menu-toggle {
+  position: fixed;
+  top: 16px;
+  left: 16px;
+  z-index: 7;
+  padding: 8px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--line);
+  background: rgba(8, 13, 24, 0.82);
+  color: var(--text);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+}
+
+.menu-toggle:hover,
+.menu-toggle:focus-visible {
+  outline: none;
+  border-color: var(--line-strong);
+  box-shadow: 0 24px 80px rgba(2, 6, 14, 0.56), 0 0 0 1px rgba(139, 232, 255, 0.18);
+}
+
+.menu-backdrop[hidden],
+.start-menu[hidden] {
+  display: none;
+}
+
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 8;
+  background: rgba(2, 5, 10, 0.56);
+  backdrop-filter: blur(8px);
+}
+
+.start-menu {
+  position: fixed;
+  top: 72px;
+  left: 16px;
+  z-index: 9;
+  width: min(460px, calc(100vw - 32px));
+  display: grid;
+  gap: 14px;
+  padding: 18px;
+  border-radius: 24px;
+  border: 1px solid var(--line);
+  background:
+    linear-gradient(180deg, rgba(16, 23, 40, 0.98), rgba(7, 12, 22, 0.98)),
+    rgba(8, 13, 24, 0.94);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(16px);
+}
+
+.start-menu-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  align-items: start;
+}
+
+.start-menu-kicker {
+  margin: 0 0 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.16em;
+  font-size: 0.72rem;
+  color: var(--accent);
+}
+
+.start-menu-title {
+  margin: 0;
+  font-size: 1.6rem;
+  line-height: 1;
+}
+
+.start-menu-copy {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.start-menu-key {
+  display: inline-block;
+  padding: 1px 6px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.8rem;
+}
+
+.start-menu-section {
+  display: grid;
+  gap: 10px;
+}
+
+.debug-panel {
+  width: 100%;
+  display: grid;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 18px;
+  border: 1px solid var(--line);
+  background: rgba(8, 13, 24, 0.84);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(14px);
+}
+
+.debug-panel.is-collapsed {
+  width: auto;
+}
+
+.debug-panel.is-collapsed .debug-line {
+  display: none;
+}
+
+.debug-head {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  align-items: center;
+}
+
+.debug-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.debug-title {
+  font-size: 0.76rem;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--accent);
+}
+
+.debug-toggle {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text);
+  border-radius: 999px;
+  padding: 4px 10px;
+  cursor: pointer;
+}
+
+.debug-toggle:disabled {
+  opacity: 0.55;
+  cursor: not-allowed;
+}
+
+.debug-line {
+  margin: 0;
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.78rem;
+  line-height: 1.35;
+  color: var(--muted);
+  word-break: break-word;
+}
+
+.mapping-panel[hidden] {
+  display: none;
+}
+
+.mapping-panel {
+  display: grid;
+  gap: 10px;
+  margin-top: 6px;
+  padding-top: 10px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.mapping-status {
+  margin: 0;
+  font-size: 0.8rem;
+  line-height: 1.35;
+  color: var(--text);
+}
+
+.mapping-list {
+  display: grid;
+  gap: 8px;
+}
+
+.mapping-row {
+  display: grid;
+}
+
+.mapping-button {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.04);
+  color: var(--text);
+  cursor: pointer;
+  text-align: left;
+}
+
+.mapping-button.is-waiting,
+.mapping-button:focus-visible,
+.mapping-button:hover {
+  outline: none;
+  border-color: rgba(139, 232, 255, 0.68);
+  box-shadow: 0 0 0 1px rgba(139, 232, 255, 0.18);
+}
+
+.mapping-action-label {
+  font-weight: 700;
+}
+
+.mapping-action-value {
+  font-family: "IBM Plex Mono", monospace;
+  font-size: 0.72rem;
+  color: var(--muted);
+}
+
+.mapping-actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.launcher-shell {
+  width: min(1160px, 100%);
+  margin: 0 auto;
+  min-height: calc(100vh - 48px);
+  min-height: calc(100svh - 48px);
+}
+
+.game-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  align-content: start;
+}
+
+body.is-fullscreen #app {
+  padding: 18px;
+}
+
+body.is-fullscreen .launcher-shell {
+  width: min(1320px, 100%);
+}
+
+.game-card {
+  display: grid;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  min-height: 156px;
+  padding: 0;
+  border-radius: 18px;
+  text-align: left;
+  color: inherit;
+  cursor: pointer;
+  transition: transform 120ms ease, border-color 120ms ease, box-shadow 120ms ease, background 120ms ease;
+}
+
+.game-card:hover,
+.game-card.is-selected {
+  transform: translateY(-2px);
+  border-color: var(--line-strong);
+  box-shadow: 0 24px 80px rgba(2, 6, 14, 0.56), 0 0 0 1px rgba(139, 232, 255, 0.18);
+}
+
+.game-card:focus-visible {
+  outline: 2px solid rgba(255, 198, 89, 0.9);
+  outline-offset: 3px;
+}
+
+.game-card.is-selected {
+  background:
+    linear-gradient(135deg, rgba(255, 106, 130, 0.12), rgba(139, 232, 255, 0.08)),
+    rgba(10, 18, 34, 0.96);
+}
+
+.game-image {
+  grid-area: 1 / 1;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
+
+.game-overlay {
+  grid-area: 1 / 1;
+  align-self: end;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 10px;
+  padding: 12px;
+  background: linear-gradient(180deg, rgba(5, 9, 18, 0) 0%, rgba(5, 9, 18, 0.92) 68%, rgba(5, 9, 18, 0.98) 100%);
+}
+
+.game-copy {
+  min-width: 0;
+  display: grid;
+  align-self: end;
+  gap: 4px;
+}
+
+.game-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 13, 24, 0.64);
+  color: rgba(243, 246, 253, 0.84);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.game-title {
+  margin: 0;
+  font-size: clamp(0.98rem, 1.55vw, 1.22rem);
+  line-height: 1.02;
+  text-shadow: 0 6px 22px rgba(0, 0, 0, 0.5);
+}
+
+.game-pill {
+  align-self: end;
+  padding: 3px 7px;
+  border-radius: 999px;
+  background: rgba(8, 13, 24, 0.6);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  font-size: 0.66rem;
+  white-space: nowrap;
+}
+
+@media (max-width: 1080px) {
+  .game-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 720px) {
+  .game-grid {
+    grid-template-columns: 1fr;
+  }
+
+  #app {
+    padding: 14px;
+  }
+
+  .menu-toggle {
+    top: 14px;
+    left: 14px;
+  }
+
+  .start-menu {
+    top: 62px;
+    left: 14px;
+    right: 14px;
+    width: auto;
+  }
+
+  .build-chip {
+    right: 14px;
+    bottom: 12px;
+  }
+}

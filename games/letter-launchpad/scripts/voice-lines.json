@@ -1,0 +1,858 @@
+{
+  "model": "gpt-4o-mini-tts",
+  "voice": "nova",
+  "format": "mp3",
+  "outputDir": "games/letter-launchpad/assets/audio/voice",
+  "manifestPath": "games/letter-launchpad/assets/audio/voice-manifest.json",
+  "instructions": "Speak warmly and clearly for a five-year-old playing an arcade game. Keep the delivery bright, gentle, and very short. Leave a tiny pause before any letter name or number.",
+  "clips": [
+    {
+      "id": "level1.start",
+      "text": "Letter Launchpad. Find the big letter."
+    },
+    {
+      "id": "level1.tryAgain",
+      "text": "Try another letter."
+    },
+    {
+      "id": "level1.success",
+      "text": "Great job!"
+    },
+    {
+      "id": "level1.complete",
+      "text": "Level one complete. Great work!"
+    },
+    {
+      "id": "level1.find.A",
+      "text": "Find the letter A."
+    },
+    {
+      "id": "level1.find.B",
+      "text": "Find the letter B."
+    },
+    {
+      "id": "level1.find.C",
+      "text": "Find the letter C."
+    },
+    {
+      "id": "level1.find.D",
+      "text": "Find the letter D."
+    },
+    {
+      "id": "level1.find.E",
+      "text": "Find the letter E."
+    },
+    {
+      "id": "level1.find.F",
+      "text": "Find the letter F."
+    },
+    {
+      "id": "level1.find.G",
+      "text": "Find the letter G."
+    },
+    {
+      "id": "level1.find.H",
+      "text": "Find the letter H."
+    },
+    {
+      "id": "level1.find.I",
+      "text": "Find the letter I."
+    },
+    {
+      "id": "level1.find.J",
+      "text": "Find the letter J."
+    },
+    {
+      "id": "level1.find.K",
+      "text": "Find the letter K."
+    },
+    {
+      "id": "level1.find.L",
+      "text": "Find the letter L."
+    },
+    {
+      "id": "level1.find.M",
+      "text": "Find the letter M."
+    },
+    {
+      "id": "level1.find.N",
+      "text": "Find the letter N."
+    },
+    {
+      "id": "level1.find.O",
+      "text": "Find the letter O."
+    },
+    {
+      "id": "level1.find.P",
+      "text": "Find the letter P."
+    },
+    {
+      "id": "level1.find.Q",
+      "text": "Find the letter Q."
+    },
+    {
+      "id": "level1.find.R",
+      "text": "Find the letter R."
+    },
+    {
+      "id": "level1.find.S",
+      "text": "Find the letter S."
+    },
+    {
+      "id": "level1.find.T",
+      "text": "Find the letter T."
+    },
+    {
+      "id": "level1.find.U",
+      "text": "Find the letter U."
+    },
+    {
+      "id": "level1.find.V",
+      "text": "Find the letter V."
+    },
+    {
+      "id": "level1.find.W",
+      "text": "Find the letter W."
+    },
+    {
+      "id": "level1.find.X",
+      "text": "Find the letter X."
+    },
+    {
+      "id": "level1.find.Y",
+      "text": "Find the letter Y."
+    },
+    {
+      "id": "level1.find.Z",
+      "text": "Find the letter Z."
+    },
+    {
+      "id": "level2.success",
+      "text": "Great match!"
+    },
+    {
+      "id": "level2.tryAgain",
+      "text": "Try another little letter."
+    },
+    {
+      "id": "level2.complete",
+      "text": "Level two complete. The moon garden is growing!"
+    },
+    {
+      "id": "level2.find.A",
+      "text": "Find little letter A."
+    },
+    {
+      "id": "level2.find.B",
+      "text": "Find little letter B."
+    },
+    {
+      "id": "level2.find.C",
+      "text": "Find little letter C."
+    },
+    {
+      "id": "level2.find.D",
+      "text": "Find little letter D."
+    },
+    {
+      "id": "level2.find.E",
+      "text": "Find little letter E."
+    },
+    {
+      "id": "level2.find.F",
+      "text": "Find little letter F."
+    },
+    {
+      "id": "level2.find.G",
+      "text": "Find little letter G."
+    },
+    {
+      "id": "level2.find.H",
+      "text": "Find little letter H."
+    },
+    {
+      "id": "level2.find.I",
+      "text": "Find little letter I."
+    },
+    {
+      "id": "level2.find.J",
+      "text": "Find little letter J."
+    },
+    {
+      "id": "level2.find.K",
+      "text": "Find little letter K."
+    },
+    {
+      "id": "level2.find.L",
+      "text": "Find little letter L."
+    },
+    {
+      "id": "level2.find.M",
+      "text": "Find little letter M."
+    },
+    {
+      "id": "level2.find.N",
+      "text": "Find little letter N."
+    },
+    {
+      "id": "level2.find.O",
+      "text": "Find little letter O."
+    },
+    {
+      "id": "level2.find.P",
+      "text": "Find little letter P."
+    },
+    {
+      "id": "level2.find.Q",
+      "text": "Find little letter Q."
+    },
+    {
+      "id": "level2.find.R",
+      "text": "Find little letter R."
+    },
+    {
+      "id": "level2.find.S",
+      "text": "Find little letter S."
+    },
+    {
+      "id": "level2.find.T",
+      "text": "Find little letter T."
+    },
+    {
+      "id": "level2.find.U",
+      "text": "Find little letter U."
+    },
+    {
+      "id": "level2.find.V",
+      "text": "Find little letter V."
+    },
+    {
+      "id": "level2.find.W",
+      "text": "Find little letter W."
+    },
+    {
+      "id": "level2.find.X",
+      "text": "Find little letter X."
+    },
+    {
+      "id": "level2.find.Y",
+      "text": "Find little letter Y."
+    },
+    {
+      "id": "level2.find.Z",
+      "text": "Find little letter Z."
+    },
+    {
+      "id": "level3.success",
+      "text": "You counted it!"
+    },
+    {
+      "id": "level3.tryAgain",
+      "text": "Try another number."
+    },
+    {
+      "id": "level3.complete",
+      "text": "Level three complete. The planets are counted!"
+    },
+    {
+      "id": "level3.find.1",
+      "text": "Find the number 1."
+    },
+    {
+      "id": "level3.find.2",
+      "text": "Find the number 2."
+    },
+    {
+      "id": "level3.find.3",
+      "text": "Find the number 3."
+    },
+    {
+      "id": "level3.find.4",
+      "text": "Find the number 4."
+    },
+    {
+      "id": "level3.find.5",
+      "text": "Find the number 5."
+    },
+    {
+      "id": "level3.find.6",
+      "text": "Find the number 6."
+    },
+    {
+      "id": "level3.find.7",
+      "text": "Find the number 7."
+    },
+    {
+      "id": "level3.find.8",
+      "text": "Find the number 8."
+    },
+    {
+      "id": "level3.find.9",
+      "text": "Find the number 9."
+    },
+    {
+      "id": "level3.find.10",
+      "text": "Find the number 10."
+    },
+    {
+      "id": "level4.success",
+      "text": "Great sound!"
+    },
+    {
+      "id": "level4.tryAgain",
+      "text": "Try another starting sound."
+    },
+    {
+      "id": "level4.complete",
+      "text": "Level four complete. The forest sounds are found!"
+    },
+    {
+      "id": "level4.sound.SUN",
+      "text": "sun starts with S. Find S."
+    },
+    {
+      "id": "level4.sound.CAT",
+      "text": "cat starts with C. Find C."
+    },
+    {
+      "id": "level4.sound.DOG",
+      "text": "dog starts with D. Find D."
+    },
+    {
+      "id": "level4.sound.BUG",
+      "text": "bug starts with B. Find B."
+    },
+    {
+      "id": "level4.sound.FISH",
+      "text": "fish starts with F. Find F."
+    },
+    {
+      "id": "level4.sound.MOON",
+      "text": "moon starts with M. Find M."
+    },
+    {
+      "id": "level4.sound.HAT",
+      "text": "hat starts with H. Find H."
+    },
+    {
+      "id": "level4.sound.MAP",
+      "text": "map starts with M. Find M."
+    },
+    {
+      "id": "level4.sound.LOG",
+      "text": "log starts with L. Find L."
+    },
+    {
+      "id": "level4.sound.BEE",
+      "text": "bee starts with B. Find B."
+    },
+    {
+      "id": "level5.success",
+      "text": "Nice building!"
+    },
+    {
+      "id": "level5.tryAgain",
+      "text": "Try the next letter."
+    },
+    {
+      "id": "level5.complete",
+      "text": "Level five complete. You built the words!"
+    },
+    {
+      "id": "level5.build.CAT.0",
+      "text": "Build cat. Find letter C."
+    },
+    {
+      "id": "level5.build.CAT.1",
+      "text": "Build cat. Find letter A."
+    },
+    {
+      "id": "level5.build.CAT.2",
+      "text": "Build cat. Find letter T."
+    },
+    {
+      "id": "level5.build.DOG.0",
+      "text": "Build dog. Find letter D."
+    },
+    {
+      "id": "level5.build.DOG.1",
+      "text": "Build dog. Find letter O."
+    },
+    {
+      "id": "level5.build.DOG.2",
+      "text": "Build dog. Find letter G."
+    },
+    {
+      "id": "level5.build.SUN.0",
+      "text": "Build sun. Find letter S."
+    },
+    {
+      "id": "level5.build.SUN.1",
+      "text": "Build sun. Find letter U."
+    },
+    {
+      "id": "level5.build.SUN.2",
+      "text": "Build sun. Find letter N."
+    },
+    {
+      "id": "level5.build.BUG.0",
+      "text": "Build bug. Find letter B."
+    },
+    {
+      "id": "level5.build.BUG.1",
+      "text": "Build bug. Find letter U."
+    },
+    {
+      "id": "level5.build.BUG.2",
+      "text": "Build bug. Find letter G."
+    },
+    {
+      "id": "level5.build.HAT.0",
+      "text": "Build hat. Find letter H."
+    },
+    {
+      "id": "level5.build.HAT.1",
+      "text": "Build hat. Find letter A."
+    },
+    {
+      "id": "level5.build.HAT.2",
+      "text": "Build hat. Find letter T."
+    },
+    {
+      "id": "level5.build.MAP.0",
+      "text": "Build map. Find letter M."
+    },
+    {
+      "id": "level5.build.MAP.1",
+      "text": "Build map. Find letter A."
+    },
+    {
+      "id": "level5.build.MAP.2",
+      "text": "Build map. Find letter P."
+    },
+    {
+      "id": "level6.success",
+      "text": "Fossil found!"
+    },
+    {
+      "id": "level6.tryAgain",
+      "text": "Try another fossil letter."
+    },
+    {
+      "id": "level6.complete",
+      "text": "Level six complete. The dino dig is done!"
+    },
+    {
+      "id": "level6.find.A",
+      "text": "Dig up little letter A."
+    },
+    {
+      "id": "level6.find.B",
+      "text": "Dig up little letter B."
+    },
+    {
+      "id": "level6.find.C",
+      "text": "Dig up little letter C."
+    },
+    {
+      "id": "level6.find.D",
+      "text": "Dig up little letter D."
+    },
+    {
+      "id": "level6.find.E",
+      "text": "Dig up little letter E."
+    },
+    {
+      "id": "level6.find.F",
+      "text": "Dig up little letter F."
+    },
+    {
+      "id": "level6.find.G",
+      "text": "Dig up little letter G."
+    },
+    {
+      "id": "level6.find.H",
+      "text": "Dig up little letter H."
+    },
+    {
+      "id": "level6.find.I",
+      "text": "Dig up little letter I."
+    },
+    {
+      "id": "level6.find.J",
+      "text": "Dig up little letter J."
+    },
+    {
+      "id": "level6.find.K",
+      "text": "Dig up little letter K."
+    },
+    {
+      "id": "level6.find.L",
+      "text": "Dig up little letter L."
+    },
+    {
+      "id": "level6.find.M",
+      "text": "Dig up little letter M."
+    },
+    {
+      "id": "level6.find.N",
+      "text": "Dig up little letter N."
+    },
+    {
+      "id": "level6.find.O",
+      "text": "Dig up little letter O."
+    },
+    {
+      "id": "level6.find.P",
+      "text": "Dig up little letter P."
+    },
+    {
+      "id": "level6.find.Q",
+      "text": "Dig up little letter Q."
+    },
+    {
+      "id": "level6.find.R",
+      "text": "Dig up little letter R."
+    },
+    {
+      "id": "level6.find.S",
+      "text": "Dig up little letter S."
+    },
+    {
+      "id": "level6.find.T",
+      "text": "Dig up little letter T."
+    },
+    {
+      "id": "level6.find.U",
+      "text": "Dig up little letter U."
+    },
+    {
+      "id": "level6.find.V",
+      "text": "Dig up little letter V."
+    },
+    {
+      "id": "level6.find.W",
+      "text": "Dig up little letter W."
+    },
+    {
+      "id": "level6.find.X",
+      "text": "Dig up little letter X."
+    },
+    {
+      "id": "level6.find.Y",
+      "text": "Dig up little letter Y."
+    },
+    {
+      "id": "level6.find.Z",
+      "text": "Dig up little letter Z."
+    },
+    {
+      "id": "level7.success",
+      "text": "Car loaded!"
+    },
+    {
+      "id": "level7.tryAgain",
+      "text": "Try the next train car."
+    },
+    {
+      "id": "level7.complete",
+      "text": "Level seven complete. The train is ready!"
+    },
+    {
+      "id": "level7.sequence.1-2-3.0",
+      "text": "Load the train: 1, 2, 3. Find 1."
+    },
+    {
+      "id": "level7.sequence.1-2-3.1",
+      "text": "Load the train: 1, 2, 3. Find 2."
+    },
+    {
+      "id": "level7.sequence.1-2-3.2",
+      "text": "Load the train: 1, 2, 3. Find 3."
+    },
+    {
+      "id": "level7.sequence.2-3-4.0",
+      "text": "Load the train: 2, 3, 4. Find 2."
+    },
+    {
+      "id": "level7.sequence.2-3-4.1",
+      "text": "Load the train: 2, 3, 4. Find 3."
+    },
+    {
+      "id": "level7.sequence.2-3-4.2",
+      "text": "Load the train: 2, 3, 4. Find 4."
+    },
+    {
+      "id": "level7.sequence.3-4-5.0",
+      "text": "Load the train: 3, 4, 5. Find 3."
+    },
+    {
+      "id": "level7.sequence.3-4-5.1",
+      "text": "Load the train: 3, 4, 5. Find 4."
+    },
+    {
+      "id": "level7.sequence.3-4-5.2",
+      "text": "Load the train: 3, 4, 5. Find 5."
+    },
+    {
+      "id": "level7.sequence.A-B-C.0",
+      "text": "Load the train: A, B, C. Find A."
+    },
+    {
+      "id": "level7.sequence.A-B-C.1",
+      "text": "Load the train: A, B, C. Find B."
+    },
+    {
+      "id": "level7.sequence.A-B-C.2",
+      "text": "Load the train: A, B, C. Find C."
+    },
+    {
+      "id": "level7.sequence.C-A-T.0",
+      "text": "Load the train: C, A, T. Find C."
+    },
+    {
+      "id": "level7.sequence.C-A-T.1",
+      "text": "Load the train: C, A, T. Find A."
+    },
+    {
+      "id": "level7.sequence.C-A-T.2",
+      "text": "Load the train: C, A, T. Find T."
+    },
+    {
+      "id": "level7.sequence.D-O-G.0",
+      "text": "Load the train: D, O, G. Find D."
+    },
+    {
+      "id": "level7.sequence.D-O-G.1",
+      "text": "Load the train: D, O, G. Find O."
+    },
+    {
+      "id": "level7.sequence.D-O-G.2",
+      "text": "Load the train: D, O, G. Find G."
+    },
+    {
+      "id": "level8.success",
+      "text": "Harvest loaded!"
+    },
+    {
+      "id": "level8.tryAgain",
+      "text": "Try another number."
+    },
+    {
+      "id": "level8.complete",
+      "text": "Level eight complete. The tractor is full!"
+    },
+    {
+      "id": "level8.find.1",
+      "text": "Load the number 1."
+    },
+    {
+      "id": "level8.find.2",
+      "text": "Load the number 2."
+    },
+    {
+      "id": "level8.find.3",
+      "text": "Load the number 3."
+    },
+    {
+      "id": "level8.find.4",
+      "text": "Load the number 4."
+    },
+    {
+      "id": "level8.find.5",
+      "text": "Load the number 5."
+    },
+    {
+      "id": "level8.find.6",
+      "text": "Load the number 6."
+    },
+    {
+      "id": "level8.find.7",
+      "text": "Load the number 7."
+    },
+    {
+      "id": "level8.find.8",
+      "text": "Load the number 8."
+    },
+    {
+      "id": "level8.find.9",
+      "text": "Load the number 9."
+    },
+    {
+      "id": "level8.find.10",
+      "text": "Load the number 10."
+    },
+    {
+      "id": "level9.success",
+      "text": "Dragon likes it!"
+    },
+    {
+      "id": "level9.tryAgain",
+      "text": "Try another dragon sound."
+    },
+    {
+      "id": "level9.complete",
+      "text": "Level nine complete. The dragon eggs hatched!"
+    },
+    {
+      "id": "level9.sound.FIRE",
+      "text": "fire starts with F. Find F."
+    },
+    {
+      "id": "level9.sound.EGG",
+      "text": "egg starts with E. Find E."
+    },
+    {
+      "id": "level9.sound.WING",
+      "text": "wing starts with W. Find W."
+    },
+    {
+      "id": "level9.sound.GEM",
+      "text": "gem starts with G. Find G."
+    },
+    {
+      "id": "level9.sound.NEST",
+      "text": "nest starts with N. Find N."
+    },
+    {
+      "id": "level9.sound.CAVE",
+      "text": "cave starts with C. Find C."
+    },
+    {
+      "id": "level9.sound.MOON",
+      "text": "moon starts with M. Find M."
+    },
+    {
+      "id": "level9.sound.STAR",
+      "text": "star starts with S. Find S."
+    },
+    {
+      "id": "level9.sound.SMOKE",
+      "text": "smoke starts with S. Find S."
+    },
+    {
+      "id": "level9.sound.TAIL",
+      "text": "tail starts with T. Find T."
+    },
+    {
+      "id": "level10.success",
+      "text": "Word power!"
+    },
+    {
+      "id": "level10.tryAgain",
+      "text": "Try the next word letter."
+    },
+    {
+      "id": "level10.complete",
+      "text": "Level ten complete. Big words built!"
+    },
+    {
+      "id": "level10.build.FROG.0",
+      "text": "Build frog. Find letter F."
+    },
+    {
+      "id": "level10.build.FROG.1",
+      "text": "Build frog. Find letter R."
+    },
+    {
+      "id": "level10.build.FROG.2",
+      "text": "Build frog. Find letter O."
+    },
+    {
+      "id": "level10.build.FROG.3",
+      "text": "Build frog. Find letter G."
+    },
+    {
+      "id": "level10.build.STAR.0",
+      "text": "Build star. Find letter S."
+    },
+    {
+      "id": "level10.build.STAR.1",
+      "text": "Build star. Find letter T."
+    },
+    {
+      "id": "level10.build.STAR.2",
+      "text": "Build star. Find letter A."
+    },
+    {
+      "id": "level10.build.STAR.3",
+      "text": "Build star. Find letter R."
+    },
+    {
+      "id": "level10.build.TREE.0",
+      "text": "Build tree. Find letter T."
+    },
+    {
+      "id": "level10.build.TREE.1",
+      "text": "Build tree. Find letter R."
+    },
+    {
+      "id": "level10.build.TREE.2",
+      "text": "Build tree. Find letter E."
+    },
+    {
+      "id": "level10.build.TREE.3",
+      "text": "Build tree. Find letter E."
+    },
+    {
+      "id": "level10.build.SHIP.0",
+      "text": "Build ship. Find letter S."
+    },
+    {
+      "id": "level10.build.SHIP.1",
+      "text": "Build ship. Find letter H."
+    },
+    {
+      "id": "level10.build.SHIP.2",
+      "text": "Build ship. Find letter I."
+    },
+    {
+      "id": "level10.build.SHIP.3",
+      "text": "Build ship. Find letter P."
+    },
+    {
+      "id": "level10.build.TRAIN.0",
+      "text": "Build train. Find letter T."
+    },
+    {
+      "id": "level10.build.TRAIN.1",
+      "text": "Build train. Find letter R."
+    },
+    {
+      "id": "level10.build.TRAIN.2",
+      "text": "Build train. Find letter A."
+    },
+    {
+      "id": "level10.build.TRAIN.3",
+      "text": "Build train. Find letter I."
+    },
+    {
+      "id": "level10.build.TRAIN.4",
+      "text": "Build train. Find letter N."
+    },
+    {
+      "id": "level10.build.DRAGON.0",
+      "text": "Build dragon. Find letter D."
+    },
+    {
+      "id": "level10.build.DRAGON.1",
+      "text": "Build dragon. Find letter R."
+    },
+    {
+      "id": "level10.build.DRAGON.2",
+      "text": "Build dragon. Find letter A."
+    },
+    {
+      "id": "level10.build.DRAGON.3",
+      "text": "Build dragon. Find letter G."
+    },
+    {
+      "id": "level10.build.DRAGON.4",
+      "text": "Build dragon. Find letter O."
+    },
+    {
+      "id": "level10.build.DRAGON.5",
+      "text": "Build dragon. Find letter N."
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 520" fill="none">
+  <rect width="800" height="520" rx="44" fill="#0A1020"/>
+  <rect width="800" height="520" rx="44" fill="url(#bg)"/>
+  <g opacity=".14">
+    <path d="M0 92h800M0 184h800M0 276h800M0 368h800M0 460h800" stroke="#fff"/>
+    <path d="M100 0v520M200 0v520M300 0v520M400 0v520M500 0v520M600 0v520M700 0v520" stroke="#fff"/>
+  </g>
+  <rect x="246" y="92" width="64" height="64" rx="10" fill="#49D7FF"/>
+  <rect x="310" y="92" width="64" height="64" rx="10" fill="#49D7FF"/>
+  <rect x="374" y="92" width="64" height="64" rx="10" fill="#49D7FF"/>
+  <rect x="438" y="92" width="64" height="64" rx="10" fill="#49D7FF"/>
+  <rect x="214" y="164" width="64" height="64" rx="10" fill="#FF9D3C"/>
+  <rect x="214" y="228" width="64" height="64" rx="10" fill="#FF9D3C"/>
+  <rect x="278" y="228" width="64" height="64" rx="10" fill="#FF9D3C"/>
+  <rect x="342" y="228" width="64" height="64" rx="10" fill="#FF9D3C"/>
+  <rect x="470" y="198" width="64" height="64" rx="10" fill="#D979FF"/>
+  <rect x="406" y="262" width="64" height="64" rx="10" fill="#D979FF"/>
+  <rect x="470" y="262" width="64" height="64" rx="10" fill="#D979FF"/>
+  <rect x="534" y="262" width="64" height="64" rx="10" fill="#D979FF"/>
+  <rect x="246" y="332" width="64" height="64" rx="10" fill="#5AF78E"/>
+  <rect x="310" y="332" width="64" height="64" rx="10" fill="#5AF78E"/>
+  <rect x="182" y="396" width="64" height="64" rx="10" fill="#5AF78E"/>
+  <rect x="246" y="396" width="64" height="64" rx="10" fill="#5AF78E"/>
+  <text x="62" y="84" fill="#EEF4FF" font-family="Avenir Next, Arial, sans-serif" font-size="40" font-weight="700" letter-spacing="4">TETRIS</text>
+  <defs>
+    <linearGradient id="bg" x1="126" y1="30" x2="661" y2="520" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1E1138"/>
+      <stop offset=".52" stop-color="#10203A"/>
+      <stop offset="1" stop-color="#080D17"/>
+    </linearGradient>
+  </defs>
+</svg>
