@@ -29,10 +29,12 @@ body {
 
 body {
   min-height: 100vh;
+  min-height: 100svh;
 }
 
 #app {
   min-height: 100vh;
+  min-height: 100svh;
   padding: 16px;
   display: grid;
   gap: 14px;

@@ -1,3 +1,12 @@
+import { createArcadeStage } from "../../shared/arcade-stage.js";
+import {
+  DEFAULT_PLAYER_LIVES,
+  decrementLives,
+  formatLives,
+  hasLivesRemaining,
+  scoreLivesValue,
+} from "../../shared/lives-config.js";
+
 const BUILD_NUMBER = "2026.04.13.1";
 const MAX_PLAYERS = 4;
 const KEYBOARD_PLAYER_ID = "keyboard-1";
@@ -12,6 +21,10 @@ const SNOW_SPEED = 410;
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+const WIDTH = Number(canvas.getAttribute("width"));
+const HEIGHT = Number(canvas.getAttribute("height"));
+const playfieldShell = document.getElementById("playfield-shell");
+const playfieldStage = document.getElementById("playfield-stage");
 const arcadeCabinet = window.ArcadeCabinet || null;
 
 const ui = {
@@ -23,6 +36,14 @@ const ui = {
 };
 
 document.title = `snow-bros build ${BUILD_NUMBER}`;
+
+const cabinetStage = createArcadeStage({
+  shell: playfieldShell,
+  stage: playfieldStage,
+  canvas,
+  logicalWidth: WIDTH,
+  logicalHeight: HEIGHT,
+});
 
 const platforms = [
   { x1: 96, x2: 864, y: 672 },
@@ -80,7 +101,7 @@ function spawnPlayer(source, controllerIndex, controllerName) {
     vx: 0,
     vy: 0,
     facing: 1,
-    lives: 3,
+    lives: DEFAULT_PLAYER_LIVES,
     alive: true,
     respawnAt: 0,
     groundedPlatform: 0,
@@ -244,13 +265,13 @@ function respawnPlayer(player) {
 
 function loseLife(player, reason) {
   player.alive = false;
-  player.lives -= 1;
+  player.lives = decrementLives(player.lives);
   player.respawnAt = performance.now() + RESPAWN_MS;
   setStatus(reason);
 
-  if ([...state.players.values()].every((entry) => entry.lives <= 0)) {
+  if ([...state.players.values()].every((entry) => !hasLivesRemaining(entry.lives))) {
     state.gameOver = true;
-    setStatus("The snow squad wiped out. Press R to restart.");
+    setStatus("The snow squad wiped out. Press A, Start, or R to restart.");
   }
 }
 
@@ -302,7 +323,7 @@ function resetRound(advance = false) {
 
   for (const player of state.players.values()) {
     if (!advance) {
-      player.lives = 3;
+      player.lives = DEFAULT_PLAYER_LIVES;
     }
     player.shootCooldown = 0;
     player.jumpPressedLastFrame = false;
@@ -316,7 +337,7 @@ function showGameOverMenu() {
     return;
   }
   gameOverMenuShown = true;
-  const score = state.round * 100 + [...state.players.values()].reduce((sum, player) => sum + Math.max(player.lives, 0) * 25, 0);
+  const score = state.round * 100 + [...state.players.values()].reduce((sum, player) => sum + scoreLivesValue(player.lives) * 25, 0);
   arcadeCabinet?.reportGameOver?.({
     gameId: "snow-bros",
     title: "Snow Bros",
@@ -338,7 +359,7 @@ function spawnSnowShot(player) {
 function updatePlayers(dt) {
   for (const player of state.players.values()) {
     if (!player.alive) {
-      if (performance.now() >= player.respawnAt && player.lives > 0) {
+      if (performance.now() >= player.respawnAt && hasLivesRemaining(player.lives)) {
         respawnPlayer(player);
       }
       continue;
@@ -380,8 +401,8 @@ function updatePlayers(dt) {
       player.groundedPlatform = landedPlatform;
     }
 
-    player.x = Math.max(64, Math.min(canvas.width - 64 - player.width, player.x));
-    if (player.y > canvas.height + 40) {
+    player.x = Math.max(64, Math.min(WIDTH - 64 - player.width, player.x));
+    if (player.y > HEIGHT + 40) {
       loseLife(player, `${player.label} slipped off the mountain.`);
     }
 
@@ -405,7 +426,7 @@ function updatePlayers(dt) {
 function updateSnowShots(dt) {
   state.snowShots = state.snowShots.filter((shot) => {
     shot.x += shot.vx * dt;
-    if (shot.x < -20 || shot.x > canvas.width + 20) return false;
+    if (shot.x < -20 || shot.x > WIDTH + 20) return false;
 
     for (const enemy of state.enemies) {
       if (enemy.rolling) continue;
@@ -438,7 +459,7 @@ function updateEnemies(dt) {
           other.dead = true;
         }
       }
-      if (enemy.x < 30 || enemy.x > canvas.width - 30 || enemy.rollingTimer <= 0) {
+      if (enemy.x < 30 || enemy.x > WIDTH - 30 || enemy.rollingTimer <= 0) {
         enemy.dead = true;
       }
       continue;
@@ -483,17 +504,17 @@ function updateUi() {
   ui.enemies.textContent = String(state.enemies.length);
   ui.status.textContent = state.lastStatusText || "Freeze the wave and kick the snowballs.";
   ui.hint.textContent = state.gameOver
-    ? "Press R to restart."
+    ? "Press A, Start, or R to restart."
     : "Hit enemies four times with snow, then run into them to launch a snowball.";
 }
 
 function drawBackground() {
-  const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  const sky = ctx.createLinearGradient(0, 0, 0, HEIGHT);
   sky.addColorStop(0, "#1f4b78");
   sky.addColorStop(0.6, "#14304e");
   sky.addColorStop(1, "#08121d");
   ctx.fillStyle = sky;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   ctx.fillStyle = "rgba(244, 251, 255, 0.08)";
   ctx.beginPath();
@@ -502,7 +523,7 @@ function drawBackground() {
 
   ctx.fillStyle = "#d8f1ff";
   for (let index = 0; index < 24; index += 1) {
-    const x = (index * 163) % canvas.width;
+    const x = (index * 163) % WIDTH;
     const y = (index * 97) % 240;
     ctx.beginPath();
     ctx.arc(x, y, 2 + (index % 2), 0, Math.PI * 2);
@@ -533,7 +554,7 @@ function drawPlayers() {
     ctx.fillRect(player.x + 15, player.y + 12, 4, 4);
     ctx.font = '12px "Avenir Next", "Segoe UI", sans-serif';
     ctx.fillStyle = "#f7fcff";
-    ctx.fillText(`${player.label} ${Math.max(0, player.lives)}`, player.x - 4, player.y - 10);
+    ctx.fillText(`${player.label} ${formatLives(player.lives)}`, player.x - 4, player.y - 10);
   }
 }
 
@@ -578,18 +599,19 @@ function drawSnowShots() {
 function drawOverlay() {
   if (!state.gameOver && !state.paused) return;
   ctx.fillStyle = "rgba(5, 10, 18, 0.58)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
   ctx.fillStyle = "#f6fbff";
   ctx.textAlign = "center";
   ctx.font = '700 40px "Avenir Next", "Segoe UI", sans-serif';
-  ctx.fillText(state.gameOver ? "Snow Bros Down" : "Paused", canvas.width / 2, canvas.height / 2 - 12);
+  ctx.fillText(state.gameOver ? "Snow Bros Down" : "Paused", WIDTH / 2, HEIGHT / 2 - 12);
   ctx.font = '500 20px "Avenir Next", "Segoe UI", sans-serif';
-  ctx.fillText(state.gameOver ? "Press R to restart." : "Press P or Start to resume.", canvas.width / 2, canvas.height / 2 + 22);
+  ctx.fillText(state.gameOver ? "Press A, Start, or R to restart." : "Press P or Start to resume.", WIDTH / 2, HEIGHT / 2 + 22);
   ctx.textAlign = "left";
 }
 
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  cabinetStage.syncContext(ctx);
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
   drawBackground();
   drawPlatforms();
   drawSnowShots();

@@ -1,0 +1,11 @@
+{
+  "id": "power-train-panic",
+  "title": "Power Train Panic",
+  "image": "./assets/covers/power-train-panic.svg",
+  "summary": "A toy-rail co-op scramble where one to four players route batteries, cargo, and quick repairs before the network melts down.",
+  "players": "1-4 local",
+  "controls": "Keyboard + gamepad hot-join",
+  "launchText": "Run yard",
+  "path": "./games/power-train-panic/index.html",
+  "badge": "Co-op Chaos"
+}

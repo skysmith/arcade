@@ -1,0 +1,299 @@
+{
+  "packId": "heist-core-pack-v1",
+  "title": "Model Gauntlet Heist Core Missions",
+  "schemaVersion": 1,
+  "missions": [
+    {
+      "id": "mh-001-lobby-shift",
+      "title": "Lobby Shift Cipher",
+      "difficulty": "rookie",
+      "turnLimit": 6,
+      "alarmMax": 10,
+      "briefing": "Decode a rotating concierge schedule to identify the two-minute blind spot in the lobby sweep.",
+      "objective": "Find the safe infiltration window and submit the matching action sequence.",
+      "tasks": [
+        {
+          "id": "mh-001-text-1",
+          "type": "text",
+          "prompt": "Given shifts A-B-C rotated every 4 minutes with B delayed by 2 minutes, which minute marks the only overlap where camera and guard are both absent?",
+          "answerKeywords": ["minute 10", "10"]
+        },
+        {
+          "id": "mh-001-rules-1",
+          "type": "rule-check",
+          "prompt": "Validate that the chosen entry action uses exactly one movement and one hack action.",
+          "answerKeywords": ["valid", "legal"]
+        }
+      ]
+    },
+    {
+      "id": "mh-002-vault-ledger",
+      "title": "Vault Ledger Reconcile",
+      "difficulty": "rookie",
+      "turnLimit": 7,
+      "alarmMax": 11,
+      "briefing": "A corrupted transaction ledger hides the vault unlock checksum.",
+      "objective": "Recover the checksum and trigger a clean unlock.",
+      "tasks": [
+        {
+          "id": "mh-002-text-1",
+          "type": "text",
+          "prompt": "Ledger rows are missing one value each; compute the only checksum divisible by both 7 and 9 from candidate totals 252, 261, 279.",
+          "answerKeywords": ["252"]
+        },
+        {
+          "id": "mh-002-rules-1",
+          "type": "rule-check",
+          "prompt": "Verify the final checksum submission is numeric and within 3-digit bounds.",
+          "answerKeywords": ["pass", "valid"]
+        }
+      ]
+    },
+    {
+      "id": "mh-003-breakroom-gossip",
+      "title": "Breakroom Gossip Chain",
+      "difficulty": "rookie",
+      "turnLimit": 6,
+      "alarmMax": 10,
+      "briefing": "Three staff rumors conflict; only one identifies the active supervisor badge color.",
+      "objective": "Infer the true rumor and impersonate the correct role.",
+      "tasks": [
+        {
+          "id": "mh-003-text-1",
+          "type": "text",
+          "prompt": "If Riley lies on Tuesdays, Noor always tells the truth, and the badge is not red, determine the badge color from statements: Riley=Blue, Noor=Green, Dex=Blue.",
+          "answerKeywords": ["green"]
+        },
+        {
+          "id": "mh-003-rules-1",
+          "type": "rule-check",
+          "prompt": "Confirm social action can only target one NPC per turn.",
+          "answerKeywords": ["confirmed", "yes"]
+        }
+      ]
+    },
+    {
+      "id": "mh-004-courtyard-angles",
+      "title": "Courtyard Laser Angles",
+      "difficulty": "standard",
+      "turnLimit": 8,
+      "alarmMax": 12,
+      "briefing": "Two rotating lasers create alternating safe arcs in the courtyard.",
+      "objective": "Choose the safe path using angle arithmetic before the next sweep.",
+      "tasks": [
+        {
+          "id": "mh-004-text-1",
+          "type": "text",
+          "prompt": "Laser A sweeps 45° every turn and Laser B sweeps 30° opposite direction. At turn 3, which arc (0°-30°, 30°-60°, 60°-90°) is clear?",
+          "answerKeywords": ["30", "30°-60°", "30-60"]
+        },
+        {
+          "id": "mh-004-rules-1",
+          "type": "rule-check",
+          "prompt": "Validate extraction is disallowed before objective progress reaches 100%.",
+          "answerKeywords": ["disallowed", "blocked"]
+        }
+      ]
+    },
+    {
+      "id": "mh-005-dock-camera-grid",
+      "title": "Dock Camera Grid",
+      "difficulty": "standard",
+      "turnLimit": 8,
+      "alarmMax": 12,
+      "briefing": "A still image from dock CCTV shows crate markings and shadow directions that reveal which lane is unguarded.",
+      "objective": "Interpret the image clues and pick the unguarded lane.",
+      "tasks": [
+        {
+          "id": "mh-005-vision-1",
+          "type": "vision",
+          "prompt": "Inspect the dock image and identify the only lane where crate shadows indicate no active floodlight.",
+          "imageRef": "intel-cam://dock/grid-a",
+          "expectedClues": ["lane 3", "no floodlight", "shadow points west"]
+        },
+        {
+          "id": "mh-005-text-1",
+          "type": "text",
+          "prompt": "Map lane identifiers A-D to numeric lanes 1-4 and return the final lane number.",
+          "answerKeywords": ["3", "lane 3"]
+        },
+        {
+          "id": "mh-005-rules-1",
+          "type": "rule-check",
+          "prompt": "Ensure chosen lane is not currently flagged by a detected guard patrol.",
+          "answerKeywords": ["clear", "valid"]
+        }
+      ]
+    },
+    {
+      "id": "mh-006-server-rack-labels",
+      "title": "Server Rack Labels",
+      "difficulty": "standard",
+      "turnLimit": 7,
+      "alarmMax": 12,
+      "briefing": "An image of mislabeled rack LEDs contains the true failover route.",
+      "objective": "Read indicator colors and select the correct rack pair.",
+      "tasks": [
+        {
+          "id": "mh-006-vision-1",
+          "type": "vision",
+          "prompt": "From the rack photo, identify which two racks show amber-over-green LED stacks in the same column.",
+          "imageRef": "intel-cam://server/rack-b",
+          "expectedClues": ["r2", "r5", "amber over green"]
+        },
+        {
+          "id": "mh-006-text-1",
+          "type": "text",
+          "prompt": "Translate rack IDs R2 and R5 to switch path notation using mapping R1=A, R2=B...",
+          "answerKeywords": ["B-E", "b-e"]
+        }
+      ]
+    },
+    {
+      "id": "mh-007-elevator-priority",
+      "title": "Elevator Priority Queue",
+      "difficulty": "standard",
+      "turnLimit": 7,
+      "alarmMax": 11,
+      "briefing": "A maintenance queue can be manipulated to reserve an elevator car.",
+      "objective": "Reorder requests legally to isolate one private ride.",
+      "tasks": [
+        {
+          "id": "mh-007-text-1",
+          "type": "text",
+          "prompt": "Given priority values [VIP=9, Freight=4, Service=6] and one allowed swap, what order yields VIP first and Service second?",
+          "answerKeywords": ["VIP, Service, Freight", "vip service freight"]
+        },
+        {
+          "id": "mh-007-rules-1",
+          "type": "rule-check",
+          "prompt": "Check that only adjacent queue swaps are legal this mission.",
+          "answerKeywords": ["adjacent", "legal"]
+        }
+      ]
+    },
+    {
+      "id": "mh-008-art-wing-forgery",
+      "title": "Art Wing Forgery",
+      "difficulty": "expert",
+      "turnLimit": 9,
+      "alarmMax": 13,
+      "briefing": "An exhibit image includes subtle frame defects that identify the forged painting.",
+      "objective": "Use visual discrepancies to target the forged frame and extract the hidden key.",
+      "tasks": [
+        {
+          "id": "mh-008-vision-1",
+          "type": "vision",
+          "prompt": "Compare the four gallery frames and identify the forgery by asymmetrical corner joint and incorrect reflection.",
+          "imageRef": "intel-cam://gallery/frame-c",
+          "expectedClues": ["frame c", "asymmetrical joint", "reflection mismatch"]
+        },
+        {
+          "id": "mh-008-text-1",
+          "type": "text",
+          "prompt": "Convert frame letter C to extraction latch code where A=17 and each next letter adds 4.",
+          "answerKeywords": ["25"]
+        },
+        {
+          "id": "mh-008-rules-1",
+          "type": "rule-check",
+          "prompt": "Validate sabotage cannot be used after extraction has started.",
+          "answerKeywords": ["invalid", "not allowed"]
+        }
+      ]
+    },
+    {
+      "id": "mh-009-rooftop-relay",
+      "title": "Rooftop Relay Drift",
+      "difficulty": "expert",
+      "turnLimit": 8,
+      "alarmMax": 13,
+      "briefing": "A wind-shift table determines relay antenna drift and blind transmission windows.",
+      "objective": "Send one clean burst through the blind window.",
+      "tasks": [
+        {
+          "id": "mh-009-text-1",
+          "type": "text",
+          "prompt": "If drift increments are +2, -1, +3 over three turns starting at channel 5, which channel is aligned at turn 3?",
+          "answerKeywords": ["9"]
+        },
+        {
+          "id": "mh-009-rules-1",
+          "type": "rule-check",
+          "prompt": "Confirm only one transmission attempt is allowed per turn.",
+          "answerKeywords": ["one", "single"]
+        }
+      ]
+    },
+    {
+      "id": "mh-010-loading-bay-pallets",
+      "title": "Loading Bay Pallets",
+      "difficulty": "expert",
+      "turnLimit": 9,
+      "alarmMax": 14,
+      "briefing": "A pallet stack image and RFID notes disagree; only visual evidence reveals the decoy pallet.",
+      "objective": "Identify and tag the decoy pallet before guards scan inventory.",
+      "tasks": [
+        {
+          "id": "mh-010-vision-1",
+          "type": "vision",
+          "prompt": "Inspect pallet labels and tape patterns to find the decoy with mirrored hazard stripe.",
+          "imageRef": "intel-cam://bay/pallet-d",
+          "expectedClues": ["pallet d", "mirrored stripe", "mismatched tape"]
+        },
+        {
+          "id": "mh-010-text-1",
+          "type": "text",
+          "prompt": "Using the mapping A=11, B=13, C=17, D=19, return the numeric tag for the decoy pallet.",
+          "answerKeywords": ["19"]
+        }
+      ]
+    },
+    {
+      "id": "mh-011-subnet-smokescreen",
+      "title": "Subnet Smokescreen",
+      "difficulty": "expert",
+      "turnLimit": 8,
+      "alarmMax": 14,
+      "briefing": "False subnet alarms must be filtered to reveal the true security pivot.",
+      "objective": "Select the real pivot subnet and push a spoof route.",
+      "tasks": [
+        {
+          "id": "mh-011-text-1",
+          "type": "text",
+          "prompt": "From alerts 10.4.1.0/24, 10.4.2.0/24, 10.4.3.0/24 where only odd subnet has failed auth and packet loss >5%, pick the pivot.",
+          "answerKeywords": ["10.4.3.0/24", "10.4.3"]
+        },
+        {
+          "id": "mh-011-rules-1",
+          "type": "rule-check",
+          "prompt": "Validate spoof route can only be applied after a successful scout or hack outcome.",
+          "answerKeywords": ["requires scout", "requires hack", "gated"]
+        }
+      ]
+    },
+    {
+      "id": "mh-012-final-clean-extract",
+      "title": "Final Clean Extract",
+      "difficulty": "expert",
+      "turnLimit": 10,
+      "alarmMax": 15,
+      "briefing": "Combine social, network, and physical clues from prior missions for a no-lockdown extraction.",
+      "objective": "Complete objective and extract with alarm under threshold.",
+      "tasks": [
+        {
+          "id": "mh-012-text-1",
+          "type": "text",
+          "prompt": "Choose the optimal 3-action chain from [Scout, Hack, Social, Sabotage, Extract] that maximizes objective progress while keeping alarm gain <= 2.",
+          "answerKeywords": ["scout", "hack", "extract"]
+        },
+        {
+          "id": "mh-012-rules-1",
+          "type": "rule-check",
+          "prompt": "Verify extraction only succeeds if objective progress is complete and integrity is above zero.",
+          "answerKeywords": ["true", "must"]
+        }
+      ]
+    }
+  ]
+}

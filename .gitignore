@@ -1,2 +1,4 @@
 .DS_Store
 tools/controller-bridge/controller-mouse.bin
+games/letter-launchpad/.env
+games/whispering-willow/.env

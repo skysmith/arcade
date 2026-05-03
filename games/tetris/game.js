@@ -1,3 +1,5 @@
+import { applyCanvasRenderScale, attachViewportResize, syncCanvasBackingStore } from "../../shared/arcade-stage.js";
+
 const BOARD_COUNT = 4;
 const arcadeCabinet = window.ArcadeCabinet || null;
 const BUILD_NUMBER = "2026.04.12.5";
@@ -233,6 +235,26 @@ const MUSIC_TRACKS = {
 const boards = Array.from({ length: BOARD_COUNT }, (_, zeroIndex) => createBoardState(zeroIndex + 1));
 ui.buildNumber.textContent = `build ${BUILD_NUMBER}`;
 
+function syncBoardCanvasSizing() {
+  boards.forEach((boardState) => {
+    boardState.boardRenderState = syncCanvasBackingStore(boardState.boardCanvas, {
+      logicalWidth: boardState.boardWidth,
+      logicalHeight: boardState.boardHeight,
+    });
+    boardState.holdRenderState = syncCanvasBackingStore(boardState.holdCanvas, {
+      logicalWidth: boardState.holdWidth,
+      logicalHeight: boardState.holdHeight,
+    });
+    boardState.nextRenderState = syncCanvasBackingStore(boardState.nextCanvas, {
+      logicalWidth: boardState.nextWidth,
+      logicalHeight: boardState.nextHeight,
+    });
+  });
+}
+
+syncBoardCanvasSizing();
+attachViewportResize(syncBoardCanvasSizing);
+
 function createBoardState(index) {
   const boardCanvas = document.getElementById(`board-canvas-${index}`);
   const holdCanvas = document.getElementById(`hold-canvas-${index}`);
@@ -248,6 +270,9 @@ function createBoardState(index) {
     boardCanvas,
     holdCanvas,
     nextCanvas,
+    boardRenderState: { scaleX: 1, scaleY: 1 },
+    holdRenderState: { scaleX: 1, scaleY: 1 },
+    nextRenderState: { scaleX: 1, scaleY: 1 },
     phaseEl: document.getElementById(`board-phase-${index}`),
     scoreEl: document.getElementById(`board-score-${index}`),
     linesEl: document.getElementById(`board-lines-${index}`),
@@ -255,6 +280,10 @@ function createBoardState(index) {
     previewCell,
     boardWidth: COLS * cell,
     boardHeight: ROWS * cell,
+    holdWidth: Number(holdCanvas.getAttribute("width")),
+    holdHeight: Number(holdCanvas.getAttribute("height")),
+    nextWidth: Number(nextCanvas.getAttribute("width")),
+    nextHeight: Number(nextCanvas.getAttribute("height")),
     board: createEmptyBoard(),
     bag: [],
     queue: [],
@@ -717,7 +746,7 @@ function syncHud() {
     ui.message.textContent = "The game is frozen. Press pause again to continue.";
   } else if (liveBoards === 0) {
     ui.phase.textContent = gameState.mode === "classic" ? "Game Over" : "All Terminals Down";
-    ui.message.textContent = "Everything active has topped out. Press restart and go again.";
+    ui.message.textContent = "Everything active has topped out. Press A, Start, or R to go again.";
   } else if (gameState.mode === "multitap" && liveBoards === 1) {
     ui.phase.textContent = "Last Terminal Standing";
     ui.message.textContent = "One terminal survived. Keep it alive.";
@@ -803,6 +832,7 @@ function renderPreview(ctx, width, height, pieces, previewCell) {
 
 function renderBoard(boardState) {
   const { ctx, boardWidth, boardHeight, cell } = boardState;
+  applyCanvasRenderScale(ctx, boardState.boardRenderState);
   ctx.clearRect(0, 0, boardWidth, boardHeight);
   ctx.fillStyle = COLORS.frame;
   ctx.fillRect(0, 0, boardWidth, boardHeight);
@@ -848,8 +878,10 @@ function renderBoard(boardState) {
     drawOverlay(boardState, "Topped Out", "This lane is done");
   }
 
-  renderPreview(boardState.holdCtx, boardState.holdCanvas.width, boardState.holdCanvas.height, boardState.hold ? [boardState.hold] : [], boardState.previewCell);
-  renderPreview(boardState.nextCtx, boardState.nextCanvas.width, boardState.nextCanvas.height, boardState.queue.slice(0, 3), boardState.previewCell);
+  applyCanvasRenderScale(boardState.holdCtx, boardState.holdRenderState);
+  renderPreview(boardState.holdCtx, boardState.holdWidth, boardState.holdHeight, boardState.hold ? [boardState.hold] : [], boardState.previewCell);
+  applyCanvasRenderScale(boardState.nextCtx, boardState.nextRenderState);
+  renderPreview(boardState.nextCtx, boardState.nextWidth, boardState.nextHeight, boardState.queue.slice(0, 3), boardState.previewCell);
 }
 
 function render() {

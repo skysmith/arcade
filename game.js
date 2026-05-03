@@ -75,6 +75,8 @@ const state = {
   selectedIndex: 0,
   selectedGamepadIndex: null,
   firstConnectedGamepadIndex: null,
+  activeGamepadIndex: null,
+  gamepadNavigationArmed: false,
   controllerSnapshot: {},
   menuOpen: false,
   mapping: loadStoredMapping(),
@@ -185,6 +187,7 @@ function syncFullscreenUi() {
   if (!ui.fullscreenToggle || !ui.fullscreenStatus) return;
   const supported = fullscreenSupported();
   ui.fullscreenToggle.disabled = !supported;
+  document.body.classList.toggle("is-fullscreen", supported && fullscreenActive());
   if (!supported) {
     ui.fullscreenToggle.textContent = "Unavailable";
     ui.fullscreenStatus.textContent = "This browser does not support fullscreen here.";
@@ -246,7 +249,10 @@ function renderGrid() {
     card.innerHTML = `
       <img class="game-image" src="${game.image}" alt="" />
       <div class="game-overlay">
-        <h2 class="game-title">${game.title}</h2>
+        <div class="game-copy">
+          <span class="game-kicker">Cabinet</span>
+          <h2 class="game-title">${game.title}</h2>
+        </div>
         <span class="game-pill">${game.badge}</span>
       </div>
     `;
@@ -375,6 +381,25 @@ function updateControllerStatus() {
 
 function handleGamepadNavigation(pad) {
   if (!pad) return;
+
+  if (state.activeGamepadIndex !== pad.index) {
+    state.activeGamepadIndex = pad.index;
+    state.gamepadNavigationArmed = false;
+    state.controllerSnapshot = {};
+  }
+
+  // Require the pad to return to neutral before the launcher accepts input.
+  // This prevents a held confirm/start button from immediately reopening Tetris
+  // when a cabinet sends the player back to the arcade shelf.
+  if (!state.gamepadNavigationArmed) {
+    if (gamepadHasActivity(pad)) {
+      return;
+    }
+    state.gamepadNavigationArmed = true;
+    state.controllerSnapshot = {};
+    return;
+  }
+
   const menuPressed = buttonPressed(pad, 9) || buttonPressed(pad, 8);
   const backPressed = buttonPressed(pad, 1) || buttonPressed(pad, 9) || buttonPressed(pad, 8);
   const menuConfirmPressed = buttonPressed(pad, 0);
@@ -467,6 +492,11 @@ function bindUi() {
     if (state.firstConnectedGamepadIndex === event.gamepad.index) {
       const remaining = getAvailableGamepads().filter((pad) => pad.index !== event.gamepad.index);
       state.firstConnectedGamepadIndex = remaining[0]?.index ?? null;
+      state.controllerSnapshot = {};
+    }
+    if (state.activeGamepadIndex === event.gamepad.index) {
+      state.activeGamepadIndex = null;
+      state.gamepadNavigationArmed = false;
       state.controllerSnapshot = {};
     }
     refreshControllerOptions();

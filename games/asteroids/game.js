@@ -1,3 +1,11 @@
+import { createArcadeStage } from "../../shared/arcade-stage.js";
+import {
+  DEFAULT_PLAYER_LIVES,
+  decrementLives,
+  formatLives,
+  hasLivesRemaining,
+} from "../../shared/lives-config.js";
+
 const BUILD_NUMBER = "2026.04.12.1";
 const MAX_PLAYERS = 4;
 const PLAYER_COLORS = ["#ffbe64", "#7dd3ff", "#92ff9d", "#ff8fb1"];
@@ -10,6 +18,8 @@ const SHIP_RADIUS = 14;
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+const playfieldShell = document.getElementById("playfield-shell");
+const playfieldStage = document.getElementById("playfield-stage");
 const arcadeCabinet = window.ArcadeCabinet || null;
 
 const ui = {
@@ -21,6 +31,14 @@ const ui = {
 };
 
 document.title = `asteroids build ${BUILD_NUMBER}`;
+
+const cabinetStage = createArcadeStage({
+  shell: playfieldShell,
+  stage: playfieldStage,
+  canvas,
+  logicalWidth: WIDTH,
+  logicalHeight: HEIGHT,
+});
 
 const starfield = Array.from({ length: 140 }, (_, index) => {
   const seed = Math.sin((index + 1) * 91.73) * 10000;
@@ -190,7 +208,7 @@ function spawnPlayer(source, controllerIndex, controllerName) {
     slot,
     label: PLAYER_LABELS[slot] || `P${slot + 1}`,
     color: PLAYER_COLORS[slot % PLAYER_COLORS.length],
-    lives: 3,
+    lives: DEFAULT_PLAYER_LIVES,
     x: WIDTH / 2,
     y: HEIGHT / 2,
     vx: 0,
@@ -401,17 +419,17 @@ function destroyPlayer(player) {
   }
 
   player.active = false;
-  player.lives = Math.max(0, player.lives - 1);
-  player.respawnTimer = player.lives > 0 ? 2.2 : 0;
+  player.lives = decrementLives(player.lives);
+  player.respawnTimer = hasLivesRemaining(player.lives) ? 2.2 : 0;
   createParticleBurst(player.x, player.y, player.color, 18, 220);
 
-  if (player.lives === 0) {
+  if (!hasLivesRemaining(player.lives)) {
     setStatus(`${player.label} is out of ships.`);
   }
 }
 
 function maybeRespawnPlayer(player, dt) {
-  if (player.active || player.lives <= 0 || state.gameOver) {
+  if (player.active || !hasLivesRemaining(player.lives) || state.gameOver) {
     return;
   }
 
@@ -482,14 +500,14 @@ function setupWave(wave, preservePlayers = true) {
 
   if (!preservePlayers) {
     for (const player of state.players.values()) {
-      player.lives = 3;
+      player.lives = DEFAULT_PLAYER_LIVES;
       player.active = false;
       player.respawnTimer = 0;
     }
   }
 
   for (const player of state.players.values()) {
-    if (player.lives > 0) {
+    if (hasLivesRemaining(player.lives)) {
       spawnShip(player);
     }
   }
@@ -504,7 +522,7 @@ function restartRun() {
   state.gameOver = false;
   state.paused = false;
   for (const player of state.players.values()) {
-    player.lives = 3;
+    player.lives = DEFAULT_PLAYER_LIVES;
     player.active = false;
     player.respawnTimer = 0;
   }
@@ -768,14 +786,14 @@ function checkGameOver() {
     return;
   }
 
-  const anyoneAlive = [...state.players.values()].some((player) => player.active || player.lives > 0);
+  const anyoneAlive = [...state.players.values()].some((player) => player.active || hasLivesRemaining(player.lives));
   if (anyoneAlive || state.gameOver) {
     return;
   }
 
   state.gameOver = true;
   state.paused = false;
-  setStatus("Game over. Press R to launch a new run.");
+  setStatus("Game over. Press A, Start, or R to launch a new run.");
   showGameOverMenu();
 }
 
@@ -785,7 +803,7 @@ function updateHud() {
   ui.score.textContent = String(state.score);
 
   const playerSummary = [...state.players.values()]
-    .map((player) => `${player.label}:${player.lives}`)
+    .map((player) => `${player.label}:${formatLives(player.lives)}`)
     .join("  ");
   ui.hint.textContent = playerSummary
     ? `${playerSummary}  |  Space fires, Shift jumps, R restarts`
@@ -931,11 +949,12 @@ function drawOverlayText() {
   ctx.fillText(state.gameOver ? "Run Over" : "Paused", WIDTH / 2, HEIGHT / 2 - 18);
   ctx.font = '500 18px "Avenir Next", "Segoe UI", sans-serif';
   ctx.fillStyle = "rgba(243, 248, 255, 0.76)";
-  ctx.fillText(state.gameOver ? "Press R to restart the cabinet." : "Press P or Start to resume.", WIDTH / 2, HEIGHT / 2 + 18);
+  ctx.fillText(state.gameOver ? "Press A, Start, or R to restart the cabinet." : "Press P or Start to resume.", WIDTH / 2, HEIGHT / 2 + 18);
   ctx.textAlign = "start";
 }
 
 function render() {
+  cabinetStage.syncContext(ctx);
   drawBackdrop();
 
   for (const asteroid of state.asteroids) {

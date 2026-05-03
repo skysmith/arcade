@@ -1,0 +1,104 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Letter Launchpad Voice Auditions</title>
+    <style>
+      :root {
+        color-scheme: dark;
+        --bg: #10151c;
+        --panel: #171f29;
+        --line: rgba(255, 255, 255, 0.12);
+        --text: #f7fbff;
+        --muted: #aab8c0;
+        --accent: #75f0d4;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        padding: 28px;
+        background: linear-gradient(145deg, #092421, var(--bg));
+        color: var(--text);
+        font-family: "Avenir Next", "Segoe UI", sans-serif;
+      }
+
+      main {
+        width: min(760px, 100%);
+        display: grid;
+        gap: 14px;
+      }
+
+      h1,
+      p {
+        margin: 0;
+      }
+
+      h1 {
+        font-size: clamp(2rem, 6vw, 3.4rem);
+        line-height: 1;
+      }
+
+      p {
+        color: var(--muted);
+      }
+
+      .clip {
+        display: grid;
+        gap: 8px;
+        padding: 14px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: var(--panel);
+      }
+
+      .voice {
+        color: var(--accent);
+        font-size: 0.78rem;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+      }
+
+      audio {
+        width: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Voice Auditions</h1>
+      <p>Prompt line: “Find the letter J.” These clips are AI-generated.</p>
+
+      <section class="clip">
+        <div class="voice">coral</div>
+        <audio controls src="./find-letter-j-coral.mp3"></audio>
+      </section>
+      <section class="clip">
+        <div class="voice">nova</div>
+        <audio controls src="./find-letter-j-nova.mp3"></audio>
+      </section>
+      <section class="clip">
+        <div class="voice">shimmer</div>
+        <audio controls src="./find-letter-j-shimmer.mp3"></audio>
+      </section>
+      <section class="clip">
+        <div class="voice">sage</div>
+        <audio controls src="./find-letter-j-sage.mp3"></audio>
+      </section>
+      <section class="clip">
+        <div class="voice">marin</div>
+        <audio controls src="./find-letter-j-marin.mp3"></audio>
+      </section>
+      <section class="clip">
+        <div class="voice">ballad</div>
+        <audio controls src="./find-letter-j-ballad.mp3"></audio>
+      </section>
+    </main>
+  </body>
+</html>

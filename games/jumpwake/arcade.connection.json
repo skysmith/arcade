@@ -2,10 +2,10 @@
   "id": "jumpwake",
   "title": "Jumpwake",
   "image": "./assets/covers/jumpwake.svg",
-  "summary": "A controller-first space-sandbox slice with cargo runs, dock menus, faction pressure, boarding actions, and captured escorts.",
+  "summary": "A controller-first action sandbox for cargo runs, faction pressure, ship battles, boarding actions, and captured escorts.",
   "players": "1 local",
   "controls": "D-pad, face buttons, start",
   "launchText": "Open cabinet",
   "path": "./games/jumpwake/index.html",
-  "badge": "New Cabinet"
+  "badge": "Battle Sandbox"
 }

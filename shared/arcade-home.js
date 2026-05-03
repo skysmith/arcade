@@ -27,6 +27,7 @@
     || document.querySelector('script[src*="arcade-home.js"]');
   const arcadeHref = deriveArcadeHref(script);
   const label = script?.dataset.arcadeLabel || "Arcade";
+  const useStartButtonForMenu = script?.dataset.arcadeUseStart !== "false";
   const controllerState = {};
   const defaultPauseOptions = [
     { id: "resume", label: "Resume Game", run: () => closePauseMenu() },
@@ -335,10 +336,11 @@
     <div class="arcade-pause-card" role="dialog" aria-modal="true" aria-labelledby="arcade-pause-title">
       <p class="arcade-pause-eyebrow">Pause Menu</p>
       <h2 id="arcade-pause-title" class="arcade-pause-title">Where to next?</h2>
-      <p class="arcade-pause-copy">Use the d-pad or stick to choose. Press B or Start again to head back to Arcade.</p>
+      <p class="arcade-pause-copy">Use the d-pad or stick to choose. Press B to resume, or Back/View to head back to Arcade.</p>
       <div class="arcade-pause-actions"></div>
     </div>
   `;
+  const pauseActions = overlay.querySelector(".arcade-pause-actions");
 
   const resultsOverlay = document.createElement("div");
   resultsOverlay.className = "arcade-results-overlay";
@@ -381,6 +383,40 @@
   const resultsNameCopy = resultsOverlay.querySelector("#arcade-results-name-copy");
   const resultsNameOptions = resultsOverlay.querySelector("#arcade-results-name-options");
   const resultsNameInput = resultsOverlay.querySelector("#arcade-results-name-input");
+
+  function cabinetHooks() {
+    return window.__arcadeCabinetHooks || null;
+  }
+
+  function customPauseOptions() {
+    try {
+      const options = cabinetHooks()?.getPauseActions?.();
+      if (!Array.isArray(options)) return [];
+      return options
+        .filter((option) => option && typeof option === "object" && typeof option.label === "string" && typeof option.run === "function")
+        .map((option) => ({
+          id: String(option.id || option.label).trim() || option.label,
+          label: option.label,
+          run: option.run,
+        }));
+    } catch (_error) {
+      return [];
+    }
+  }
+
+  function rebuildPauseOptions() {
+    const custom = customPauseOptions();
+    pauseOptions = [defaultPauseOptions[0], ...custom, defaultPauseOptions[1]];
+    pauseActions.innerHTML = "";
+    pauseOptions.forEach((option) => {
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "arcade-pause-button";
+      button.dataset.arcadeAction = option.id;
+      button.textContent = option.label;
+      pauseActions.append(button);
+    });
+  }
 
   function storageKey(gameId) {
     return `${highScoreStoragePrefix}${gameId}`;
@@ -449,8 +485,18 @@
     });
   }
 
+  function resultButtons() {
+    return [...resultsOverlay.querySelectorAll(".arcade-results-button")];
+  }
+
+  function preferredResultSelection() {
+    const buttons = resultButtons();
+    const restartIndex = buttons.findIndex((button) => button.dataset.resultsAction === "restart");
+    return restartIndex >= 0 ? restartIndex : 0;
+  }
+
   function syncResultSelection() {
-    const buttons = [...resultsOverlay.querySelectorAll(".arcade-results-button")];
+    const buttons = resultButtons();
     if (buttons.length === 0) return;
     resultSelection = Math.max(0, Math.min(resultSelection, buttons.length - 1));
     buttons.forEach((button, index) => {
@@ -483,13 +529,16 @@
     renderHighScoreList(savedScores);
     resultsNamePicker.hidden = true;
     resultsCopy.textContent = `${name} is on the board. Pick your next move.`;
+    resultSelection = preferredResultSelection();
+    syncResultSelection();
   }
 
   function handleResultsAction(action) {
     if (!resultsContext) return;
     if (action === "restart") {
+      const restart = resultsContext.onRestart;
       closeResultsMenu();
-      resultsContext.onRestart?.();
+      restart?.();
       return;
     }
     if (action === "arcade") {
@@ -524,7 +573,7 @@
     resultsTitle.textContent = `${resultsContext.title}`;
     resultsScoreline.textContent = `Final score: ${score}`;
     resultsCopy.textContent = isHighScore
-      ? "Choose a saved name or add a new one to pin this run to the board."
+      ? "Play again right away, or move to save this run to the board first."
       : "Play again from here or head back to the arcade shelf.";
 
     renderHighScoreList(scores);
@@ -550,7 +599,7 @@
 
     resultsOpen = true;
     resultsOverlay.hidden = false;
-    resultSelection = 0;
+    resultSelection = preferredResultSelection();
     syncResultSelection();
   }
 
@@ -589,39 +638,64 @@
     return pressed && !previous;
   }
 
-  function activeGamepad() {
-    const pads = navigator.getGamepads ? Array.from(navigator.getGamepads()).filter(Boolean) : [];
-    return pads[0] || null;
+  function connectedGamepads() {
+    return navigator.getGamepads ? Array.from(navigator.getGamepads()).filter(Boolean) : [];
   }
 
   function handlePauseController() {
-    const pad = activeGamepad();
-    if (!pad) return;
+    const pads = connectedGamepads();
+    if (!pads.length) return;
 
-    const axisY = pad.axes[1] || 0;
-    const altAxisY = pad.axes[7] || 0;
-    const upPressed = (pad.buttons[12] && pad.buttons[12].pressed) || axisY <= -0.45 || altAxisY <= -0.45;
-    const downPressed = (pad.buttons[13] && pad.buttons[13].pressed) || axisY >= 0.45 || altAxisY >= 0.45;
-    const backPressed = (pad.buttons[1] && pad.buttons[1].pressed);
-    const confirmPressed = (pad.buttons[0] && pad.buttons[0].pressed)
-      || (pad.buttons[1] && pad.buttons[1].pressed)
-      || (pad.buttons[9] && pad.buttons[9].pressed);
-    const menuPressed = (pad.buttons[8] && pad.buttons[8].pressed)
-      || (pad.buttons[9] && pad.buttons[9].pressed)
-      || (pad.buttons[16] && pad.buttons[16].pressed);
+    let upPressed = false;
+    let downPressed = false;
+    let resumePressed = false;
+    let arcadeBackPressed = false;
+    let confirmPressed = false;
+    let menuPressed = false;
+
+    pads.forEach((pad) => {
+      const axisY = pad.axes[1] || 0;
+      const altAxisY = pad.axes[7] || 0;
+      const startPressed = pad.buttons[9] && pad.buttons[9].pressed;
+      upPressed = upPressed
+        || (pad.buttons[12] && pad.buttons[12].pressed)
+        || axisY <= -0.45
+        || altAxisY <= -0.45;
+      downPressed = downPressed
+        || (pad.buttons[13] && pad.buttons[13].pressed)
+        || axisY >= 0.45
+        || altAxisY >= 0.45;
+      resumePressed = resumePressed || (pad.buttons[1] && pad.buttons[1].pressed);
+      arcadeBackPressed = arcadeBackPressed || (pad.buttons[8] && pad.buttons[8].pressed) || (pad.buttons[16] && pad.buttons[16].pressed);
+      confirmPressed = confirmPressed
+        || (pad.buttons[0] && pad.buttons[0].pressed)
+        || (pad.buttons[1] && pad.buttons[1].pressed)
+        || (useStartButtonForMenu && startPressed);
+      menuPressed = menuPressed
+        || (pad.buttons[8] && pad.buttons[8].pressed)
+        || (useStartButtonForMenu && startPressed)
+        || (pad.buttons[16] && pad.buttons[16].pressed);
+    });
 
     if (edgeTrigger("menu", menuPressed)) {
       if (pauseOpen) {
         navigateToArcade();
       } else {
         openPauseMenu();
+        controllerState["pause-arcade-back"] = arcadeBackPressed;
+        controllerState["pause-resume"] = resumePressed;
       }
       return;
     }
 
     if (!pauseOpen) return;
 
-    if (edgeTrigger("pause-back", backPressed)) {
+    if (edgeTrigger("pause-resume", resumePressed)) {
+      closePauseMenu();
+      return;
+    }
+
+    if (edgeTrigger("pause-arcade-back", arcadeBackPressed)) {
       navigateToArcade();
       return;
     }
@@ -640,21 +714,35 @@
   }
 
   function handleResultsController() {
-    const pad = activeGamepad();
-    if (!pad) return;
+    const pads = connectedGamepads();
+    if (!pads.length) return;
 
-    const axisY = pad.axes[1] || 0;
-    const altAxisY = pad.axes[7] || 0;
-    const upPressed = (pad.buttons[12] && pad.buttons[12].pressed) || axisY <= -0.45 || altAxisY <= -0.45;
-    const downPressed = (pad.buttons[13] && pad.buttons[13].pressed) || axisY >= 0.45 || altAxisY >= 0.45;
-    const backPressed = (pad.buttons[1] && pad.buttons[1].pressed)
-      || (pad.buttons[8] && pad.buttons[8].pressed)
-      || (pad.buttons[9] && pad.buttons[9].pressed);
-    const confirmPressed = (pad.buttons[0] && pad.buttons[0].pressed)
-      || (pad.buttons[1] && pad.buttons[1].pressed)
-      || (pad.buttons[9] && pad.buttons[9].pressed);
+    let upPressed = false;
+    let downPressed = false;
+    let backPressed = false;
+    let confirmPressed = false;
 
-    const buttons = [...resultsOverlay.querySelectorAll(".arcade-results-button")];
+    pads.forEach((pad) => {
+      const axisY = pad.axes[1] || 0;
+      const altAxisY = pad.axes[7] || 0;
+      const startPressed = pad.buttons[9] && pad.buttons[9].pressed;
+      upPressed = upPressed
+        || (pad.buttons[12] && pad.buttons[12].pressed)
+        || axisY <= -0.45
+        || altAxisY <= -0.45;
+      downPressed = downPressed
+        || (pad.buttons[13] && pad.buttons[13].pressed)
+        || axisY >= 0.45
+        || altAxisY >= 0.45;
+      backPressed = backPressed
+        || (pad.buttons[1] && pad.buttons[1].pressed)
+        || (pad.buttons[8] && pad.buttons[8].pressed);
+      confirmPressed = confirmPressed
+        || (pad.buttons[0] && pad.buttons[0].pressed)
+        || (useStartButtonForMenu && startPressed);
+    });
+
+    const buttons = resultButtons();
     if (buttons.length === 0) return;
 
     if (edgeTrigger("results-back", backPressed)) {
@@ -704,7 +792,7 @@
 
   window.addEventListener("keydown", (event) => {
     if (resultsOpen) {
-      const buttons = [...resultsOverlay.querySelectorAll(".arcade-results-button")];
+      const buttons = resultButtons();
       if (event.key === "b" || event.key === "B") {
         event.preventDefault();
         navigateToArcade();
@@ -753,7 +841,7 @@
     if (!pauseOpen) return;
     if (event.key === "b" || event.key === "B") {
       event.preventDefault();
-      navigateToArcade();
+      closePauseMenu();
       return;
     }
     if (event.key === "ArrowUp" || event.key === "w" || event.key === "W") {
@@ -805,38 +893,3 @@
   rebuildPauseOptions();
   requestAnimationFrame(frame);
 })();
-  const pauseActions = overlay.querySelector(".arcade-pause-actions");
-
-  function cabinetHooks() {
-    return window.__arcadeCabinetHooks || null;
-  }
-
-  function customPauseOptions() {
-    try {
-      const options = cabinetHooks()?.getPauseActions?.();
-      if (!Array.isArray(options)) return [];
-      return options
-        .filter((option) => option && typeof option === "object" && typeof option.label === "string" && typeof option.run === "function")
-        .map((option) => ({
-          id: String(option.id || option.label).trim() || option.label,
-          label: option.label,
-          run: option.run,
-        }));
-    } catch (_error) {
-      return [];
-    }
-  }
-
-  function rebuildPauseOptions() {
-    const custom = customPauseOptions();
-    pauseOptions = [defaultPauseOptions[0], ...custom, defaultPauseOptions[1]];
-    pauseActions.innerHTML = "";
-    pauseOptions.forEach((option) => {
-      const button = document.createElement("button");
-      button.type = "button";
-      button.className = "arcade-pause-button";
-      button.dataset.arcadeAction = option.id;
-      button.textContent = option.label;
-      pauseActions.append(button);
-    });
-  }

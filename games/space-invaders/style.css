@@ -1,3 +1,5 @@
+@import "../../shared/arcade-stage.css";
+
 :root {
   color-scheme: dark;
   --bg: #05060a;
@@ -79,13 +81,15 @@ body {
 }
 
 .playfield-shell {
-  display: grid;
-  place-items: center;
+  padding-inline: 4px;
+}
+
+.playfield-stage {
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 148px);
 }
 
 #game {
-  width: min(1120px, 100%);
-  max-height: calc(100vh - 148px);
   border: 1px solid var(--line-strong);
   border-radius: 24px;
   background: #03050b;
@@ -107,7 +111,7 @@ body {
     grid-template-columns: 1fr 1fr;
   }
 
-  #game {
+  .playfield-stage {
     max-height: calc(100vh - 210px);
   }
 }

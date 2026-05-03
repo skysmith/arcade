@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360" role="img" aria-labelledby="title desc">
+  <title id="title">Letter Launchpad cover</title>
+  <desc id="desc">Bright arcade cover art with letter tiles launching from a pad.</desc>
+  <defs>
+    <linearGradient id="sky" x1="0" x2="1" y1="0" y2="1">
+      <stop offset="0" stop-color="#092421"/>
+      <stop offset="0.55" stop-color="#163640"/>
+      <stop offset="1" stop-color="#3a2137"/>
+    </linearGradient>
+    <filter id="glow" x="-40%" y="-40%" width="180%" height="180%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  <rect width="640" height="360" rx="18" fill="url(#sky)"/>
+  <circle cx="96" cy="78" r="5" fill="#ffd46d"/>
+  <circle cx="540" cy="76" r="4" fill="#75f0d4"/>
+  <circle cx="462" cy="132" r="3" fill="#f7fbff"/>
+  <path d="M116 288h408l-42 38H158z" fill="#111b22"/>
+  <path d="M174 274h292l58 36H116z" fill="#ffd46d"/>
+  <path d="M212 266h216l38 22H174z" fill="#75f0d4"/>
+  <g filter="url(#glow)">
+    <path d="M320 250c-40-45-46-96 0-152 46 56 40 107 0 152z" fill="#ff7c86" opacity="0.9"/>
+    <path d="M320 222c-22-30-25-61 0-98 25 37 22 68 0 98z" fill="#ffd46d"/>
+  </g>
+  <g font-family="Avenir Next, Segoe UI, sans-serif" font-weight="900" text-anchor="middle">
+    <rect x="132" y="92" width="96" height="96" rx="12" fill="#f7fbff"/>
+    <text x="180" y="160" font-size="70" fill="#163640">A</text>
+    <rect x="272" y="54" width="96" height="96" rx="12" fill="#a8f36b"/>
+    <text x="320" y="122" font-size="70" fill="#102015">B</text>
+    <rect x="412" y="96" width="96" height="96" rx="12" fill="#75f0d4"/>
+    <text x="460" y="164" font-size="70" fill="#092421">C</text>
+  </g>
+  <text x="320" y="330" fill="#f7fbff" font-family="Avenir Next, Segoe UI, sans-serif" font-size="34" font-weight="900" text-anchor="middle">LETTER LAUNCHPAD</text>
+</svg>

@@ -1,0 +1,820 @@
+{
+  "generatedAt": "2026-04-22T05:53:41.030Z",
+  "disclosure": "Voice clips are AI-generated character performances.",
+  "model": "gpt-4o-mini-tts",
+  "format": "mp3",
+  "characters": {
+    "independent-mara-kade": {
+      "name": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "union-juno-vale": {
+      "name": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "salvage-dax-brindle": {
+      "name": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "nightglass-vey-neral": {
+      "name": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "core-ilya-sen": {
+      "name": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "bounty-marshal-tovin": {
+      "name": "Marshal Bramble Hart",
+      "voice": "marin"
+    },
+    "pirate-rill-scrimshaw": {
+      "name": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "hollow-mire-kest": {
+      "name": "Mire Kest",
+      "voice": "ballad"
+    },
+    "briar-ollie-lark": {
+      "name": "Ollie Lark",
+      "voice": "sage"
+    },
+    "reedfall-tamsin-voss": {
+      "name": "Tamsin Voss",
+      "voice": "shimmer"
+    }
+  },
+  "clips": {
+    "thread.independent-mara-kade.opener": {
+      "text": "Sit, eat, and let the weather leave your bones. People tell the truth by accident when they feel safe, and these islands are getting too sick for me to ignore what slips out.",
+      "file": "voice/thread-independent-mara-kade-opener.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.union-juno-vale.opener": {
+      "text": "The banyan hears fear before most people admit it out loud. If I am asking for help, some part of the archipelago is frightened enough to reach through root and tide for steady hands.",
+      "file": "voice/thread-union-juno-vale-opener.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.salvage-dax-brindle.opener": {
+      "text": "Reef water keeps what people lose and what the islands are not ready to explain. If I send for you, it means something interesting just washed out of hiding.",
+      "file": "voice/thread-salvage-dax-brindle-opener.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.nightglass-vey-neral.opener": {
+      "text": "You have followed the channels this far without turning cruel. Good. There are truths in these islands that only answer if approached gently and in the right order.",
+      "file": "voice/thread-nightglass-vey-neral-opener.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.core-ilya-sen.opener": {
+      "text": "Boundary stones are shifting, the ferries are nervous, and the old laws are not keeping pace. I would prefer facts over panic, but the islands are offering both.",
+      "file": "voice/thread-core-ilya-sen-opener.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.bounty-marshal-tovin.opener": {
+      "text": "If I send word, something with teeth, knives, or bad judgment is making the paths unsafe. Help me settle it before fear turns the whole wood meaner than it already is.",
+      "file": "voice/thread-bounty-marshal-tovin-opener.mp3",
+      "characterId": "bounty-marshal-tovin",
+      "characterName": "Marshal Bramble Hart",
+      "voice": "marin"
+    },
+    "thread.pirate-rill-scrimshaw.opener": {
+      "text": "If this reached you, somebody in the coves already voted that you are more useful than dangerous. Do not make me regret defending that opinion.",
+      "file": "voice/thread-pirate-rill-scrimshaw-opener.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.hollow-mire-kest.opener": {
+      "text": "Step lightly at the Hollow Door. It keeps better count than any ledger, and it remembers who crossed because they were desperate and who crossed because they were cruel.",
+      "file": "voice/thread-hollow-mire-kest-opener.mp3",
+      "characterId": "hollow-mire-kest",
+      "characterName": "Mire Kest",
+      "voice": "ballad"
+    },
+    "thread.briar-ollie-lark.opener": {
+      "text": "If a bell remembers a name, I write it down. If someone powerful wants that name missing, I ring louder.",
+      "file": "voice/thread-briar-ollie-lark-opener.mp3",
+      "characterId": "briar-ollie-lark",
+      "characterName": "Ollie Lark",
+      "voice": "sage"
+    },
+    "thread.reedfall-tamsin-voss.opener": {
+      "text": "The reeds keep repeating the same names, and I have learned not to argue with water when it is trying this hard to testify.",
+      "file": "voice/thread-reedfall-tamsin-voss-opener.mp3",
+      "characterId": "reedfall-tamsin-voss",
+      "characterName": "Tamsin Voss",
+      "voice": "shimmer"
+    },
+    "thread.independent-mara-kade.mara-quiet-haul": {
+      "text": "You kept the bundles clean. Good. Now I know you can carry a quieter truth back home without dropping it.",
+      "file": "voice/thread-independent-mara-kade-mara-quiet-haul.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.independent-mara-kade.mara-dockside-whisper": {
+      "text": "That packet was not about money. It was about who still answers when Mangrove House asks. One more run and I start introducing you properly.",
+      "file": "voice/thread-independent-mara-kade-mara-dockside-whisper.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.independent-mara-kade.mara-open-door": {
+      "text": "Doors are opening for you now. Not because you asked, but because you came back every time you said you would.",
+      "file": "voice/thread-independent-mara-kade-mara-open-door.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.salvage-dax-brindle.dax-cinder-sweep": {
+      "text": "Clean recovery. There is another wreck in Lantern Quay carrying a fragment of something older than the boat itself. Interested?",
+      "file": "voice/thread-salvage-dax-brindle-dax-cinder-sweep.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.salvage-dax-brindle.dax-ledger-fragment": {
+      "text": "The fragment names ferries that should not have vanished. Driftwood Rest still has people who remember that handwriting.",
+      "file": "voice/thread-salvage-dax-brindle-dax-ledger-fragment.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.salvage-dax-brindle.dax-red-ledger": {
+      "text": "You did not just pull wreckage. You pulled memory. Most travelers never notice the difference.",
+      "file": "voice/thread-salvage-dax-brindle-dax-red-ledger.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.union-juno-vale.juno-relief-drop": {
+      "text": "Clinic got the medicine. Now I need proof of who made them wait in the first place.",
+      "file": "voice/thread-union-juno-vale-juno-relief-drop.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.union-juno-vale.juno-convoy-proof": {
+      "text": "Reefspan listened. Ferry families always do when the paperwork starts naming names. One last packet and this becomes policy instead of a complaint.",
+      "file": "voice/thread-union-juno-vale-juno-convoy-proof.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.union-juno-vale.juno-union-voice": {
+      "text": "That is how a crossing changes: one traveler, one delivery, one piece of proof at a time. You did right by people who will never know your name.",
+      "file": "voice/thread-union-juno-vale-juno-union-voice.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.pirate-rill-scrimshaw.rill-cove-supper": {
+      "text": "Good. Nobody starved loudly enough to get noticed. Now I need you for something worse than hunger: proof. I found a ferry tally the wardens will hate and the coves are tired of losing arguments they were never allowed to enter.",
+      "file": "voice/thread-pirate-rill-scrimshaw-rill-cove-supper.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.pirate-rill-scrimshaw.rill-reef-ledger": {
+      "text": "You got the tally into open hands and came back anyway. That buys a kind of trust. One last run now: names, closures, witness marks. If the underways are going to stay alive, somebody has to carry their testimony where it can still bite.",
+      "file": "voice/thread-pirate-rill-scrimshaw-rill-reef-ledger.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.pirate-rill-scrimshaw.rill-tide-testimony": {
+      "text": "That is enough to make the right people uncomfortable, which means it might also be enough to keep a few coves alive. You did not fix the islands. You did something rarer. You made it harder for them to lie cleanly about who they pushed into the dark.",
+      "file": "voice/thread-pirate-rill-scrimshaw-rill-tide-testimony.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.nightglass-vey-neral.mystery-relief-freight": {
+      "text": "Mercy run is such a useful phrase. Half the time it means medicine. The other half it means someone wants leverage to arrive wearing a compassionate face. Your Whispering Banyan handoff smelled like the second kind.",
+      "file": "voice/thread-nightglass-vey-neral-mystery-relief-freight.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.core-ilya-sen.mystery-relief-freight": {
+      "text": "For the record, the Whispering Banyan bundle was filed as routine civic relief. The speed with which that classification appeared is mildly interesting in a way I dislike.",
+      "file": "voice/thread-core-ilya-sen-mystery-relief-freight.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.union-juno-vale.mystery-relief-freight": {
+      "text": "If anyone starts calling that Whispering Banyan run routine relief, they're laundering the story. Real relief jobs do not arrive with pre-cleared signatures and people already waiting in pressed coats.",
+      "file": "voice/thread-union-juno-vale-mystery-relief-freight.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.independent-mara-kade.mystery-manifest-anomaly": {
+      "text": "Funny thing about forged ledgers: the dangerous ones are not the sloppy ones. The dangerous ones look so routine everybody downstream agrees to remember them that way.",
+      "file": "voice/thread-independent-mara-kade-mystery-manifest-anomaly.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.nightglass-vey-neral.mystery-manifest-anomaly": {
+      "text": "The Wardens will call that addendum fraudulent because it arrived early. I would call it well sponsored. Timing like that usually means someone on both sides already agreed what the truth would be.",
+      "file": "voice/thread-nightglass-vey-neral-mystery-manifest-anomaly.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.union-juno-vale.mystery-manifest-anomaly": {
+      "text": "That paperwork hit the board before the people harmed by it even got asked. That is not clerical drift. That is somebody building policy out of a lie while the quay is still busy unloading.",
+      "file": "voice/thread-union-juno-vale-mystery-manifest-anomaly.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.core-ilya-sen.mystery-escort-trace": {
+      "text": "Saint Radiant should exist in three ledgers, two witness rolls, and one ferry memorial index. At present it exists in fragments and denials, which is administratively impossible and therefore politically real.",
+      "file": "voice/thread-core-ilya-sen-mystery-escort-trace.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.nightglass-vey-neral.mystery-escort-trace": {
+      "text": "Boats do not vanish cleanly unless several institutions are paid to remember less than they know. Saint Radiant keeps surfacing because somebody important failed to buy every witness.",
+      "file": "voice/thread-nightglass-vey-neral-mystery-escort-trace.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.salvage-dax-brindle.mystery-escort-trace": {
+      "text": "The wood says ferry craft. The paperwork says clerical loss. The people who say clerical loss usually have softer hands than the people who built the thing.",
+      "file": "voice/thread-salvage-dax-brindle-mystery-escort-trace.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.independent-mara-kade.mystery-ninth-berth": {
+      "text": "If somebody says Ninth Lintel like it is a place instead of a rumor, pay attention. Doors only get spoken that carefully when too many factions still owe them money.",
+      "file": "voice/thread-independent-mara-kade-mystery-ninth-berth.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.nightglass-vey-neral.mystery-ninth-berth": {
+      "text": "Ninth Lintel is not a quay. It is an agreement people retreat into when official maps become inconvenient. If you heard the name twice, you are already closer than most travelers get.",
+      "file": "voice/thread-nightglass-vey-neral-mystery-ninth-berth.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.core-ilya-sen.mystery-ninth-berth": {
+      "text": "There is no licensed threshold by that designation. There are, however, several sealed references to route work that required unrecorded Warden handling. I dislike that sentence more every time I read it.",
+      "file": "voice/thread-core-ilya-sen-mystery-ninth-berth.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.hollow-mire-kest.mystery-hollow-door-knock": {
+      "text": "You reached The Hollow Door. Good. The door took the trace, which means Saint Radiant was carried through a route several respectable people still rely on while calling it criminal.",
+      "file": "voice/thread-hollow-mire-kest-mystery-hollow-door-knock.mp3",
+      "characterId": "hollow-mire-kest",
+      "characterName": "Mire Kest",
+      "voice": "ballad"
+    },
+    "thread.pirate-rill-scrimshaw.mystery-hollow-door-knock": {
+      "text": "Hollow Door, then. Told you the underways were not a campfire story. If Mire let you stand there, somebody already decided you might carry names without selling them.",
+      "file": "voice/thread-pirate-rill-scrimshaw-mystery-hollow-door-knock.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.nightglass-vey-neral.mystery-hollow-door-knock": {
+      "text": "The Hollow Door is not mine. That distinction matters. Moonglass knows how to pay for a threshold; Mire knows when a threshold should refuse payment.",
+      "file": "voice/thread-nightglass-vey-neral-mystery-hollow-door-knock.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.briar-ollie-lark.mystery-briar-bell": {
+      "text": "The clapper rang for a welcome-roll name that was scraped out, not lost. Bells are useful that way. They embarrass the paperwork.",
+      "file": "voice/thread-briar-ollie-lark-mystery-briar-bell.mp3",
+      "characterId": "briar-ollie-lark",
+      "characterName": "Ollie Lark",
+      "voice": "sage"
+    },
+    "thread.independent-mara-kade.mystery-briar-bell": {
+      "text": "Briar Hearth keeps the kind of memory polite people call quaint right up until it proves their filing cabinets lied.",
+      "file": "voice/thread-independent-mara-kade-mystery-briar-bell.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.reedfall-tamsin-voss.mystery-reedfall-witnesses": {
+      "text": "The stakes answered. Three ferry names, one bad closure, and a trail of families pushed into water everyone later called unsafe. I am done letting officials call that folklore.",
+      "file": "voice/thread-reedfall-tamsin-voss-mystery-reedfall-witnesses.mp3",
+      "characterId": "reedfall-tamsin-voss",
+      "characterName": "Tamsin Voss",
+      "voice": "shimmer"
+    },
+    "thread.union-juno-vale.mystery-reedfall-witnesses": {
+      "text": "Reedfall has always sounded too gentle for how much grief it holds. Thank you for bringing Ollie's bell there before anyone could file the problem into fog.",
+      "file": "voice/thread-union-juno-vale-mystery-reedfall-witnesses.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.reedfall-tamsin-voss.mystery-rootmirror-lanterns": {
+      "text": "Rootmirror matched the paired lanterns. These are not abstract missing names anymore. They are households, routes, children, and people who learned to vanish because open travel stopped protecting them.",
+      "file": "voice/thread-reedfall-tamsin-voss-mystery-rootmirror-lanterns.mp3",
+      "characterId": "reedfall-tamsin-voss",
+      "characterName": "Tamsin Voss",
+      "voice": "shimmer"
+    },
+    "thread.pirate-rill-scrimshaw.mystery-rootmirror-lanterns": {
+      "text": "Careful with those lantern names. They are proof, yes, but they are also people. Bring them into daylight wrong and you will do the wardens' work for them.",
+      "file": "voice/thread-pirate-rill-scrimshaw-mystery-rootmirror-lanterns.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.independent-mara-kade.mystery-low-water-council": {
+      "text": "Mangrove House can host a hard truth without letting anyone turn it into theater. Bring them home. I will keep the stew hot and the wrong listeners outside.",
+      "file": "voice/thread-independent-mara-kade-mystery-low-water-council.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.core-ilya-sen.mystery-low-water-council": {
+      "text": "A council at Mangrove House has no formal standing. It may, regrettably, have more legitimacy than several formal hearings I have attended.",
+      "file": "voice/thread-core-ilya-sen-mystery-low-water-council.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.hollow-mire-kest.mystery-low-water-council": {
+      "text": "Once the names are spoken together, nobody gets to own them alone. That is the point. That is also why several people will try.",
+      "file": "voice/thread-hollow-mire-kest-mystery-low-water-council.mp3",
+      "characterId": "hollow-mire-kest",
+      "characterName": "Mire Kest",
+      "voice": "ballad"
+    },
+    "thread.independent-mara-kade.arrival-active": {
+      "text": "Good, you made it close enough for the work to start breathing. Keep your hands steady and bring the truth home clean.",
+      "file": "voice/thread-independent-mara-kade-arrival-active.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.independent-mara-kade.arrival-available": {
+      "text": "Now that you are here, I can offer you a better angle. Open the thread when you are ready to carry something that matters.",
+      "file": "voice/thread-independent-mara-kade-arrival-available.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.independent-mara-kade.accept": {
+      "text": "Good. I knew you had the look of someone who comes back when they say they will. Take the work and keep the path kind.",
+      "file": "voice/thread-independent-mara-kade-accept.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.independent-mara-kade.drop": {
+      "text": "All right. Better to set a bad route down than drag it until it hurts someone. The door will still know your knock.",
+      "file": "voice/thread-independent-mara-kade-drop.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.independent-mara-kade.completion-payout": {
+      "text": "Good. Your side of the ledger is settled, and I made sure the right people noticed who carried it.",
+      "file": "voice/thread-independent-mara-kade-completion-payout.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.independent-mara-kade.completion-followup": {
+      "text": "That run did more than close a job. It taught the room your name, and rooms remember more than people think.",
+      "file": "voice/thread-independent-mara-kade-completion-followup.mp3",
+      "characterId": "independent-mara-kade",
+      "characterName": "Auntie Sable Marris",
+      "voice": "nova"
+    },
+    "thread.union-juno-vale.arrival-active": {
+      "text": "Good, you are close now. Please do not drift. The people tied to this are real, and delay has a cost.",
+      "file": "voice/thread-union-juno-vale-arrival-active.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.union-juno-vale.arrival-available": {
+      "text": "Your arrival makes one of my waiting jobs possible. Open the thread if you can give this your full attention.",
+      "file": "voice/thread-union-juno-vale-arrival-available.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.union-juno-vale.accept": {
+      "text": "Thank you. I would not ask if there were an easier kindness available. Carry it carefully, and come back whole.",
+      "file": "voice/thread-union-juno-vale-accept.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.union-juno-vale.drop": {
+      "text": "I understand. A promise made badly helps no one. Set it down cleanly, and we will look for another way through.",
+      "file": "voice/thread-union-juno-vale-drop.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.union-juno-vale.completion-payout": {
+      "text": "The handoff is confirmed, and your payment is cleared. Thank you for treating this like people, not paperwork.",
+      "file": "voice/thread-union-juno-vale-completion-payout.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.union-juno-vale.completion-followup": {
+      "text": "What you carried is already moving outward. Somewhere tonight, someone breathes easier because you did not drift.",
+      "file": "voice/thread-union-juno-vale-completion-followup.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "thread.salvage-dax-brindle.arrival-active": {
+      "text": "Good, you are close now. The job should smell different up close. Bring back the piece that tells the story, not just the piece that sells.",
+      "file": "voice/thread-salvage-dax-brindle-arrival-active.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.salvage-dax-brindle.arrival-available": {
+      "text": "You are near something worth pulling apart. Open the thread if you are in the mood for honest scrap and inconvenient history.",
+      "file": "voice/thread-salvage-dax-brindle-arrival-available.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.salvage-dax-brindle.accept": {
+      "text": "Lovely. Take your time and keep your eyes open. The useful bit is usually hiding beside the shiny bit.",
+      "file": "voice/thread-salvage-dax-brindle-accept.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.salvage-dax-brindle.drop": {
+      "text": "Fair enough. Better to leave a mystery floating than turn yourself into part of it. We can chase another clue later.",
+      "file": "voice/thread-salvage-dax-brindle-drop.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.salvage-dax-brindle.completion-payout": {
+      "text": "Good pull. I told the yard to release your cut before anyone got clever with the numbers.",
+      "file": "voice/thread-salvage-dax-brindle-completion-payout.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.salvage-dax-brindle.completion-followup": {
+      "text": "You brought back the right piece. That is rarer than people think. Metal sells, but memory keeps moving.",
+      "file": "voice/thread-salvage-dax-brindle-completion-followup.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "thread.nightglass-vey-neral.arrival-active": {
+      "text": "Now that you are close, discretion matters more than speed. Finish gently, and do not teach the wrong people where to look.",
+      "file": "voice/thread-nightglass-vey-neral-arrival-active.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.nightglass-vey-neral.arrival-available": {
+      "text": "This place opens certain doors. I have one waiting for you, but I would prefer you read it somewhere private.",
+      "file": "voice/thread-nightglass-vey-neral-arrival-available.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.nightglass-vey-neral.accept": {
+      "text": "Accepted, then. Move as if the path is listening, because it is. Kindness and secrecy both require discipline.",
+      "file": "voice/thread-nightglass-vey-neral-accept.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.nightglass-vey-neral.drop": {
+      "text": "A closed door is not always a failure. Sometimes it is the first honest thing a traveler says to a path.",
+      "file": "voice/thread-nightglass-vey-neral-drop.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.nightglass-vey-neral.completion-payout": {
+      "text": "That arrived where it needed to. Your deposit is sent, and the route has already begun forgetting your footprints.",
+      "file": "voice/thread-nightglass-vey-neral-completion-payout.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.nightglass-vey-neral.completion-followup": {
+      "text": "You handled the silence well. Some doors open wider for travelers who do not need to force them.",
+      "file": "voice/thread-nightglass-vey-neral-completion-followup.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    },
+    "thread.core-ilya-sen.arrival-active": {
+      "text": "The ledger notes your arrival. The assignment remains active. Please behave like someone capable of finishing a clean crossing.",
+      "file": "voice/thread-core-ilya-sen-arrival-active.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.core-ilya-sen.arrival-available": {
+      "text": "Your presence makes one pending matter newly relevant. Review the thread and decide whether you intend to be useful.",
+      "file": "voice/thread-core-ilya-sen-arrival-available.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.core-ilya-sen.accept": {
+      "text": "Accepted. I have logged your involvement, which I am choosing to regard as a stabilizing development.",
+      "file": "voice/thread-core-ilya-sen-accept.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.core-ilya-sen.drop": {
+      "text": "Noted. I would rather close a file honestly than pretend a failing route is still controlled. We will reassess.",
+      "file": "voice/thread-core-ilya-sen-drop.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.core-ilya-sen.completion-payout": {
+      "text": "Receipt confirmed. Your transfer is released, and the record survived contact with events. Progress.",
+      "file": "voice/thread-core-ilya-sen-completion-payout.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.core-ilya-sen.completion-followup": {
+      "text": "The file is cleaner than I expected. Please understand that, from me, this is nearly praise.",
+      "file": "voice/thread-core-ilya-sen-completion-followup.mp3",
+      "characterId": "core-ilya-sen",
+      "characterName": "Warden Elric Fen",
+      "voice": "sage"
+    },
+    "thread.bounty-marshal-tovin.arrival-active": {
+      "text": "Good, you are close. The problem is no longer theoretical, so keep your head clear and make the crossing safer.",
+      "file": "voice/thread-bounty-marshal-tovin-arrival-active.mp3",
+      "characterId": "bounty-marshal-tovin",
+      "characterName": "Marshal Bramble Hart",
+      "voice": "marin"
+    },
+    "thread.bounty-marshal-tovin.arrival-available": {
+      "text": "Your position puts one of my open problems within reach. If you want the work, I would rather hand it to you than to a loud amateur.",
+      "file": "voice/thread-bounty-marshal-tovin-arrival-available.mp3",
+      "characterId": "bounty-marshal-tovin",
+      "characterName": "Marshal Bramble Hart",
+      "voice": "marin"
+    },
+    "thread.bounty-marshal-tovin.accept": {
+      "text": "Good. Keep it clean, keep people breathing, and do not let fear make your decisions for you.",
+      "file": "voice/thread-bounty-marshal-tovin-accept.mp3",
+      "characterId": "bounty-marshal-tovin",
+      "characterName": "Marshal Bramble Hart",
+      "voice": "marin"
+    },
+    "thread.bounty-marshal-tovin.drop": {
+      "text": "Fine. Better to stand down than make a mess you cannot carry. Report back when you have steadier footing.",
+      "file": "voice/thread-bounty-marshal-tovin-drop.mp3",
+      "characterId": "bounty-marshal-tovin",
+      "characterName": "Marshal Bramble Hart",
+      "voice": "marin"
+    },
+    "thread.bounty-marshal-tovin.completion-payout": {
+      "text": "The board is updated and your payout is cleared. The crossing is a little less stupid for it.",
+      "file": "voice/thread-bounty-marshal-tovin-completion-payout.mp3",
+      "characterId": "bounty-marshal-tovin",
+      "characterName": "Marshal Bramble Hart",
+      "voice": "marin"
+    },
+    "thread.bounty-marshal-tovin.completion-followup": {
+      "text": "That helped. Not perfectly, because nothing out here is perfect, but enough that someone gets home with less fear in their pack.",
+      "file": "voice/thread-bounty-marshal-tovin-completion-followup.mp3",
+      "characterId": "bounty-marshal-tovin",
+      "characterName": "Marshal Bramble Hart",
+      "voice": "marin"
+    },
+    "thread.pirate-rill-scrimshaw.arrival-active": {
+      "text": "You are close now. Good. Keep your lantern low and your mouth lower. The names you carry are not cargo.",
+      "file": "voice/thread-pirate-rill-scrimshaw-arrival-active.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.pirate-rill-scrimshaw.arrival-available": {
+      "text": "Since you are in the right water, I have work worth risking. Open the thread if you can move without selling people out.",
+      "file": "voice/thread-pirate-rill-scrimshaw-arrival-available.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.pirate-rill-scrimshaw.accept": {
+      "text": "Fine. You are in. Do the work clean, ask fewer loud questions, and remember these routes carry people before they carry proof.",
+      "file": "voice/thread-pirate-rill-scrimshaw-accept.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.pirate-rill-scrimshaw.drop": {
+      "text": "Set it down, then. Better that than dragging frightened people through a promise you cannot keep.",
+      "file": "voice/thread-pirate-rill-scrimshaw-drop.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.pirate-rill-scrimshaw.completion-payout": {
+      "text": "Payment moved. Do not look too grateful; it will make us both uncomfortable.",
+      "file": "voice/thread-pirate-rill-scrimshaw-completion-payout.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.pirate-rill-scrimshaw.completion-followup": {
+      "text": "You carried it without making a spectacle. That counts for more than shore people understand.",
+      "file": "voice/thread-pirate-rill-scrimshaw-completion-followup.mp3",
+      "characterId": "pirate-rill-scrimshaw",
+      "characterName": "Rill Scrimshaw",
+      "voice": "coral"
+    },
+    "thread.hollow-mire-kest.arrival-active": {
+      "text": "You have arrived near the mark. Good. Step carefully. Some doors remember the manner of your crossing.",
+      "file": "voice/thread-hollow-mire-kest-arrival-active.mp3",
+      "characterId": "hollow-mire-kest",
+      "characterName": "Mire Kest",
+      "voice": "ballad"
+    },
+    "thread.hollow-mire-kest.arrival-available": {
+      "text": "Your arrival completes the first count. A quiet request is waiting, if you are willing to carry it without owning it.",
+      "file": "voice/thread-hollow-mire-kest-arrival-available.mp3",
+      "characterId": "hollow-mire-kest",
+      "characterName": "Mire Kest",
+      "voice": "ballad"
+    },
+    "thread.hollow-mire-kest.accept": {
+      "text": "Accepted. The chalk will remember that you took the mark willingly, and that matters more than it appears.",
+      "file": "voice/thread-hollow-mire-kest-accept.mp3",
+      "characterId": "hollow-mire-kest",
+      "characterName": "Mire Kest",
+      "voice": "ballad"
+    },
+    "thread.hollow-mire-kest.drop": {
+      "text": "Then the mark returns to waiting. No shame. A threshold should not be crossed by someone already turning back.",
+      "file": "voice/thread-hollow-mire-kest-drop.mp3",
+      "characterId": "hollow-mire-kest",
+      "characterName": "Mire Kest",
+      "voice": "ballad"
+    },
+    "thread.hollow-mire-kest.completion-payout": {
+      "text": "The exchange is balanced. Your share has crossed, and the mark has been counted.",
+      "file": "voice/thread-hollow-mire-kest-completion-payout.mp3",
+      "characterId": "hollow-mire-kest",
+      "characterName": "Mire Kest",
+      "voice": "ballad"
+    },
+    "thread.hollow-mire-kest.completion-followup": {
+      "text": "You carried the truth without cheapening it. The door notices such things, even when people do not.",
+      "file": "voice/thread-hollow-mire-kest-completion-followup.mp3",
+      "characterId": "hollow-mire-kest",
+      "characterName": "Mire Kest",
+      "voice": "ballad"
+    },
+    "thread.briar-ollie-lark.arrival-active": {
+      "text": "There you are. Good. If the work has a name attached, bring it back loud enough that nobody can scrape it out again.",
+      "file": "voice/thread-briar-ollie-lark-arrival-active.mp3",
+      "characterId": "briar-ollie-lark",
+      "characterName": "Ollie Lark",
+      "voice": "sage"
+    },
+    "thread.briar-ollie-lark.arrival-available": {
+      "text": "You are close enough for the bell to matter. Open the thread if you are ready to help a missing name be heard.",
+      "file": "voice/thread-briar-ollie-lark-arrival-available.mp3",
+      "characterId": "briar-ollie-lark",
+      "characterName": "Ollie Lark",
+      "voice": "sage"
+    },
+    "thread.briar-ollie-lark.accept": {
+      "text": "Good. Write it down, carry it straight, and do not let anyone call a missing name a small thing.",
+      "file": "voice/thread-briar-ollie-lark-accept.mp3",
+      "characterId": "briar-ollie-lark",
+      "characterName": "Ollie Lark",
+      "voice": "sage"
+    },
+    "thread.briar-ollie-lark.drop": {
+      "text": "All right. A bell can wait longer than people think. Just do not mistake waiting for forgetting.",
+      "file": "voice/thread-briar-ollie-lark-drop.mp3",
+      "characterId": "briar-ollie-lark",
+      "characterName": "Ollie Lark",
+      "voice": "sage"
+    },
+    "thread.briar-ollie-lark.completion-payout": {
+      "text": "Settled. I rang the payment through before anyone could pretend they misplaced it.",
+      "file": "voice/thread-briar-ollie-lark-completion-payout.mp3",
+      "characterId": "briar-ollie-lark",
+      "characterName": "Ollie Lark",
+      "voice": "sage"
+    },
+    "thread.briar-ollie-lark.completion-followup": {
+      "text": "That name is harder to lose now. Maybe not safe yet, but louder, and louder is a start.",
+      "file": "voice/thread-briar-ollie-lark-completion-followup.mp3",
+      "characterId": "briar-ollie-lark",
+      "characterName": "Ollie Lark",
+      "voice": "sage"
+    },
+    "thread.reedfall-tamsin-voss.arrival-active": {
+      "text": "Good, you are near the line now. Move carefully. Witnesses can be damaged by haste as easily as by silence.",
+      "file": "voice/thread-reedfall-tamsin-voss-arrival-active.mp3",
+      "characterId": "reedfall-tamsin-voss",
+      "characterName": "Tamsin Voss",
+      "voice": "shimmer"
+    },
+    "thread.reedfall-tamsin-voss.arrival-available": {
+      "text": "Your arrival puts a waiting record within reach. Open the thread if you are ready to treat testimony as something living.",
+      "file": "voice/thread-reedfall-tamsin-voss-arrival-available.mp3",
+      "characterId": "reedfall-tamsin-voss",
+      "characterName": "Tamsin Voss",
+      "voice": "shimmer"
+    },
+    "thread.reedfall-tamsin-voss.accept": {
+      "text": "Accepted. Thank you. Follow the marks, trust what repeats, and do not let anyone call careful evidence superstition.",
+      "file": "voice/thread-reedfall-tamsin-voss-accept.mp3",
+      "characterId": "reedfall-tamsin-voss",
+      "characterName": "Tamsin Voss",
+      "voice": "shimmer"
+    },
+    "thread.reedfall-tamsin-voss.drop": {
+      "text": "Understood. A bad survey harms the record. We will return when the route can be walked honestly.",
+      "file": "voice/thread-reedfall-tamsin-voss-drop.mp3",
+      "characterId": "reedfall-tamsin-voss",
+      "characterName": "Tamsin Voss",
+      "voice": "shimmer"
+    },
+    "thread.reedfall-tamsin-voss.completion-payout": {
+      "text": "Confirmed. Your payment is cleared, and I have added your route to the record.",
+      "file": "voice/thread-reedfall-tamsin-voss-completion-payout.mp3",
+      "characterId": "reedfall-tamsin-voss",
+      "characterName": "Tamsin Voss",
+      "voice": "shimmer"
+    },
+    "thread.reedfall-tamsin-voss.completion-followup": {
+      "text": "The witness line is stronger now. Not because it is dramatic, but because it was carried carefully.",
+      "file": "voice/thread-reedfall-tamsin-voss-completion-followup.mp3",
+      "characterId": "reedfall-tamsin-voss",
+      "characterName": "Tamsin Voss",
+      "voice": "shimmer"
+    },
+    "campaign.dawn-bell-teaser": {
+      "text": "At dawn, the cracked bell rang by itself. Not loudly. Not for danger. It rang like somebody far away had finally remembered the way home.",
+      "file": "voice/campaign-dawn-bell-teaser.mp3",
+      "characterId": "briar-ollie-lark",
+      "characterName": "Ollie Lark",
+      "voice": "sage"
+    },
+    "campaign.river-child-teaser": {
+      "text": "The child by the river does not ask for rescue. She asks if anyone else can hear the island breathing under the mud.",
+      "file": "voice/campaign-river-child-teaser.mp3",
+      "characterId": "union-juno-vale",
+      "characterName": "Sister Nera Bloom",
+      "voice": "shimmer"
+    },
+    "campaign.weather-vane-teaser": {
+      "text": "I found a weather vane buried under three feet of reef silt, still pointing inland. Either the storm got lost, or the island moved while nobody was watching.",
+      "file": "voice/campaign-weather-vane-teaser.mp3",
+      "characterId": "salvage-dax-brindle",
+      "characterName": "Pip Tidewell",
+      "voice": "coral"
+    },
+    "campaign.last-lantern-teaser": {
+      "text": "When the last lantern goes out, do not chase the dark. Stand still. Some paths only appear when they believe you are no longer hunting them.",
+      "file": "voice/campaign-last-lantern-teaser.mp3",
+      "characterId": "nightglass-vey-neral",
+      "characterName": "The Hooded Figure",
+      "voice": "ballad"
+    }
+  }
+}

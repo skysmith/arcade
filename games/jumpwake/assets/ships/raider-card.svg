@@ -1,0 +1,23 @@
+<svg width="640" height="384" viewBox="0 0 640 384" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="640" height="384" rx="24" fill="#100B0C"/>
+  <rect x="16" y="16" width="608" height="352" rx="18" fill="url(#bg)" stroke="rgba(255,174,124,0.16)"/>
+  <path d="M124 260L188 226L298 166L420 152L500 176L450 198L512 230L424 236L344 272L278 286L200 310L158 292L124 260Z" fill="#53353A"/>
+  <path d="M206 228L312 176L420 160L462 172L392 202L396 222L324 250L250 252L206 228Z" fill="#A88880"/>
+  <path d="M172 288L214 270L246 288L202 302L172 288Z" fill="#FF957B"/>
+  <path d="M428 158L502 176L450 194L428 158Z" fill="#FFC791"/>
+  <path d="M114 262L72 280L24 316" stroke="#FF8A78" stroke-width="11" stroke-linecap="round" stroke-opacity="0.82"/>
+  <path d="M118 240L52 236L20 224" stroke="#FFB86E" stroke-width="6" stroke-linecap="round" stroke-opacity="0.34"/>
+  <circle cx="520" cy="98" r="44" fill="url(#ember)"/>
+  <circle cx="98" cy="92" r="1.7" fill="#FFE4CA" fill-opacity="0.72"/>
+  <circle cx="142" cy="120" r="1.2" fill="#FFE4CA" fill-opacity="0.54"/>
+  <defs>
+    <linearGradient id="bg" x1="66" y1="30" x2="582" y2="350" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#231417"/>
+      <stop offset="1" stop-color="#140C0E"/>
+    </linearGradient>
+    <radialGradient id="ember" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(520 98) rotate(90) scale(44)">
+      <stop stop-color="#FFCA8A" stop-opacity="0.86"/>
+      <stop offset="1" stop-color="#FFCA8A" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+</svg>

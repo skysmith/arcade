@@ -2,20 +2,9 @@
 
 A small browser minigame starter built with Phaser 3, TypeScript, and Vite.
 
-## Workspace Metadata
+## Cabinet Notes
 
-- Name: Gnome Roundup
-- Domain: lab
-- Status: active
-- Purpose: Small browser minigame prototype focused on herding gameplay
-- Path: lab/games/gnome-roundup
-- Related:
-  - lab/games
-- Tags:
-  - game
-  - phaser
-  - minigame
-  - prototype
+This in-arcade cabinet mirrors the standalone `lab/games/gnome-roundup` project so the shelf can launch it locally.
 
 ## Stack
 

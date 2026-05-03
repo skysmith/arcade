@@ -2,6 +2,24 @@
 
 Controller-friendly landing page for the local game shelf, with the simpler cabinets living inside this repo.
 
+## Workspace Metadata
+
+- Name: Arcade
+- Domain: lab
+- Status: active
+- Purpose: Controller-friendly launcher and cabinet shelf for local browser games
+- Path: lab/games/arcade
+- Related:
+  - lab/games
+  - lab/media
+- Upstream:
+  - lab/games
+- Tags:
+  - arcade
+  - launcher
+  - local-multiplayer
+  - browser-games
+
 Current focus:
 
 - Browsable arcade launcher for local browser games

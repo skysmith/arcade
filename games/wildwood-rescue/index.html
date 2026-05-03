@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wildwood Rescue</title>
+    <link rel="icon" href="./favicon.svg" type="image/svg+xml" />
+    <script type="module" crossorigin src="./assets/index-CiGQnjYD.js"></script>
+    <link rel="stylesheet" crossorigin href="./assets/index-apHukpVs.css">
+  </head>
+  <body data-arcade-href="../../index.html">
+    <div id="app">
+      <div class="start-menu" id="start-menu" aria-labelledby="menu-title">
+        <div class="start-menu__panel">
+          <span class="start-menu__eyebrow">Forest RPG</span>
+          <h1 id="menu-title">Wildwood Rescue</h1>
+          <p>Creature rescue in the endless grove.</p>
+          <p class="start-menu__hint">Keyboard fallback is ready. The first visible controller becomes P1; extra controllers join with Start.</p>
+          <section class="start-menu__lead" aria-labelledby="start-menu-lead-label">
+            <div class="start-menu__lead-head">
+              <span id="start-menu-lead-label">Trail Lead</span>
+              <strong id="start-menu-lead-heading">Find camp</strong>
+            </div>
+            <strong class="start-menu__lead-title" id="start-menu-lead-title">Talk to Elder Rowan</strong>
+            <p class="start-menu__lead-detail" id="start-menu-lead-detail">Head to the first clearing and hear what frightened the grove.</p>
+          </section>
+          <section class="start-menu__missions" aria-labelledby="mission-title">
+            <div class="start-menu__missions-head">
+              <span id="mission-title">Active Missions</span>
+              <strong id="mission-summary">Finding the trail...</strong>
+            </div>
+            <div class="mission-list" id="mission-list">
+              <p class="mission-list__empty">The grove is waking up.</p>
+            </div>
+          </section>
+          <div class="start-menu__actions">
+            <button class="start-menu__button start-menu__button--primary" id="start-button" type="button">Start Rescue</button>
+            <button class="start-menu__button" id="arcade-button" type="button">Back to Arcade</button>
+          </div>
+        </div>
+      </div>
+      <div class="hud" id="hud" aria-live="polite">
+        <div class="hud__cluster">
+          <div class="hud__chip">
+            <span>Rescued</span>
+            <strong id="rescue-count">0</strong>
+          </div>
+          <div class="hud__chip">
+            <span>Grove</span>
+            <strong id="sector-label">0,0</strong>
+          </div>
+          <div class="hud__chip hud__chip--wide">
+            <span>Companions</span>
+            <strong id="companion-list">None yet</strong>
+          </div>
+        </div>
+        <div class="hud__cluster hud__cluster--right">
+          <div class="hud__chip hud__chip--wide">
+            <span>Party</span>
+            <strong id="party-list">P1</strong>
+          </div>
+          <div class="hud__chip hud__chip--wide">
+            <span>Controllers</span>
+            <strong id="controller-list">Keyboard fallback</strong>
+          </div>
+          <div class="hud__chip hud__chip--wide">
+            <span>Glade</span>
+            <strong id="encounter-chip">Quiet</strong>
+          </div>
+          <div class="hud__chip hud__chip--wide hud__chip--lead">
+            <span>Lead</span>
+            <strong id="lead-chip">Talk to Elder Rowan</strong>
+          </div>
+          <div class="hud__chip hud__chip--wide">
+            <span>Heading</span>
+            <strong id="lead-direction">Find camp</strong>
+          </div>
+          <button class="hud__menu-button" id="menu-button" type="button" aria-label="Open menu">Menu</button>
+        </div>
+        <div class="hud__status" id="prompt-line">Find rustling clearings and calm lost creatures.</div>
+      </div>
+      <div class="dialogue" id="dialogue" hidden aria-live="polite">
+        <div class="dialogue__portrait" id="dialogue-portrait">WR</div>
+        <div class="dialogue__body">
+          <span class="dialogue__role" id="dialogue-role">Keeper</span>
+          <h2 id="dialogue-speaker">Wildwood</h2>
+          <p id="dialogue-text"></p>
+          <div class="dialogue__actions">
+            <button class="dialogue__button" id="dialogue-voice-button" type="button">Voice On</button>
+            <button class="dialogue__button dialogue__button--primary" id="dialogue-next-button" type="button">Next</button>
+          </div>
+        </div>
+      </div>
+      <div class="world-map" id="world-map" hidden role="dialog" aria-modal="true" aria-labelledby="world-map-title">
+        <div class="world-map__panel">
+          <div class="world-map__head">
+            <div>
+              <span class="world-map__eyebrow">Grove Map</span>
+              <h2 id="world-map-title">Wildwood Survey</h2>
+            </div>
+            <button class="world-map__close" id="world-map-close" type="button" aria-label="Close map">Close</button>
+          </div>
+          <div class="world-map__body">
+            <svg class="world-map__svg" id="world-map-svg" viewBox="0 0 360 300" role="img" aria-label="Wildwood world map"></svg>
+            <div class="world-map__side">
+              <div class="world-map__stat">
+                <span>Grove</span>
+                <strong id="world-map-sector">0,0</strong>
+              </div>
+              <div class="world-map__stat">
+                <span>Rescued</span>
+                <strong id="world-map-rescued">0</strong>
+              </div>
+              <div class="world-map__stat world-map__stat--lead">
+                <span>Trail Lead</span>
+                <strong id="world-map-lead">Talk to Elder Rowan</strong>
+                <p id="world-map-lead-detail">Head to the first clearing and hear what frightened the grove.</p>
+              </div>
+              <div class="world-map__stat">
+                <span>Heading</span>
+                <strong id="world-map-heading">Find camp</strong>
+              </div>
+              <div class="world-map__legend" id="world-map-legend"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

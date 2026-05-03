@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Sim Planet</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <header class="hud">
+        <div class="hud__brand">
+          <p class="eyebrow">Orbital Foundry</p>
+          <h1>Sim Planet</h1>
+        </div>
+        <div class="hud__metrics" aria-label="System status">
+          <span class="metric">
+            <span class="metric__label">Cycle</span>
+            <strong id="cycle-value">0</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Stability</span>
+            <strong id="stability-value">87%</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Mass</span>
+            <strong id="mass-value">120</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Volatiles</span>
+            <strong id="volatiles-value">34</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Plasma</span>
+            <strong id="plasma-value">18</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Exotic</span>
+            <strong id="exotic-value">0</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Civ Pop</span>
+            <strong id="population-value">12.0M</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Crew</span>
+            <strong id="crew-value">0</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Fleet</span>
+            <strong id="fleet-value">0</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">System</span>
+            <strong id="system-value">Helio Cradle</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Jumps</span>
+            <strong id="jumps-value">0</strong>
+          </span>
+          <span class="metric">
+            <span class="metric__label">Operators</span>
+            <strong id="players-value">1P</strong>
+          </span>
+        </div>
+      </header>
+
+      <main id="playfield-shell" class="playfield-shell arcade-stage-shell">
+        <section id="playfield-stage" class="playfield-stage arcade-stage" aria-label="Sim Planet system view">
+          <canvas id="system-canvas" class="arcade-stage-canvas" width="960" height="540" aria-label="Orbital system canvas"></canvas>
+          <div id="hud-strip" class="hud-strip" aria-label="Simulation HUD">
+            <div id="objective-strip" class="objective-strip" aria-label="Objective and simulation status">
+              <div class="objective-strip__main">
+                <span class="eyebrow">Objective</span>
+                <strong id="objective-value">Start survey loop</strong>
+                <span id="objective-detail-value">Bring the starter system online.</span>
+              </div>
+              <div class="objective-strip__chips" aria-label="Compact status indicators">
+                <span class="status-chip">
+                  Stability
+                  <strong id="stability-chip-value">87%</strong>
+                </span>
+                <span class="status-chip">
+                  Impacts
+                  <strong id="active-impacts-value">0/3</strong>
+                </span>
+                <span class="status-chip">
+                  Travel
+                  <strong id="readiness-value">Locked</strong>
+                </span>
+              </div>
+            </div>
+            <div id="warning-stack" class="warning-stack" aria-live="assertive" aria-label="System warnings">
+              <span class="eyebrow">Warnings</span>
+              <strong id="warning-count-value">Clear</strong>
+              <div id="warning-list" class="warning-list"></div>
+            </div>
+            <div id="event-log" class="event-log" aria-live="polite" aria-label="Event log">
+              <span class="eyebrow">Log</span>
+              <strong id="event-count-value">0</strong>
+              <ol id="event-log-list" class="event-log__list"></ol>
+            </div>
+          </div>
+          <aside id="player-panels" class="player-panels" aria-live="polite" aria-label="Player focus panels"></aside>
+          <details id="operations-drawer" class="operations-drawer">
+            <summary class="operations-drawer__summary">
+              <span class="eyebrow">Orders</span>
+              <strong id="orders-summary-value">First Loop</strong>
+            </summary>
+            <div class="operations-drawer__body">
+              <section id="command-panel" class="command-panel" aria-label="Focused asset actions">
+                <div class="command-panel__topline">
+                  <span id="command-owner-value" class="eyebrow">P1 Asset Link</span>
+                  <strong id="selection-value">Morrow</strong>
+                </div>
+                <div class="asset-inspector">
+                  <div
+                    id="asset-figure"
+                    class="asset-figure"
+                    role="img"
+                    aria-label="Focused asset concept art"
+                  >
+                    <img id="asset-image" class="asset-figure__image" alt="" />
+                    <div id="asset-fallback" class="asset-figure__fallback">
+                      <span id="asset-kicker-value" class="asset-figure__kicker">Focused asset</span>
+                      <strong id="asset-title-value" class="asset-figure__title">Morrow</strong>
+                      <p id="asset-prompt-value" class="asset-figure__prompt">
+                        Planetfall staging world with orbital foundry traffic and soft mineral glow.
+                      </p>
+                    </div>
+                  </div>
+                  <div class="asset-inspector__copy">
+                    <p id="selection-detail" class="command-panel__detail">Select planets, asteroids, or structures.</p>
+                    <p id="selection-learn" class="command-panel__learn">
+                      Suggestions on the right are goals only. Select a world or structure here to act on it.
+                    </p>
+                    <article id="outcome-report" class="outcome-report" aria-live="polite" hidden>
+                      <div class="outcome-report__topline">
+                        <span id="outcome-kicker-value" class="eyebrow">Mission Report</span>
+                        <strong id="outcome-title-value">Orbital online</strong>
+                      </div>
+                      <p id="outcome-story-value" class="outcome-report__story">
+                        Local infrastructure has changed what the colony can do next.
+                      </p>
+                      <div class="outcome-report__facts">
+                        <span>
+                          <span class="outcome-report__label">Now</span>
+                          <strong id="outcome-now-value">New local action available.</strong>
+                        </span>
+                        <span>
+                          <span class="outcome-report__label">Output</span>
+                          <strong id="outcome-output-value">Passive rates updated.</strong>
+                        </span>
+                      </div>
+                    </article>
+                    <div id="context-action-list" class="context-action-list" aria-label="Local asset actions"></div>
+                    <p id="impact-draft-value" class="command-panel__draft">Icar-01 -> Morrow / Orbit Lift</p>
+                  </div>
+                </div>
+                <div class="command-panel__actions" aria-label="Selection controls">
+                  <button id="previous-selection-button" class="command command--compact" type="button">Prev</button>
+                  <button id="next-selection-button" class="command command--compact" type="button">Next</button>
+                </div>
+                <div class="command-panel__legacy" hidden aria-hidden="true">
+                  <button id="mark-asteroid-button" class="command" type="button">Use Asteroid</button>
+                  <button id="mark-target-button" class="command" type="button">Set Target</button>
+                  <button id="impact-intent-button" class="command" type="button">Orbit Lift</button>
+                  <button id="structure-command-button" class="command" type="button">Run Structure</button>
+                  <button id="queue-impact-button" class="command command--primary" type="button">Queue Impact</button>
+                </div>
+              </section>
+              <section id="build-panel" class="build-panel" aria-label="Suggested goals and routing guidance">
+                <div class="build-panel__topline">
+                  <span class="eyebrow">Suggested Goals</span>
+                  <strong id="build-count-value">0 live</strong>
+                </div>
+                <div id="build-list" class="build-list"></div>
+                <section id="project-panel" class="project-panel" aria-label="Long-term system project controls">
+                  <div class="project-panel__topline">
+                    <span class="eyebrow">Where Actions Live</span>
+                    <strong id="project-count-value">Local menus</strong>
+                  </div>
+                  <div id="project-list" class="project-list"></div>
+                  <p id="project-status-value" class="project-panel__status">
+                    Find the asset in-system, then use its local menu.
+                  </p>
+                </section>
+                <div class="travel-panel" aria-label="Interstellar travel status">
+                  <div class="travel-panel__topline">
+                    <span class="eyebrow">Interstellar</span>
+                    <strong id="travel-state-value">Locked</strong>
+                  </div>
+                  <p id="system-detail-value" class="travel-panel__detail">Starter system: balanced resources and low orbital hazard.</p>
+                  <p id="discovery-value" class="travel-panel__detail">Build toward refueling, survey science, megahabitats, and warp drives before leaving the system.</p>
+                  <div class="travel-panel__actions" hidden aria-hidden="true">
+                    <button id="chart-system-button" class="command command--compact" type="button">Chart</button>
+                    <button id="jump-system-button" class="command command--primary command--compact" type="button">Jump</button>
+                  </div>
+                </div>
+                <p id="build-status-value" class="build-panel__status">
+                  Suggestions do not build automatically. Select a planet or structure to act there.
+                </p>
+              </section>
+            </div>
+          </details>
+          <div id="boot-panel" class="boot-panel" role="group" aria-label="Boot controls">
+            <p class="eyebrow">Seed System Ready</p>
+            <h2>Start at near-future orbital industry and climb toward a singularity-age civilization.</h2>
+            <div class="route-card" aria-label="Opening route">
+              <span class="eyebrow">How To Play</span>
+              <ol class="route-list">
+                <li>
+                  <strong>Select a planet</strong>
+                  <span>Use its local action menu to commission orbitals.</span>
+                </li>
+                <li>
+                  <strong>Build Habitat, Shipyard, then Refueling</strong>
+                  <span>Crew unlocks shipyards; depots and logistics come before heavier science or megastructures.</span>
+                </li>
+                <li>
+                  <strong>Climb the science and engineering ladder</strong>
+                  <span>Survey Arrays chart, Shipyards fund warp drives, and structures keep upgrades, salvage, and tech local.</span>
+                </li>
+              </ol>
+            </div>
+            <div class="join-panel" aria-label="Local co-op controller join">
+              <div class="join-panel__topline">
+                <span class="eyebrow">Local Co-op</span>
+                <strong id="join-count-value">1 player</strong>
+              </div>
+              <p id="join-detail-value" class="join-panel__detail">Press A or Start on controllers to join P1-P4 before or during the run.</p>
+              <div id="join-list" class="join-list" aria-label="Connected controller assignments"></div>
+            </div>
+            <div class="boot-actions">
+              <button id="start-button" class="command command--primary" type="button">Start Run</button>
+              <a id="arcade-link" class="command" href="../../index.html">Back to Arcade</a>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer class="status-bar">
+        <div class="status-copy">
+          <span id="phase-value">Boot scene armed.</span>
+          <span id="hint-value">Enter starts. Reset lives in the arcade pause menu.</span>
+        </div>
+        <div class="time-controls" aria-label="Simulation time controls">
+          <button id="slower-button" class="command command--compact" type="button">Slower</button>
+          <span class="time-readout">Time <strong id="time-scale-value">1x</strong></span>
+          <button id="faster-button" class="command command--compact" type="button">Faster</button>
+          <button id="pause-button" class="command" type="button">Start</button>
+          <button id="restart-button" class="command" type="button" hidden>Reset</button>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 420" role="img" aria-labelledby="title desc">
+  <title id="title">Solar Neighborhood cover</title>
+  <desc id="desc">A Sun-centered star chart with glowing nearby stars and light-year range rings.</desc>
+  <defs>
+    <radialGradient id="space" cx="50%" cy="50%" r="72%">
+      <stop offset="0%" stop-color="#132027"/>
+      <stop offset="62%" stop-color="#06070d"/>
+      <stop offset="100%" stop-color="#010207"/>
+    </radialGradient>
+    <radialGradient id="sun" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#fff7c5"/>
+      <stop offset="44%" stop-color="#f3bf68"/>
+      <stop offset="100%" stop-color="#f3bf68" stop-opacity="0"/>
+    </radialGradient>
+    <filter id="soft">
+      <feGaussianBlur stdDeviation="4"/>
+    </filter>
+  </defs>
+  <rect width="640" height="420" fill="url(#space)"/>
+  <g fill="#f3f6ee" opacity=".74">
+    <circle cx="84" cy="58" r="2"/>
+    <circle cx="128" cy="315" r="1.5"/>
+    <circle cx="522" cy="78" r="2.4"/>
+    <circle cx="596" cy="348" r="1.4"/>
+    <circle cx="404" cy="54" r="1.2"/>
+    <circle cx="474" cy="268" r="1.8"/>
+    <circle cx="62" cy="374" r="1.5"/>
+    <circle cx="272" cy="356" r="1"/>
+  </g>
+  <g transform="translate(322 202)" fill="none">
+    <ellipse rx="250" ry="126" stroke="#8ee8f0" stroke-opacity=".18" stroke-width="3"/>
+    <ellipse rx="178" ry="90" stroke="#8ee8f0" stroke-opacity=".24" stroke-width="3"/>
+    <ellipse rx="102" ry="52" stroke="#f3bf68" stroke-opacity=".26" stroke-width="3"/>
+    <path d="M-250 0H250M0-126V126" stroke="#9be37d" stroke-opacity=".18" stroke-width="2"/>
+    <circle r="68" fill="url(#sun)" opacity=".9"/>
+    <circle r="20" fill="#f3bf68"/>
+    <g fill="#8ee8f0" filter="url(#soft)">
+      <circle cx="-160" cy="-34" r="10"/>
+      <circle cx="188" cy="-68" r="8"/>
+      <circle cx="96" cy="78" r="7"/>
+    </g>
+    <g fill="#ff745d">
+      <circle cx="-160" cy="-34" r="5"/>
+      <circle cx="-120" cy="58" r="4"/>
+      <circle cx="-214" cy="18" r="3"/>
+    </g>
+    <g fill="#d8ebff">
+      <circle cx="188" cy="-68" r="5"/>
+      <circle cx="238" cy="54" r="4"/>
+    </g>
+    <g fill="#ffd978">
+      <circle cx="96" cy="78" r="5"/>
+      <circle cx="38" cy="-92" r="3.5"/>
+    </g>
+    <path d="M0 0L188-68" stroke="#f3bf68" stroke-opacity=".54" stroke-width="2"/>
+  </g>
+  <rect x="28" y="286" width="340" height="90" rx="14" fill="#070b12" fill-opacity=".82" stroke="#8ee8f0" stroke-opacity=".26"/>
+  <text x="52" y="326" fill="#f3f6ee" font-family="Avenir Next, Segoe UI, sans-serif" font-size="31" font-weight="800">Solar Neighborhood</text>
+  <text x="52" y="352" fill="#aab4bc" font-family="Avenir Next, Segoe UI, sans-serif" font-size="16" font-weight="700">Start at Sol. Range out by light-years.</text>
+</svg>

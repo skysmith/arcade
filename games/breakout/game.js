@@ -1,3 +1,11 @@
+import { applyCanvasRenderScale, attachViewportResize, syncCanvasBackingStore } from "../../shared/arcade-stage.js";
+import {
+  DEFAULT_PLAYER_LIVES,
+  decrementLives,
+  formatLives,
+  hasLivesRemaining,
+} from "../../shared/lives-config.js";
+
 const COURT_COUNT = 4;
 const BUILD_NUMBER = "2026.04.13.1";
 const WIDTH = 240;
@@ -104,6 +112,18 @@ ui.buildNumber.textContent = `build ${BUILD_NUMBER}`;
 
 const courts = Array.from({ length: COURT_COUNT }, (_, zeroIndex) => createCourtState(zeroIndex + 1));
 
+function syncCourtCanvasSizing() {
+  courts.forEach((court) => {
+    court.renderState = syncCanvasBackingStore(court.canvas, {
+      logicalWidth: WIDTH,
+      logicalHeight: HEIGHT,
+    });
+  });
+}
+
+syncCourtCanvasSizing();
+attachViewportResize(syncCourtCanvasSizing);
+
 function createCourtState(index) {
   const canvas = document.getElementById(`court-canvas-${index}`);
   return {
@@ -111,6 +131,7 @@ function createCourtState(index) {
     cardEl: document.querySelector(`[data-court-card="${index}"]`),
     ctx: canvas.getContext("2d"),
     canvas,
+    renderState: { scaleX: 1, scaleY: 1 },
     phaseEl: document.getElementById(`court-phase-${index}`),
     scoreEl: document.getElementById(`court-score-${index}`),
     bricksEl: document.getElementById(`court-bricks-${index}`),
@@ -118,7 +139,7 @@ function createCourtState(index) {
     controllerIndex: null,
     score: 0,
     combo: 0,
-    lives: 3,
+    lives: DEFAULT_PLAYER_LIVES,
     level: 1,
     flashTimer: 0,
     serveLock: true,
@@ -171,7 +192,7 @@ function createBrickLayout(level) {
 function resetCourt(court, freshRun = false) {
   court.score = freshRun ? 0 : court.score;
   court.combo = 0;
-  court.lives = freshRun ? 3 : court.lives;
+  court.lives = freshRun ? DEFAULT_PLAYER_LIVES : court.lives;
   court.level = freshRun ? 1 : court.level;
   court.flashTimer = 0;
   court.serveLock = true;
@@ -322,10 +343,10 @@ function serveBall(court) {
 }
 
 function loseLife(court) {
-  court.lives -= 1;
+  court.lives = decrementLives(court.lives);
   court.combo = 0;
   court.flashTimer = 0.7;
-  if (court.lives <= 0) {
+  if (!hasLivesRemaining(court.lives)) {
     court.gameOver = true;
     court.phaseEl.textContent = "Out";
     return;
@@ -476,10 +497,10 @@ function updateHud() {
   ui.bricks.textContent = `${totalBricks} total bricks left`;
   ui.phase.textContent = gameState.paused ? "Paused" : (gameState.mode === "multitap" ? "Multitap" : "Classic");
   ui.message.textContent = activeCourts.some((court) => court.gameOver)
-    ? "Press R to relaunch the courts."
+    ? "Press A, Start, or R to relaunch the courts."
     : "Serve, ricochet, and clear the stack.";
   ui.footerStatus.textContent = activeCourts
-    .map((court) => `P${court.index}:${court.lives}`)
+    .map((court) => `P${court.index}:${formatLives(court.lives)}`)
     .join("  ");
   ui.footerHint.textContent = gameState.mode === "multitap"
     ? "Extra pads join on Start. Keyboard lanes stay active for all four courts."
@@ -512,6 +533,7 @@ function showGameOverMenu() {
 
 function drawCourt(court) {
   const ctx = court.ctx;
+  applyCanvasRenderScale(ctx, court.renderState);
   ctx.clearRect(0, 0, WIDTH, HEIGHT);
 
   const gradient = ctx.createLinearGradient(0, 0, 0, HEIGHT);
@@ -552,7 +574,7 @@ function drawCourt(court) {
 
   ctx.fillStyle = COLORS.muted;
   ctx.font = '13px "Avenir Next", "Segoe UI", sans-serif';
-  ctx.fillText(`Lives ${court.lives}`, COURT_MARGIN_X + 8, HEIGHT - 10);
+  ctx.fillText(`Lives ${formatLives(court.lives)}`, COURT_MARGIN_X + 8, HEIGHT - 10);
   ctx.fillText(court.controllerIndex !== null ? `Pad ${court.controllerIndex + 1}` : `Key ${court.index}`, WIDTH - 76, HEIGHT - 10);
 
   if (court.flashTimer > 0) {
@@ -569,7 +591,7 @@ function drawCourt(court) {
     ctx.fillText("Court Down", WIDTH / 2, HEIGHT / 2 - 6);
     ctx.font = '16px "Avenir Next", "Segoe UI", sans-serif';
     ctx.fillStyle = COLORS.muted;
-    ctx.fillText("Press R to restart", WIDTH / 2, HEIGHT / 2 + 26);
+    ctx.fillText("Press A, Start, or R to restart", WIDTH / 2, HEIGHT / 2 + 26);
     ctx.textAlign = "start";
   }
 }

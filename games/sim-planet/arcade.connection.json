@@ -1,0 +1,11 @@
+{
+  "id": "sim-planet",
+  "title": "Sim Planet",
+  "image": "./assets/covers/sim-planet.svg",
+  "summary": "A cosmic systems sim shell for building orbital industry, nudging asteroids, solar lifting, black-hole harvesting, and jumping to new stars.",
+  "players": "1-4 local co-op",
+  "controls": "Mouse, keyboard, gamepad join",
+  "launchText": "Open system",
+  "path": "./games/sim-planet/index.html",
+  "badge": "System Sim"
+}

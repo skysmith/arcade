@@ -1,0 +1,39 @@
+{
+  "generatedAt": "2026-04-21T17:37:53.617Z",
+  "model": "gpt-4o-mini-tts",
+  "format": "mp3",
+  "line": "Find the letter J.",
+  "note": "Voice auditions are AI-generated samples for Letter Launchpad.",
+  "clips": [
+    {
+      "voice": "coral",
+      "file": "find-letter-j-coral.mp3",
+      "text": "Find the letter J."
+    },
+    {
+      "voice": "nova",
+      "file": "find-letter-j-nova.mp3",
+      "text": "Find the letter J."
+    },
+    {
+      "voice": "shimmer",
+      "file": "find-letter-j-shimmer.mp3",
+      "text": "Find the letter J."
+    },
+    {
+      "voice": "sage",
+      "file": "find-letter-j-sage.mp3",
+      "text": "Find the letter J."
+    },
+    {
+      "voice": "marin",
+      "file": "find-letter-j-marin.mp3",
+      "text": "Find the letter J."
+    },
+    {
+      "voice": "ballad",
+      "file": "find-letter-j-ballad.mp3",
+      "text": "Find the letter J."
+    }
+  ]
+}

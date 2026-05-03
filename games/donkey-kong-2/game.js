@@ -1,3 +1,12 @@
+import { createArcadeStage } from "../../shared/arcade-stage.js";
+import {
+  DEFAULT_FINITE_LIVES,
+  DEFAULT_PLAYER_LIVES,
+  decrementLives,
+  formatLives,
+  hasLivesRemaining,
+} from "../../shared/lives-config.js";
+
 const BUILD_NUMBER = "2026.04.13.2";
 const MAX_PLAYERS = 4;
 const KEYBOARD_PLAYER_ID = "keyboard-1";
@@ -14,6 +23,10 @@ const CLIMB_EXIT_PADDING = 4;
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+const WIDTH = Number(canvas.getAttribute("width"));
+const HEIGHT = Number(canvas.getAttribute("height"));
+const playfieldShell = document.getElementById("playfield-shell");
+const playfieldStage = document.getElementById("playfield-stage");
 const arcadeCabinet = window.ArcadeCabinet || null;
 
 const ui = {
@@ -25,6 +38,14 @@ const ui = {
 };
 
 document.title = `Donkey Kong Jr. build ${BUILD_NUMBER}`;
+
+const cabinetStage = createArcadeStage({
+  shell: playfieldShell,
+  stage: playfieldStage,
+  canvas,
+  logicalWidth: WIDTH,
+  logicalHeight: HEIGHT,
+});
 
 const platforms = [
   { x1: 134, x2: 826, y: 668 },
@@ -130,7 +151,7 @@ function resetRound(advance = false) {
 
   for (const player of state.players.values()) {
     resetPlayer(player);
-    player.lives = Math.max(player.lives, 3);
+    player.lives = Math.max(player.lives, DEFAULT_FINITE_LIVES);
   }
 
   relayoutPlayers();
@@ -186,7 +207,7 @@ function spawnPlayer(source, controllerIndex, controllerName) {
     y: 0,
     vx: 0,
     vy: 0,
-    lives: 3,
+    lives: DEFAULT_PLAYER_LIVES,
     alive: true,
     onVine: false,
     vineId: null,
@@ -377,7 +398,7 @@ function platformUnderEntity(entity) {
 function updatePlayers(dt) {
   for (const player of state.players.values()) {
     if (!player.alive) {
-      if (performance.now() >= player.respawnAt && player.lives > 0) {
+      if (performance.now() >= player.respawnAt && hasLivesRemaining(player.lives)) {
         player.alive = true;
         player.vx = 0;
         player.vy = 0;
@@ -475,8 +496,8 @@ function updatePlayers(dt) {
       }
     }
 
-    player.x = Math.max(90, Math.min(canvas.width - 90 - player.width, player.x));
-    if (player.y > canvas.height + 30) {
+    player.x = Math.max(90, Math.min(WIDTH - 90 - player.width, player.x));
+    if (player.y > HEIGHT + 30) {
       loseLife(player, "A climber dropped off the vines.");
       continue;
     }
@@ -546,7 +567,7 @@ function checkGoal(player) {
 
 function loseLife(player, reason) {
   player.alive = false;
-  player.lives -= 1;
+  player.lives = decrementLives(player.lives);
   player.onVine = false;
   player.vineId = null;
   player.respawnAt = performance.now() + RESPAWN_MS;
@@ -562,10 +583,10 @@ function loseLife(player, reason) {
   }
 
   setStatus(reason);
-  const survivingPlayers = [...state.players.values()].filter((entry) => entry.lives > 0);
+  const survivingPlayers = [...state.players.values()].filter((entry) => hasLivesRemaining(entry.lives));
   if (survivingPlayers.length === 0) {
     state.gameOver = true;
-    setStatus("All climbers are down. Press R to restart.");
+    setStatus("All climbers are down. Press A, Start, or R to restart.");
   }
 }
 
@@ -614,7 +635,7 @@ function updateHazards(dt) {
 
   state.birds = state.birds.filter((bird) => {
     bird.x += bird.vx * dt;
-    return bird.x > -80 && bird.x < canvas.width + 80;
+    return bird.x > -80 && bird.x < WIDTH + 80;
   });
 
   state.sparks = state.sparks.filter((spark) => {
@@ -666,17 +687,17 @@ function updateUi() {
   ui.locks.textContent = `${state.locksReleased} / ${locks.length}`;
   ui.status.textContent = state.lastStatusText || "Climb the vines and break the chains.";
   ui.hint.textContent = state.gameOver
-    ? "Press R to restart the rescue."
+    ? "Press A, Start, or R to restart the rescue."
     : "Grab each key and carry it into the matching chain lock.";
 }
 
 function drawBackground() {
-  const sky = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  const sky = ctx.createLinearGradient(0, 0, 0, HEIGHT);
   sky.addColorStop(0, "#172613");
   sky.addColorStop(0.45, "#10180f");
   sky.addColorStop(1, "#07110c");
   ctx.fillStyle = sky;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   ctx.fillStyle = "rgba(255, 235, 175, 0.06)";
   ctx.beginPath();
@@ -684,7 +705,7 @@ function drawBackground() {
   ctx.fill();
 
   ctx.fillStyle = "#2d1d18";
-  ctx.fillRect(0, canvas.height - 36, canvas.width, 36);
+  ctx.fillRect(0, HEIGHT - 36, WIDTH, 36);
 }
 
 function drawPlatforms() {
@@ -797,25 +818,26 @@ function drawPlayers() {
     ctx.fillRect(player.x + 14, player.y + 6, 4, 4);
     ctx.fillStyle = "#f5fff7";
     ctx.font = '12px "Avenir Next", "Segoe UI", sans-serif';
-    ctx.fillText(`${player.label} ${Math.max(player.lives, 0)}`, player.x - 4, player.y - 10);
+    ctx.fillText(`${player.label} ${formatLives(player.lives)}`, player.x - 4, player.y - 10);
   }
 }
 
 function drawOverlay() {
   if (!state.gameOver && !state.paused) return;
   ctx.fillStyle = "rgba(4, 7, 8, 0.58)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
   ctx.fillStyle = "#f4fff7";
   ctx.textAlign = "center";
   ctx.font = '700 40px "Avenir Next", "Segoe UI", sans-serif';
-  ctx.fillText(state.gameOver ? "Rescue Lost" : "Paused", canvas.width / 2, canvas.height / 2 - 12);
+  ctx.fillText(state.gameOver ? "Rescue Lost" : "Paused", WIDTH / 2, HEIGHT / 2 - 12);
   ctx.font = '500 20px "Avenir Next", "Segoe UI", sans-serif';
-  ctx.fillText(state.gameOver ? "Press R to restart." : "Press P or Start to resume.", canvas.width / 2, canvas.height / 2 + 24);
+  ctx.fillText(state.gameOver ? "Press A, Start, or R to restart." : "Press P or Start to resume.", WIDTH / 2, HEIGHT / 2 + 24);
   ctx.textAlign = "left";
 }
 
 function draw() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  cabinetStage.syncContext(ctx);
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
   drawBackground();
   drawPlatforms();
   drawVines();

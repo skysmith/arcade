@@ -1,3 +1,11 @@
+import { createArcadeStage } from "../../shared/arcade-stage.js";
+import {
+  DEFAULT_PLAYER_LIVES,
+  decrementLives,
+  formatLives,
+  hasLivesRemaining,
+} from "../../shared/lives-config.js";
+
 const BUILD_NUMBER = "2026.04.13.1";
 const MAX_PLAYERS = 4;
 const PLAYER_COLORS = ["#9bf96f", "#6fc9ff", "#ffda72", "#ff8aa0"];
@@ -7,6 +15,10 @@ const PLAYER_FIRE_INTERVAL = 0.18;
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+const WIDTH = Number(canvas.getAttribute("width"));
+const HEIGHT = Number(canvas.getAttribute("height"));
+const playfieldShell = document.getElementById("playfield-shell");
+const playfieldStage = document.getElementById("playfield-stage");
 const arcadeCabinet = window.ArcadeCabinet || null;
 
 const ui = {
@@ -18,6 +30,14 @@ const ui = {
 };
 
 document.title = `space-invaders build ${BUILD_NUMBER}`;
+
+const cabinetStage = createArcadeStage({
+  shell: playfieldShell,
+  stage: playfieldStage,
+  canvas,
+  logicalWidth: WIDTH,
+  logicalHeight: HEIGHT,
+});
 
 const state = {
   players: new Map(),
@@ -96,14 +116,14 @@ function spawnPlayer(source, controllerIndex, controllerName) {
     controllerIndex,
     controllerName,
     slot,
-    x: canvas.width / 2,
-    y: canvas.height - 54,
+    x: WIDTH / 2,
+    y: HEIGHT - 54,
     width: 32,
     height: 18,
     speed: 320,
     color: PLAYER_COLORS[slot % PLAYER_COLORS.length],
     label: PLAYER_LABELS[slot] || `P${slot + 1}`,
-    lives: 3,
+    lives: DEFAULT_PLAYER_LIVES,
     alive: true,
     fireCooldown: PLAYER_FIRE_INTERVAL,
     respawnAt: 0,
@@ -123,14 +143,14 @@ function removePlayer(playerId) {
 
 function relayoutPlayers() {
   const players = [...state.players.values()];
-  const laneWidth = canvas.width / Math.max(1, players.length);
+  const laneWidth = WIDTH / Math.max(1, players.length);
   players.forEach((player, index) => {
     player.slot = index;
     player.color = PLAYER_COLORS[index % PLAYER_COLORS.length];
     player.label = PLAYER_LABELS[index] || `P${index + 1}`;
     const center = laneWidth * index + laneWidth / 2;
-    player.x = Math.max(32, Math.min(canvas.width - 32, center));
-    player.y = canvas.height - 54;
+    player.x = Math.max(32, Math.min(WIDTH - 32, center));
+    player.y = HEIGHT - 54;
   });
 }
 
@@ -260,10 +280,10 @@ function updatePlayers(delta) {
 
   for (const player of state.players.values()) {
     if (!player.alive) {
-      if (player.respawnAt > 0 && performance.now() >= player.respawnAt && player.lives > 0) {
+      if (player.respawnAt > 0 && performance.now() >= player.respawnAt && hasLivesRemaining(player.lives)) {
         player.alive = true;
         player.respawnAt = 0;
-        player.y = canvas.height - 54;
+        player.y = HEIGHT - 54;
       }
       continue;
     }
@@ -275,7 +295,7 @@ function updatePlayers(delta) {
     let dx = 0;
     if (input.left) dx -= 1;
     if (input.right) dx += 1;
-    player.x = Math.max(26, Math.min(canvas.width - 26, player.x + dx * player.speed * dt));
+    player.x = Math.max(26, Math.min(WIDTH - 26, player.x + dx * player.speed * dt));
 
     player.fireCooldown -= dt;
     if (input.fire && player.fireCooldown <= 0) {
@@ -305,7 +325,7 @@ function updateBullets(delta) {
   });
 
   state.bullets = state.bullets.filter((bullet) => bullet.y > -20);
-  state.enemyBullets = state.enemyBullets.filter((bullet) => bullet.y < canvas.height + 20);
+  state.enemyBullets = state.enemyBullets.filter((bullet) => bullet.y < HEIGHT + 20);
 }
 
 function updateEnemies(delta) {
@@ -319,7 +339,7 @@ function updateEnemies(delta) {
   let hitEdge = false;
   for (const enemy of liveEnemies) {
     enemy.x += state.swarmDirection * state.swarmSpeed * dt;
-    if (enemy.x >= canvas.width - 44 || enemy.x <= 44) {
+    if (enemy.x >= WIDTH - 44 || enemy.x <= 44) {
       hitEdge = true;
     }
   }
@@ -376,9 +396,9 @@ function updateCollisions() {
       }
       if (rectHit(bullet.x - bullet.radius, bullet.y - bullet.radius, bullet.radius * 2, bullet.radius * 2, player.x - player.width / 2, player.y - player.height / 2, player.width, player.height)) {
         bullet.hit = true;
-        player.lives -= 1;
+        player.lives = decrementLives(player.lives);
         player.alive = false;
-        player.respawnAt = player.lives > 0 ? performance.now() + 1100 : 0;
+        player.respawnAt = hasLivesRemaining(player.lives) ? performance.now() + 1100 : 0;
       }
     }
   }
@@ -386,12 +406,12 @@ function updateCollisions() {
   state.bullets = state.bullets.filter((bullet) => !bullet.hit);
   state.enemyBullets = state.enemyBullets.filter((bullet) => !bullet.hit);
 
-  const invasionLine = canvas.height - 104;
+  const invasionLine = HEIGHT - 104;
   if (state.enemies.some((enemy) => enemy.alive && enemy.y >= invasionLine)) {
     state.gameOver = true;
   }
 
-  const alivePlayers = [...state.players.values()].filter((player) => player.alive || player.lives > 0);
+  const alivePlayers = [...state.players.values()].filter((player) => player.alive || hasLivesRemaining(player.lives));
   if (alivePlayers.length === 0) {
     state.gameOver = true;
   }
@@ -407,7 +427,7 @@ function resetGame() {
   state.bullets = [];
   state.enemyBullets = [];
   for (const player of state.players.values()) {
-    player.lives = 3;
+    player.lives = DEFAULT_PLAYER_LIVES;
     player.alive = true;
     player.respawnAt = 0;
     player.fireCooldown = PLAYER_FIRE_INTERVAL;
@@ -429,22 +449,22 @@ function showGameOverMenu() {
 }
 
 function drawBackground() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
   ctx.fillStyle = "#03050b";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   ctx.fillStyle = "rgba(255,255,255,0.45)";
   for (let i = 0; i < 42; i += 1) {
-    const x = (i * 97) % canvas.width;
-    const y = (i * 53) % canvas.height;
+    const x = (i * 97) % WIDTH;
+    const y = (i * 53) % HEIGHT;
     ctx.fillRect(x, y, 2, 2);
   }
 
   ctx.strokeStyle = "rgba(155, 249, 111, 0.32)";
   ctx.lineWidth = 3;
   ctx.beginPath();
-  ctx.moveTo(0, canvas.height - 28);
-  ctx.lineTo(canvas.width, canvas.height - 28);
+  ctx.moveTo(0, HEIGHT - 28);
+  ctx.lineTo(WIDTH, HEIGHT - 28);
   ctx.stroke();
 }
 
@@ -460,11 +480,11 @@ function drawEnemies() {
 
 function drawPlayers() {
   for (const player of state.players.values()) {
-    const laneText = `${player.label} ${Math.max(0, player.lives)}x`;
+    const laneText = `${player.label} ${formatLives(player.lives)}`;
     ctx.fillStyle = player.color;
     ctx.font = "600 12px Avenir Next";
     ctx.textAlign = "center";
-    ctx.fillText(laneText, player.x, canvas.height - 8);
+    ctx.fillText(laneText, player.x, HEIGHT - 8);
 
     if (!player.alive) {
       continue;
@@ -493,14 +513,14 @@ function drawOverlay() {
   }
 
   ctx.fillStyle = "rgba(2, 5, 12, 0.72)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
   ctx.fillStyle = "#f4f7ff";
   ctx.textAlign = "center";
   ctx.font = "700 42px Avenir Next";
-  ctx.fillText(state.gameOver ? "Cabinet Reset" : "Paused", canvas.width / 2, canvas.height / 2 - 10);
+  ctx.fillText(state.gameOver ? "Cabinet Reset" : "Paused", WIDTH / 2, HEIGHT / 2 - 10);
   ctx.font = "500 18px Avenir Next";
   ctx.fillStyle = "rgba(244,247,255,0.76)";
-  ctx.fillText("Press R to restart or P to keep going.", canvas.width / 2, canvas.height / 2 + 26);
+  ctx.fillText(state.gameOver ? "Press A, Start, or R to restart." : "Press P or Start to keep going.", WIDTH / 2, HEIGHT / 2 + 26);
 }
 
 function syncUi() {
@@ -518,12 +538,15 @@ function syncUi() {
     state.lastStatusText = statusText;
   }
 
-  ui.hint.textContent = state.players.size > 1
-    ? "Extra pads join when Start is pressed. Start pauses. R restarts."
-    : "First pad is P1. Extra pads join on Start. Hidden controller? Use the bridge launcher.";
+  ui.hint.textContent = state.gameOver
+    ? "Press A, Start, or R to restart."
+    : state.players.size > 1
+      ? "Extra pads join when Start is pressed. Start pauses. A or Start restarts after game over."
+      : "First pad is P1. Extra pads join on Start. Hidden controller? Use the bridge launcher.";
 }
 
 function render() {
+  cabinetStage.syncContext(ctx);
   drawBackground();
   drawEnemies();
   drawBullets();

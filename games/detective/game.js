@@ -1,5 +1,10 @@
+import { createArcadeStage } from "../../shared/arcade-stage.js";
+
 const width = 960;
 const height = 540;
+const renderResolution = Math.min(window.devicePixelRatio || 1, 2);
+const playfieldShell = document.getElementById("playfield-shell");
+const playfieldStage = document.getElementById("playfield-stage");
 const groundY = 472;
 const SINGLEPLAYER_CAMERA_ANCHOR_X = width * 0.25;
 const MULTIPLAYER_CAMERA_ANCHOR_X = width * 0.75;
@@ -177,6 +182,32 @@ const PLAYER_VARIANTS = [
       brim: 0x1d1a37,
       hair: 0x2a2138,
       hairAccent: 0x66538c,
+      silhouette: "woman",
+      beard: null,
+    },
+  },
+  {
+    id: "ember",
+    label: "Ember",
+    swatches: ["#8f4e3a", "#f2bf6c"],
+    palette: {
+      build: "scarf",
+      skin: 0xe7ba93,
+      nose: 0xc98d68,
+      eye: 0x2a1f1b,
+      smile: 0x764f3d,
+      shirt: 0x5d4d7a,
+      shirtAccent: 0xf2bf6c,
+      sleeve: 0x76618f,
+      pants: 0x4e5f74,
+      shoe: 0x433029,
+      hat: 0x8f4e3a,
+      hatPanel: 0xc97852,
+      brim: 0x5f2f22,
+      scarf: 0xf2bf6c,
+      scarfAccent: 0xc97852,
+      hair: 0x5f352b,
+      hairAccent: 0xc97852,
       silhouette: "woman",
       beard: null,
     },
@@ -449,6 +480,7 @@ const config = {
   parent: "studio-root",
   width,
   height,
+  resolution: renderResolution,
   backgroundColor: "#8fcffd",
   scale: {
     mode: Phaser.Scale.FIT,
@@ -462,6 +494,35 @@ const config = {
 };
 
 const game = new Phaser.Game(config);
+let cabinetStage = null;
+
+function initCabinetStage() {
+  if (cabinetStage || !game.canvas) {
+    return;
+  }
+
+  cabinetStage = createArcadeStage({
+    shell: playfieldShell,
+    stage: playfieldStage,
+    canvas: game.canvas,
+    logicalWidth: width,
+    logicalHeight: height,
+    manageCanvasBackingStore: false,
+    onResize() {
+      game.scale.refresh();
+    },
+  });
+}
+
+function waitForGameCanvas() {
+  if (game.canvas) {
+    initCabinetStage();
+    return;
+  }
+  requestAnimationFrame(waitForGameCanvas);
+}
+
+waitForGameCanvas();
 
 let cursors;
 let movementKeys;
@@ -572,45 +633,60 @@ function preload() {
   };
 
   const drawHero = (textureKey, palette, pose = {}) => {
+    const build = palette.build ?? "default";
     const bodyBob = pose.bodyBob ?? 0;
     const bodyShiftX = pose.bodyShiftX ?? 0;
-    const torsoX = 24 + bodyShiftX;
-    const torsoY = 39 + bodyBob;
-    const headX = 33 + (pose.headX ?? 0) + bodyShiftX * 0.35;
-    const headY = 24 + (pose.headY ?? 0) + bodyBob * 0.25;
-    const shoulderLeftX = 25 + bodyShiftX;
-    const shoulderRightX = 41 + bodyShiftX;
-    const hipLeftX = 30 + bodyShiftX;
-    const hipRightX = 38 + bodyShiftX;
+    const torsoX = 23 + bodyShiftX * 0.7;
+    const torsoY = 40 + bodyBob;
+    const headX = 32 + (pose.headX ?? 0) + bodyShiftX * 0.2;
+    const headY = 25 + (pose.headY ?? 0) + bodyBob * 0.2;
+    const shoulderLeftX = torsoX + 3;
+    const shoulderRightX = torsoX + 17;
+    const hipLeftX = torsoX + 6;
+    const hipRightX = torsoX + 14;
     const makePoints = (baseX, baseY, offsets) => offsets.map(([offsetX, offsetY]) => ({
       x: baseX + offsetX,
       y: baseY + offsetY,
     }));
-    const backArm = makePoints(shoulderLeftX, torsoY + 4, pose.backArm ?? [[0, 0], [-2, 11], [-1, 22]]);
-    const frontArm = makePoints(shoulderRightX, torsoY + 4, pose.frontArm ?? [[0, 0], [2, 11], [3, 22]]);
-    const backLeg = makePoints(hipLeftX, torsoY + 28, pose.backLeg ?? [[0, 0], [-1, 11], [-1, 20]]);
-    const frontLeg = makePoints(hipRightX, torsoY + 28, pose.frontLeg ?? [[0, 0], [1, 11], [1, 20]]);
+    const backArm = makePoints(shoulderLeftX, torsoY + 6, pose.backArm ?? [[0, 0], [-2, 11], [-1, 22]]);
+    const frontArm = makePoints(shoulderRightX, torsoY + 6, pose.frontArm ?? [[0, 0], [2, 11], [3, 22]]);
+    const backLeg = makePoints(hipLeftX, torsoY + 25, pose.backLeg ?? [[0, 0], [-1, 11], [-1, 20]]);
+    const frontLeg = makePoints(hipRightX, torsoY + 25, pose.frontLeg ?? [[0, 0], [1, 11], [1, 20]]);
     const backFootToe = pose.backFootToe ?? Phaser.Math.Clamp(backLeg[2].x - backLeg[1].x, -2.5, 2.5);
     const frontFootToe = pose.frontFootToe ?? Phaser.Math.Clamp(frontLeg[2].x - frontLeg[1].x, -2.5, 2.5);
+    const coatBottomY = torsoY + 29;
 
     g.clear();
     g.fillStyle(0x000000, 0);
     g.fillRect(0, 0, 64, 92);
     g.fillStyle(0x000000, pose.shadowAlpha ?? 0.13);
-    g.fillEllipse(31, pose.shadowY ?? 88, pose.shadowWidth ?? 24, 8);
+    g.fillEllipse(32, pose.shadowY ?? 88, pose.shadowWidth ?? 24, 8);
 
-    drawLimb(backArm, 7, palette.sleeve);
     drawLimb(backLeg, 8, palette.pants);
     drawFoot(backLeg[2], backFootToe, palette.shoe);
+    drawLimb(backArm, 7, palette.sleeve);
 
-    g.fillStyle(palette.shirt, 1);
-    g.fillRoundedRect(torsoX, torsoY, 18, 30, 6);
-    g.fillStyle(palette.pants, 1);
-    g.fillRoundedRect(torsoX + 1, torsoY + 22, 16, 7, 3);
-    g.fillRoundedRect(torsoX + 2, torsoY + 25, 5, 5, 2);
-    g.fillRoundedRect(torsoX + 11, torsoY + 25, 5, 5, 2);
-    g.fillStyle(palette.shirtAccent, 1);
-    g.fillRoundedRect(torsoX + 4, torsoY + 3, 10, 20, 4);
+    if (build === "scarf") {
+      g.fillStyle(palette.shirt, 1);
+      g.fillRoundedRect(torsoX + 2, torsoY + 5, 16, 18, 5);
+      g.fillTriangle(torsoX + 3, torsoY + 20, torsoX + 17, torsoY + 20, torsoX + 9, coatBottomY + 7);
+      g.fillStyle(palette.scarf ?? palette.shirtAccent, 1);
+      g.fillRoundedRect(torsoX + 2, torsoY + 3, 17, 5, 2);
+      g.fillRoundedRect(torsoX + 10, torsoY + 7, 4, 15, 1.5);
+      g.fillStyle(palette.scarfAccent ?? palette.hatPanel, 0.8);
+      g.fillRoundedRect(torsoX + 11, torsoY + 9, 2, 11, 1);
+      g.fillStyle(palette.shirtAccent, 0.6);
+      g.fillRoundedRect(torsoX + 5, torsoY + 10, 10, 9, 3);
+    } else {
+      g.fillStyle(palette.shirt, 1);
+      g.fillRoundedRect(torsoX + 1, torsoY + 3, 18, 22, 5);
+      g.fillTriangle(torsoX + 2, torsoY + 19, torsoX + 18, torsoY + 19, torsoX + 7, coatBottomY + 8);
+      g.fillTriangle(torsoX + 4, torsoY + 19, torsoX + 20, torsoY + 19, torsoX + 16, coatBottomY + 8);
+      g.fillStyle(palette.shirtAccent, 0.86);
+      g.fillTriangle(torsoX + 8, torsoY + 5, torsoX + 12, torsoY + 16, torsoX + 6, torsoY + 16);
+      g.fillTriangle(torsoX + 12, torsoY + 5, torsoX + 16, torsoY + 16, torsoX + 20, torsoY + 16);
+      g.fillRoundedRect(torsoX + 9, torsoY + 6, 3, 18, 1.5);
+    }
 
     drawLimb(frontLeg, 8, palette.pants);
     drawFoot(frontLeg[2], frontFootToe, palette.shoe);
@@ -619,87 +695,115 @@ function preload() {
     g.fillCircle(backArm[2].x, backArm[2].y, 3);
     g.fillCircle(frontArm[2].x, frontArm[2].y, 3);
 
-    if (palette.hair != null && palette.silhouette === "woman") {
-      g.fillStyle(palette.hair, 1);
-      g.fillEllipse(headX - 7, headY + 5, 14, 24);
-      g.fillEllipse(headX - 11, headY + 8, 8, 22);
-      g.fillEllipse(headX - 2, headY + 9, 8, 18);
-      if (palette.hairAccent != null) {
-        g.fillStyle(palette.hairAccent, 0.26);
-        g.fillEllipse(headX - 8, headY + 3, 8, 18);
+    if (build === "scarf") {
+      if (palette.hair != null) {
+        g.fillStyle(palette.hair, 1);
+        g.fillEllipse(headX - 6, headY + 2, 11, 18);
+        g.fillEllipse(headX + 6, headY + 3, 9, 16);
+        if (palette.hairAccent != null) {
+          g.fillStyle(palette.hairAccent, 0.25);
+          g.fillEllipse(headX - 3, headY - 1, 7, 6);
+        }
       }
+      g.fillStyle(palette.skin, 1);
+      g.fillEllipse(headX, headY + 1, 18, 22);
+    } else {
+      g.fillStyle(palette.skin, 1);
+      g.fillEllipse(headX, headY, 19, 23);
     }
-
-    g.fillStyle(palette.skin, 1);
-    g.fillEllipse(headX, headY, 22, 28);
+    if (palette.hair != null && build !== "scarf") {
+      g.fillStyle(palette.hair, 1);
+      if (palette.silhouette === "woman") {
+        g.fillEllipse(headX - 7, headY + 2, 12, 20);
+        g.fillEllipse(headX + 7, headY + 3, 10, 18);
+      } else {
+        g.fillRoundedRect(headX - 9, headY - 10, 16, 6, 3);
+      }
+      if (palette.hairAccent != null) {
+        g.fillStyle(palette.hairAccent, 0.25);
+        g.fillEllipse(headX - 4, headY - 1, 8, 7);
+      }
+      g.fillStyle(palette.skin, 1);
+      g.fillEllipse(headX, headY, 19, 23);
+    }
     g.fillStyle(palette.nose, 1);
-    g.fillTriangle(headX + 7, headY - 1, headX + 13, headY + 3, headX + 7, headY + 7);
+    g.fillTriangle(headX + 5, headY - 1, headX + 9, headY + 2, headX + 5, headY + 5);
     g.fillStyle(palette.eye, 1);
-    g.fillCircle(headX + 5, headY, 1.7);
+    g.fillCircle(headX + 3, headY - 1, 1.6);
     g.lineStyle(2, palette.smile, 1);
     g.beginPath();
-    g.moveTo(headX + 3, headY + 9);
-    g.lineTo(headX + 7, headY + 10);
+    g.moveTo(headX + 1, headY + 7);
+    g.lineTo(headX + 5, headY + 8);
     g.strokePath();
 
     if (palette.beard != null) {
       g.fillStyle(palette.beard, 1);
-      g.fillEllipse(headX - 1, headY + 8, 13, 8);
-      g.fillTriangle(headX - 7, headY + 5, headX - 1, headY + 14, headX + 5, headY + 5);
+      g.fillEllipse(headX, headY + 7, 11, 7);
+      g.fillTriangle(headX - 5, headY + 4, headX, headY + 12, headX + 5, headY + 4);
     }
 
-    if (palette.hair != null && palette.silhouette === "woman") {
-      g.fillStyle(palette.hair, 1);
-      g.fillRoundedRect(headX - 10, headY - 3, 6, 13, 3);
-      g.fillEllipse(headX - 4, headY - 5, 10, 6);
+    if (build === "scarf") {
+      g.fillStyle(palette.hat, 1);
+      g.fillRoundedRect(headX - 7, headY - 15, 14, 11, 4);
+      g.fillEllipse(headX, headY - 15, 8, 6);
+      g.fillStyle(palette.hatPanel, 0.38);
+      g.fillRoundedRect(headX - 6, headY - 9, 12, 3, 1.5);
+      g.lineStyle(2, palette.brim, 1);
+      g.beginPath();
+      g.moveTo(headX - 6, headY - 5);
+      g.lineTo(headX + 6, headY - 5);
+      g.strokePath();
+    } else {
+      g.fillStyle(palette.hat, 1);
+      g.fillEllipse(headX + 1, headY - 9, 28, 8);
+      g.fillRoundedRect(headX - 8, headY - 17, 16, 10, 3);
+      g.fillRoundedRect(headX - 3, headY - 20, 7, 4, 2);
+      g.fillStyle(palette.hatPanel, 0.36);
+      g.fillRoundedRect(headX - 7, headY - 15, 14, 3, 1.5);
+      g.lineStyle(3, palette.brim, 1);
+      g.beginPath();
+      g.moveTo(headX - 13, headY - 9);
+      g.lineTo(headX + 15, headY - 9);
+      g.strokePath();
     }
-
-    g.fillStyle(palette.hat, 1);
-    g.fillEllipse(headX - 1, headY - 9, 25, 12);
-    g.fillRoundedRect(headX - 13, headY - 12, 20, 10, 4);
-    g.fillRoundedRect(headX - 4, headY - 14, 8, 4, 2);
-    g.fillStyle(palette.hatPanel, 0.36);
-    g.fillTriangle(headX - 5, headY - 14, headX + 2, headY - 8, headX - 3, headY - 3);
-    g.lineStyle(3, palette.brim, 1);
-    g.beginPath();
-    g.moveTo(headX + 2, headY - 6);
-    g.lineTo(headX + 19, headY - 8);
-    g.strokePath();
 
     g.generateTexture(textureKey, 64, 92);
   };
 
   const heroPoseDefinitions = [
-    ["idle", {}],
+    ["idle", {
+      backArm: [[0, 0], [-1, 11], [-2, 21]],
+      frontArm: [[0, 0], [1, 11], [2, 21]],
+      backLeg: [[0, 0], [0, 11], [0, 20]],
+      frontLeg: [[0, 0], [1, 11], [1, 20]],
+    }],
     ["walk-1", {
       bodyBob: -1,
-      bodyShiftX: -1,
-      backArm: [[0, 0], [3, 10], [4, 20]],
+      backArm: [[0, 0], [1, 10], [2, 19]],
       frontArm: [[0, 0], [-1, 12], [-3, 21]],
-      backLeg: [[0, 0], [2, 10], [4, 18]],
-      frontLeg: [[0, 0], [-2, 11], [-1, 20]],
+      backLeg: [[0, 0], [1, 10], [2, 19]],
+      frontLeg: [[0, 0], [-1, 11], [-2, 20]],
     }],
     ["walk-2", {
       bodyBob: 0,
-      backArm: [[0, 0], [1, 10], [2, 20]],
-      frontArm: [[0, 0], [0, 11], [1, 21]],
-      backLeg: [[0, 0], [1, 11], [1, 20]],
-      frontLeg: [[0, 0], [0, 10], [2, 18]],
+      backArm: [[0, 0], [0, 11], [0, 20]],
+      frontArm: [[0, 0], [1, 11], [2, 20]],
+      backLeg: [[0, 0], [0, 11], [0, 20]],
+      frontLeg: [[0, 0], [1, 10], [2, 19]],
     }],
     ["walk-3", {
       bodyBob: -1,
-      bodyShiftX: 1,
       backArm: [[0, 0], [-1, 12], [-3, 21]],
-      frontArm: [[0, 0], [3, 10], [4, 20]],
-      backLeg: [[0, 0], [-2, 11], [-1, 20]],
-      frontLeg: [[0, 0], [2, 10], [4, 18]],
+      frontArm: [[0, 0], [1, 10], [2, 19]],
+      backLeg: [[0, 0], [-1, 11], [-2, 20]],
+      frontLeg: [[0, 0], [1, 10], [2, 19]],
     }],
     ["walk-4", {
       bodyBob: 0,
-      backArm: [[0, 0], [0, 11], [1, 21]],
-      frontArm: [[0, 0], [1, 10], [2, 20]],
-      backLeg: [[0, 0], [0, 10], [2, 18]],
-      frontLeg: [[0, 0], [1, 11], [1, 20]],
+      backArm: [[0, 0], [1, 11], [2, 20]],
+      frontArm: [[0, 0], [0, 11], [0, 20]],
+      backLeg: [[0, 0], [1, 10], [2, 19]],
+      frontLeg: [[0, 0], [0, 11], [0, 20]],
     }],
     ["jump-rise", {
       bodyBob: -2,
@@ -3054,7 +3158,7 @@ function getCameraAnchorX() {
 }
 
 function applyScreenDrag(camera, delta) {
-  if (!players.length) {
+  if (!players.length || players.length === 1) {
     return;
   }
 

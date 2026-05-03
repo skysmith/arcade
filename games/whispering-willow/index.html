@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Whispering Willow</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div id="app">
+      <main class="layout">
+        <section id="playfield-shell" class="playfield-shell arcade-stage-shell">
+          <div id="playfield-stage" class="playfield-stage arcade-stage">
+            <canvas id="game" class="arcade-stage-canvas" width="960" height="600" aria-label="Whispering Willow playfield"></canvas>
+            <header class="hud-rail" aria-label="Whispering Willow status">
+              <div class="pill">
+                <span class="pill-label">Place</span>
+                <span id="sector-value">Mangrove House</span>
+              </div>
+              <div class="pill">
+                <span class="pill-label">Coins</span>
+                <span id="credits-value">0</span>
+              </div>
+              <div class="pill">
+                <span class="pill-label">Heart</span>
+                <span id="hull-value">100%</span>
+              </div>
+              <div class="pill">
+                <span class="pill-label">Ward</span>
+                <span id="shield-value">100%</span>
+              </div>
+              <div class="pill">
+                <span class="pill-label">Pack</span>
+                <span id="cargo-value">0 / 0</span>
+              </div>
+              <div class="pill pill--wide">
+                <span class="pill-label">Status</span>
+                <span id="status-value">Docked. D-pad moves focus, south button confirms.</span>
+              </div>
+            </header>
+
+            <div class="playfield-overlay">
+              <div id="overlay-title" class="overlay-title">Resting at Mangrove House</div>
+              <div id="overlay-copy" class="overlay-copy">Gather rumors, tend your pack, or head back out across the jungle channels.</div>
+            </div>
+
+            <div class="hint-banner">
+              <span id="hint-value">Leave the quay for free-roaming island travel. Return to a safe landing to rest, barter, mend gear, and turn in quests.</span>
+            </div>
+
+            <div id="thread-modal" class="thread-modal" aria-live="polite"></div>
+
+            <aside class="command-deck" aria-label="Command deck">
+              <div class="panel panel--menu">
+                <div id="menu-panel-title" class="panel-title">Island Kit</div>
+                <div id="menu-list" class="menu-list"></div>
+                <div id="menu-panel-footnote" class="panel-footnote">Menus use one active shopper at a time. Out on the water, up to four local players can each steer their own boat.</div>
+              </div>
+
+              <div class="panel">
+                <div id="detail-panel-title" class="panel-title">Context</div>
+                <div id="panel-detail" class="panel-detail"></div>
+              </div>
+
+              <div class="panel panel--dense panel--aux">
+                <div class="panel-title">Story Log</div>
+                <div id="message-log" class="message-log"></div>
+              </div>
+
+              <div class="panel panel--dense panel--aux">
+                <div class="panel-title">Flotilla</div>
+                <div id="ship-detail" class="fact-list"></div>
+              </div>
+
+              <div class="panel panel--dense panel--aux">
+                <div class="panel-title">Circles</div>
+                <div id="faction-detail" class="fact-list"></div>
+              </div>
+            </aside>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script type="module" src="./game.js"></script>
+    <script defer src="../../shared/arcade-home.js" data-arcade-href="../../index.html"></script>
+  </body>
+</html>

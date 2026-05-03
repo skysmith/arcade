@@ -42,6 +42,7 @@ select {
 
 #app {
   min-height: 100vh;
+  min-height: 100svh;
   width: 100%;
   padding: 24px;
 }
@@ -312,12 +313,23 @@ select {
 .launcher-shell {
   width: min(1160px, 100%);
   margin: 0 auto;
+  min-height: calc(100vh - 48px);
+  min-height: calc(100svh - 48px);
 }
 
 .game-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
+  align-content: start;
+}
+
+body.is-fullscreen #app {
+  padding: 18px;
+}
+
+body.is-fullscreen .launcher-shell {
+  width: min(1320px, 100%);
 }
 
 .game-card {
@@ -363,22 +375,43 @@ select {
 .game-overlay {
   grid-area: 1 / 1;
   align-self: end;
-  display: flex;
-  justify-content: space-between;
-  align-items: end;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   gap: 10px;
   padding: 12px;
-  background: linear-gradient(180deg, rgba(5, 9, 18, 0) 0%, rgba(5, 9, 18, 0.9) 100%);
+  background: linear-gradient(180deg, rgba(5, 9, 18, 0) 0%, rgba(5, 9, 18, 0.92) 68%, rgba(5, 9, 18, 0.98) 100%);
+}
+
+.game-copy {
+  min-width: 0;
+  display: grid;
+  align-self: end;
+  gap: 4px;
+}
+
+.game-kicker {
+  display: inline-flex;
+  align-items: center;
+  width: fit-content;
+  padding: 2px 7px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(8, 13, 24, 0.64);
+  color: rgba(243, 246, 253, 0.84);
+  font-size: 0.62rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 .game-title {
   margin: 0;
   font-size: clamp(0.98rem, 1.55vw, 1.22rem);
-  line-height: 0.98;
+  line-height: 1.02;
   text-shadow: 0 6px 22px rgba(0, 0, 0, 0.5);
 }
 
 .game-pill {
+  align-self: end;
   padding: 3px 7px;
   border-radius: 999px;
   background: rgba(8, 13, 24, 0.6);

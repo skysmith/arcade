@@ -1,3 +1,11 @@
+import { createArcadeStage } from "../../shared/arcade-stage.js";
+import {
+  DEFAULT_PLAYER_LIVES,
+  decrementLives,
+  formatLives,
+  hasLivesRemaining,
+} from "../../shared/lives-config.js";
+
 const BUILD_NUMBER = "2026.04.13.2";
 const MAX_PLAYERS = 4;
 const KEYBOARD_PLAYER_ID = "keyboard-1";
@@ -14,6 +22,10 @@ const PLAYER_LABELS = ["P1", "P2", "P3", "P4"];
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+const WIDTH = Number(canvas.getAttribute("width"));
+const HEIGHT = Number(canvas.getAttribute("height"));
+const playfieldShell = document.getElementById("playfield-shell");
+const playfieldStage = document.getElementById("playfield-stage");
 const arcadeCabinet = window.ArcadeCabinet || null;
 
 const ui = {
@@ -25,6 +37,14 @@ const ui = {
 };
 
 document.title = `donkey-kong build ${BUILD_NUMBER}`;
+
+const cabinetStage = createArcadeStage({
+  shell: playfieldShell,
+  stage: playfieldStage,
+  canvas,
+  logicalWidth: WIDTH,
+  logicalHeight: HEIGHT,
+});
 
 const platforms = [
   { x1: 108, x2: 870, yLeft: 144, yRight: 178 },
@@ -116,7 +136,7 @@ function spawnPlayer(source, controllerIndex, controllerName) {
     y: 0,
     vx: 0,
     vy: 0,
-    lives: 3,
+    lives: DEFAULT_PLAYER_LIVES,
     alive: true,
     onLadder: false,
     respawnAt: 0,
@@ -287,7 +307,7 @@ function resetRound(fullReset = false) {
 
   for (const player of state.players.values()) {
     if (fullReset) {
-      player.lives = 3;
+      player.lives = DEFAULT_PLAYER_LIVES;
       player.score = 0;
     }
     player.alive = true;
@@ -366,7 +386,7 @@ function updateBarrels(delta) {
     }
   }
 
-  state.barrels = state.barrels.filter((barrel) => barrel.y < canvas.height + 30 && barrel.platformIndex < platforms.length);
+  state.barrels = state.barrels.filter((barrel) => barrel.y < HEIGHT + 30 && barrel.platformIndex < platforms.length);
 }
 
 function handlePause(input, player) {
@@ -389,7 +409,7 @@ function updatePlayers(delta) {
 
   for (const player of state.players.values()) {
     if (!player.alive) {
-      if (player.lives > 0 && player.respawnAt > 0 && performance.now() >= player.respawnAt) {
+      if (hasLivesRemaining(player.lives) && player.respawnAt > 0 && performance.now() >= player.respawnAt) {
         player.alive = true;
         player.respawnAt = 0;
         player.vx = 0;
@@ -464,7 +484,7 @@ function updatePlayers(delta) {
       player.x += player.vx * dt;
       player.y += player.vy * dt;
 
-      player.x = Math.max(28, Math.min(canvas.width - 28, player.x));
+      player.x = Math.max(28, Math.min(WIDTH - 28, player.x));
 
       const landedPlatform = findSupportingPlatform(player);
       if (landedPlatform !== null && player.vy >= 0) {
@@ -475,7 +495,7 @@ function updatePlayers(delta) {
       }
     }
 
-    if (player.y > canvas.height + 40) {
+    if (player.y > HEIGHT + 40) {
       loseLife(player);
     }
 
@@ -519,14 +539,14 @@ function findSupportingPlatform(player) {
 }
 
 function loseLife(player) {
-  player.lives -= 1;
+  player.lives = decrementLives(player.lives);
   player.alive = false;
-  player.respawnAt = player.lives > 0 ? performance.now() + RESPAWN_MS : 0;
+  player.respawnAt = hasLivesRemaining(player.lives) ? performance.now() + RESPAWN_MS : 0;
   player.vx = 0;
   player.vy = 0;
   player.onLadder = false;
 
-  if ([...state.players.values()].every((entry) => !entry.alive && entry.lives <= 0)) {
+  if ([...state.players.values()].every((entry) => !entry.alive && !hasLivesRemaining(entry.lives))) {
     state.gameOver = true;
   }
 }
@@ -550,14 +570,14 @@ function updateCollisions() {
 }
 
 function drawBackground() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
   ctx.fillStyle = "#060712";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   ctx.fillStyle = "rgba(255,255,255,0.3)";
   for (let i = 0; i < 50; i += 1) {
-    const x = (i * 89) % canvas.width;
-    const y = (i * 67) % canvas.height;
+    const x = (i * 89) % WIDTH;
+    const y = (i * 67) % HEIGHT;
     ctx.fillRect(x, y, 2, 2);
   }
 }
@@ -665,7 +685,7 @@ function drawPlayerPanel() {
     ctx.fillStyle = "rgba(7, 10, 18, 0.72)";
     ctx.fillRect(x - 40, 18, 126, 34);
     ctx.fillStyle = player.color;
-    ctx.fillText(`${player.label} ${player.score} pts • ${Math.max(0, player.lives)}x`, x + 24, 40);
+    ctx.fillText(`${player.label} ${player.score} pts • ${formatLives(player.lives)}`, x + 24, 40);
   });
 }
 
@@ -674,23 +694,25 @@ function drawOverlay() {
     return;
   }
   ctx.fillStyle = "rgba(2, 5, 12, 0.72)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
   ctx.fillStyle = "#f7f7ff";
   ctx.textAlign = "center";
   ctx.font = "700 42px Avenir Next";
   const title = state.stageClear ? "Stage Clear" : (state.gameOver ? "Stage Down" : "Paused");
-  ctx.fillText(title, canvas.width / 2, canvas.height / 2 - 10);
+  ctx.fillText(title, WIDTH / 2, HEIGHT / 2 - 10);
   ctx.font = "500 18px Avenir Next";
   ctx.fillStyle = "rgba(247,247,255,0.78)";
   const subtitle = state.stageClear
     ? "Pauline is safe. Resetting the stage..."
-    : "Press R to restart. Extra players can still join with Start.";
-  ctx.fillText(subtitle, canvas.width / 2, canvas.height / 2 + 26);
+    : state.gameOver
+      ? "Press A, Start, or R to restart. Extra players can join before the next run."
+      : "Press P or Start to resume.";
+  ctx.fillText(subtitle, WIDTH / 2, HEIGHT / 2 + 26);
 
   if (state.stageClear) {
     ctx.font = "600 16px Avenir Next";
     ctx.fillStyle = "#ffd36f";
-    ctx.fillText(`Bonus rescue: ${state.score} pts`, canvas.width / 2, canvas.height / 2 + 58);
+    ctx.fillText(`Bonus rescue: ${state.score} pts`, WIDTH / 2, HEIGHT / 2 + 58);
   }
 }
 
@@ -720,6 +742,7 @@ function syncUi() {
 }
 
 function render() {
+  cabinetStage.syncContext(ctx);
   drawBackground();
   drawStage();
   drawKongAndGoal();

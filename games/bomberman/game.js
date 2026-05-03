@@ -1,3 +1,11 @@
+import { createArcadeStage } from "../../shared/arcade-stage.js";
+import {
+  DEFAULT_PLAYER_LIVES,
+  decrementLives,
+  formatLives,
+  hasLivesRemaining,
+} from "../../shared/lives-config.js";
+
 const BUILD_NUMBER = "2026.04.13.1";
 const MAX_PLAYERS = 4;
 const COLS = 15;
@@ -16,6 +24,10 @@ const RESPAWN_SHIELD = 1.65;
 
 const canvas = document.getElementById("game");
 const ctx = canvas.getContext("2d");
+const WIDTH = Number(canvas.getAttribute("width"));
+const HEIGHT = Number(canvas.getAttribute("height"));
+const playfieldShell = document.getElementById("playfield-shell");
+const playfieldStage = document.getElementById("playfield-stage");
 const arcadeCabinet = window.ArcadeCabinet || null;
 
 const ui = {
@@ -27,6 +39,14 @@ const ui = {
 };
 
 document.title = `bomberman build ${BUILD_NUMBER}`;
+
+const cabinetStage = createArcadeStage({
+  shell: playfieldShell,
+  stage: playfieldStage,
+  canvas,
+  logicalWidth: WIDTH,
+  logicalHeight: HEIGHT,
+});
 
 const spawnTiles = [
   { x: 1, y: 1 },
@@ -212,7 +232,7 @@ function createPlayer(source, controllerIndex, controllerName) {
     bombPower: 2,
     maxBombs: 1,
     activeBombs: 0,
-    lives: 3,
+    lives: DEFAULT_PLAYER_LIVES,
     alive: true,
     respawnAt: 0,
     shieldUntil: 0,
@@ -471,8 +491,8 @@ function hitPlayer(player, now) {
   if (!player.alive || player.shieldUntil > now) {
     return;
   }
-  player.lives -= 1;
-  if (player.lives <= 0) {
+  player.lives = decrementLives(player.lives);
+  if (!hasLivesRemaining(player.lives)) {
     player.alive = false;
     player.respawnAt = 0;
     return;
@@ -483,7 +503,7 @@ function hitPlayer(player, now) {
 
 function respawnPlayers(now) {
   for (const player of state.players.values()) {
-    if (player.alive || player.lives <= 0 || player.respawnAt === 0 || now < player.respawnAt) {
+    if (player.alive || !hasLivesRemaining(player.lives) || player.respawnAt === 0 || now < player.respawnAt) {
       continue;
     }
     player.alive = true;
@@ -732,7 +752,7 @@ function createRound() {
     player.label = PLAYER_LABELS[slot] || `P${slot + 1}`;
     player.color = PLAYER_COLORS[slot % PLAYER_COLORS.length];
     player.activeBombs = 0;
-    player.alive = player.lives > 0;
+    player.alive = hasLivesRemaining(player.lives);
     player.respawnAt = 0;
     player.shieldUntil = performance.now() / 1000 + RESPAWN_SHIELD;
     settleSpawn(player);
@@ -758,7 +778,7 @@ function resetRun() {
     player.bombPower = 2;
     player.maxBombs = 1;
     player.activeBombs = 0;
-    player.lives = 3;
+    player.lives = DEFAULT_PLAYER_LIVES;
     player.alive = true;
     player.respawnAt = 0;
     player.shieldUntil = performance.now() / 1000 + RESPAWN_SHIELD;
@@ -793,7 +813,7 @@ function livingPlayers() {
 
 function allPlayersSpent() {
   return [...state.players.values()].length > 0
-    && [...state.players.values()].every((player) => !player.alive && player.lives <= 0);
+    && [...state.players.values()].every((player) => !player.alive && !hasLivesRemaining(player.lives));
 }
 
 function updateRoundState(delta, now) {
@@ -827,7 +847,7 @@ function updateRoundState(delta, now) {
 
 function statusText() {
   if (state.gameOver) {
-    return "Game over. Press R to reset the cabinet.";
+    return "Game over. Press A, Start, or R to reset the cabinet.";
   }
   if (state.roundClear) {
     return "Exit reached. Loading the next room.";
@@ -838,19 +858,19 @@ function statusText() {
   if (state.enemies.length === 0) {
     return "Room clear. Find the exit hatch.";
   }
-  if ([...state.players.values()].some((player) => !player.alive && player.lives > 0)) {
+  if ([...state.players.values()].some((player) => !player.alive && hasLivesRemaining(player.lives))) {
     return "Hold the room. Fallen bombers are respawning.";
   }
   return "Blast soft blocks, grab upgrades, and clear a path.";
 }
 
 function drawBackground() {
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-  const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+  ctx.clearRect(0, 0, WIDTH, HEIGHT);
+  const gradient = ctx.createLinearGradient(0, 0, 0, HEIGHT);
   gradient.addColorStop(0, "#281019");
   gradient.addColorStop(1, "#13070d");
   ctx.fillStyle = gradient;
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
 
   ctx.fillStyle = "rgba(255, 188, 120, 0.05)";
   for (let index = 0; index < 30; index += 1) {
@@ -1016,19 +1036,17 @@ function drawPlayerSprite(player) {
   ctx.font = '700 12px "Avenir Next", "Segoe UI", sans-serif';
   ctx.textAlign = "center";
   ctx.fillText(player.label, 0, -26);
-  for (let index = 0; index < player.lives; index += 1) {
-    ctx.fillStyle = "#ffd978";
-    ctx.fillRect(-16 + index * 10, 28, 7, 7);
-  }
+  ctx.fillStyle = "#ffd978";
+  ctx.fillText(formatLives(player.lives), 0, 38);
   ctx.restore();
 }
 
 function drawPlayers(now) {
   for (const player of state.players.values()) {
-    if (!player.alive && player.lives <= 0) {
+    if (!player.alive && !hasLivesRemaining(player.lives)) {
       continue;
     }
-    if (!player.alive && player.lives > 0) {
+    if (!player.alive && hasLivesRemaining(player.lives)) {
       ctx.save();
       ctx.globalAlpha = 0.35;
       ctx.fillStyle = player.color;
@@ -1055,9 +1073,9 @@ function drawScoreStrip() {
   ctx.fillStyle = "rgba(255, 247, 239, 0.9)";
   ctx.font = '700 16px "Avenir Next", "Segoe UI", sans-serif';
   ctx.textAlign = "left";
-  ctx.fillText(`Build ${BUILD_NUMBER}`, 24, canvas.height - 22);
+  ctx.fillText(`Build ${BUILD_NUMBER}`, 24, HEIGHT - 22);
   ctx.textAlign = "right";
-  ctx.fillText(`Score ${state.score}`, canvas.width - 24, canvas.height - 22);
+  ctx.fillText(`Score ${state.score}`, WIDTH - 24, HEIGHT - 22);
   ctx.restore();
 }
 
@@ -1067,18 +1085,19 @@ function drawOverlay() {
   }
   ctx.save();
   ctx.fillStyle = "rgba(10, 4, 7, 0.56)";
-  ctx.fillRect(0, 0, canvas.width, canvas.height);
+  ctx.fillRect(0, 0, WIDTH, HEIGHT);
   ctx.fillStyle = "#fff7ef";
   ctx.textAlign = "center";
   ctx.font = '700 36px "Avenir Next", "Segoe UI", sans-serif';
-  ctx.fillText(state.gameOver ? "Game Over" : state.roundClear ? "Room Clear" : "Paused", canvas.width / 2, 160);
+  ctx.fillText(state.gameOver ? "Game Over" : state.roundClear ? "Room Clear" : "Paused", WIDTH / 2, 160);
   ctx.font = '600 18px "Avenir Next", "Segoe UI", sans-serif';
   ctx.fillStyle = "rgba(255, 247, 239, 0.8)";
-  ctx.fillText(state.gameOver ? "Press R to reset the run." : state.roundClear ? "Next room is loading." : "Press P or Start to resume.", canvas.width / 2, 198);
+  ctx.fillText(state.gameOver ? "Press A, Start, or R to reset the run." : state.roundClear ? "Next room is loading." : "Press P or Start to resume.", WIDTH / 2, 198);
   ctx.restore();
 }
 
 function draw(now) {
+  cabinetStage.syncContext(ctx);
   drawBackground();
   drawBoard();
   drawBombs();
@@ -1101,7 +1120,7 @@ function syncUi() {
   }
 
   if (state.gameOver) {
-    ui.hint.textContent = "Press R to reset. Pads can still join for the next run.";
+    ui.hint.textContent = "Press A, Start, or R to reset. Pads can still join for the next run.";
   } else if (state.enemies.length === 0) {
     ui.hint.textContent = "The room is clear. Find the hatch and step onto it.";
   } else {

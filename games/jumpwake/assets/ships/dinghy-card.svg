@@ -1,0 +1,39 @@
+<svg width="720" height="420" viewBox="0 0 720 420" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="54" x2="644" y2="366" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#151A25"/>
+      <stop offset="1" stop-color="#0A0E15"/>
+    </linearGradient>
+    <linearGradient id="frame" x1="108" y1="104" x2="578" y2="304" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8FD4FF" stop-opacity="0.42"/>
+      <stop offset="1" stop-color="#D7A265" stop-opacity="0.18"/>
+    </linearGradient>
+    <linearGradient id="ship" x1="292" y1="154" x2="462" y2="266" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#C2CCD7"/>
+      <stop offset="1" stop-color="#7E8795"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="720" height="420" rx="24" fill="url(#bg)"/>
+  <rect x="32" y="32" width="656" height="356" rx="18" stroke="url(#frame)" stroke-width="2"/>
+  <rect x="62" y="62" width="596" height="296" rx="14" fill="#101622" stroke="#2B3445" stroke-width="1.5"/>
+
+  <path d="M110 132H252" stroke="#2F4158" stroke-width="2"/>
+  <path d="M110 162H236" stroke="#2F4158" stroke-width="2"/>
+  <path d="M110 192H228" stroke="#2F4158" stroke-width="2"/>
+  <path d="M110 222H246" stroke="#2F4158" stroke-width="2"/>
+  <path d="M468 318H610" stroke="#2F4158" stroke-width="2"/>
+  <path d="M496 288H610" stroke="#2F4158" stroke-width="2"/>
+
+  <path d="M492 210L430 170L310 178L270 210L310 242L430 250L492 210Z" fill="url(#ship)" stroke="#E4EDF7" stroke-width="3"/>
+  <path d="M310 178L280 150" stroke="#E4EDF7" stroke-width="3" stroke-linecap="round"/>
+  <path d="M310 242L280 270" stroke="#E4EDF7" stroke-width="3" stroke-linecap="round"/>
+  <path d="M350 184L382 210L350 236" stroke="#5B6779" stroke-width="5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M260 210H224" stroke="#E4EDF7" stroke-width="3" stroke-linecap="round"/>
+  <circle cx="508" cy="210" r="9" fill="#FFD18E" fill-opacity="0.9"/>
+  <circle cx="508" cy="210" r="24" stroke="#FFD18E" stroke-opacity="0.24" stroke-width="3"/>
+
+  <text x="108" y="104" fill="#F3F7FF" font-family="Arial, sans-serif" font-size="16" letter-spacing="2.8">STARTER HULL</text>
+  <text x="108" y="312" fill="#F7FAFF" font-family="Arial, sans-serif" font-size="38" font-weight="700">Dockside Dinghy</text>
+  <text x="108" y="344" fill="#9FB1C4" font-family="Arial, sans-serif" font-size="18" letter-spacing="1.4">PATCHWORK RUNABOUT // BARELY ARMED // BUILT TO MAKE YOU WANT BETTER</text>
+</svg>

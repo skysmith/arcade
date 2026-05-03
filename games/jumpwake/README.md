@@ -1,6 +1,6 @@
 # Jumpwake
 
-Controller-first space-sandbox vertical slice built from the repo's remake planning docs.
+Controller-first action sandbox vertical slice built from the repo's remake planning docs. This is now the action/battle sibling to the peaceful `Whispering Willow` story branch.
 
 Current slice:
 
@@ -21,3 +21,14 @@ Design bias:
 - Menus and interactions should feel good on a pad first
 - Dock flow should stay legible without a mouse
 - The slice favors the "one run turns into a ship capture" fantasy from the spec
+
+Narrative notes:
+
+- Contact/story guidance lives in `CONTACT_BIBLE.md`
+- Art generation workflow lives in `ART_PIPELINE.md`
+
+Roadmap notes:
+
+- Keep growing the state-driven contact/story system so threads feel authored without requiring a live model for core canon
+- Push more of the dock flow into the center play area so port arrival feels like a scene, not a side rail
+- Dream up and generate striking ships, planets, stations, and dockside images we can surface while docked or whenever the fiction benefits from more visual atmosphere
